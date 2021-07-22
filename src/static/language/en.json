@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "helper": {
+
+    },
+    "flat": {
+      "buttons": {
+        "with": "с мебелью",
+        "without": "без мебели",
+        "rePlanning": "без стен"
+      }
+    }
+  }
+}

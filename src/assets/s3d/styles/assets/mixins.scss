@@ -1,0 +1,47 @@
+@mixin font-face($font-family, $url, $weight: normal, $style: normal, $asset-pipeline: false) {
+  @font-face {
+    font-family: "#{$font-family}";
+    font-style: "#{$style}";
+    font-weight: #{$weight};
+
+    src: url("#{$url}.eot");
+    src: url("#{$url}.eot?#iefix") format("embedded-opentype"),
+      url("#{$url}.woff") format("woff"),
+      url("#{$url}.ttf") format("truetype");
+  }
+}
+
+// Function for converting a px based font-size to rem.
+@function rem($size) {
+  $remSize: $size / 14px;
+  @return #{$remSize}rem;
+}
+
+@mixin flexCenter() {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin s3d-text-m ($color: $colorTextM , $lh: 1em,$width: 400) {
+  font-family: $default-font;
+  font-weight: $width;
+  color: $color;
+  line-height: $lh;
+  font-size: var(--s3d-font-size-m);
+}
+
+@mixin s3d-text-s ($color: $colorTextS , $lh: 1em, $width: 400) {
+  font-family: $default-font;
+  font-weight: $width;
+  color: $color;
+  line-height: $lh;
+  font-size: var(--s3d-font-size-s);
+}
+@mixin s3d-text-table ($color: $colorTextS , $lh: 1.6em, $width: 400) {
+  font-family: $default-font;
+  font-weight: $width;
+  color: $color;
+  line-height: $lh;
+  font-size: var(--s3d-font-size-table);
+}

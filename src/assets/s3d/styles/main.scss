@@ -1,0 +1,38 @@
+@import "./assets/vars";  // переменные
+// libraries
+@import "./libs";
+
+// assets
+@import "./assets/mixins";  // миксины
+@import "./assets/fonts";  // шрифты
+//@import "./reset";  // сброс
+
+
+// sass artem
+//@import './loader';
+@import "./pages/s3d-animations";
+@import "./pages/s3d-filter";
+@import "./pages/s3d-popup-flyby";
+@import "./pages/s3d-helper";
+@import "./pages/s3d-controller";
+@import "./pages/s3d-slider";
+@import "./pages/s3d-preloader";
+@import "./pages/s3d-preloader-percent";
+@import "./pages/s3d-flat";
+@import "./pages/s3d-floor";
+@import "./pages/s3d-plannings";
+@import "./pages/s3d-favourites";
+@import "./pages/s3d-svg";
+@import "./pages/s3d-card";
+@import "./pages/s3d";
+@import "./pages/media-s3d-plannings";
+@import "./pages/media-s3d-controller";
+@import "./pages/media-s3d";
+@import "./pages/media-s3d-card";
+@import "./pages/media-s3d-helper";
+@import "./pages/media-s3d-flat";
+@import "./pages/media-s3d-svg";
+@import "./pages/media-s3d-filter";
+@import "./pages/media-s3d-favourites";
+@import "./pages/media-s3d-slider";
+@import "./pages/montreal";

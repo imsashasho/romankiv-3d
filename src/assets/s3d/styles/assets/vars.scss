@@ -1,0 +1,59 @@
+$default-font: "Mont-regular",
+  sans-serif;
+$mc: #b6b3b0;
+$mc3: #293044;
+$wc: #ffffff;
+$bc: #000000;
+//$bc2: #000000;
+$color1: #F65275;
+$color2: #F7F7F7;
+$colorTextM: #555568;
+$colorTextS: #555568;
+
+$padding-wrap: 45px;
+$padding-wrap--small: 20px;
+
+$--bg : #71A461;
+
+$name-project: 'bogun';
+
+:root{
+
+  --s3d-title: 36px;
+  --s3d-font-size-s: 10px;
+  --s3d-font-size-m: 14px;
+  --s3d-font-size-table: 14px;
+  --s3d-header-height: 50px;
+  --s3d-header-margin: 50px;
+  --s3d-content-margin-top: 30px;
+  --s3d-margin-top: calc(var(--s3d-header-margin) + var(--s3d-header-height) + var(--s3d-content-margin-top));
+}
+
+@media screen and (max-width:1440px){
+  :root{
+    --s3d-title: 30px;
+    --s3d-font-size-m: 12px;
+    --s3d-font-size-table: 12px;
+  }
+}
+
+
+@media screen and (max-width:992px){
+  :root{
+    --s3d-font-size-m: 14px;
+  }
+}
+@media screen and (max-width:600px){
+  :root{
+    --s3d-title: 24px;
+    --s3d-font-size-m: 12px;
+    --s3d-font-size-table: 10px;
+    --s3d-header-margin: 20px;
+  }
+}
+
+@media screen and (max-width:680px){
+  :root{
+    --s3d-header-height: 40px;
+  }
+}

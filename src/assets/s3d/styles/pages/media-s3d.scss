@@ -1,0 +1,61 @@
+@media screen and (min-width: 1023px) {
+  .s3d {
+    &-unActive {
+      &:hover{
+        background: #bbbbbb;
+        svg{
+          fill: #ffffff;
+        }
+      }
+    }
+  }
+  .close {
+    &:hover{
+      &:after {
+        background: #000000;
+        transform: rotate(-45deg) scale(1.2);
+      }
+      &:before {
+        background: #000000;
+        transform: rotate(45deg) scale(1.2);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .s3d__slideModule{
+    .s3d__button-second {
+      max-width: 236px;
+      &__text {
+        font-size: 12px;
+        padding: 10px 10px 10px 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .s3d {
+    &-title {
+
+    }
+  }
+  .s3d__slideModule{
+    padding: 0 0 50px;
+
+  }
+  .s3d__wrap{
+    height: calc(100% - 48px);
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .s3d__slideModule{
+    padding: 0 0 40px;
+
+  }
+  .s3d__wrap{
+    height: calc(100% - 38px);
+  }
+}

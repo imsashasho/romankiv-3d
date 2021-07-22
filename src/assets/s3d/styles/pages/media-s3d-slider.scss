@@ -1,0 +1,52 @@
+@media screen and (min-width: 1023px) {
+  .s3d {
+    &__button {
+      &:focus{
+        outline-style: outset;
+        //outline-color: rgba(132, 41, 144, 0.3);
+      }
+      &:hover {
+        box-shadow: 0 8px 20px rgba(246, 82, 117, 0.4);
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        svg {
+          stroke: rgb(246, 82, 117);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .s3d {
+    &__button {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .s3d {
+    &-infoBox {
+      grid-column: 3 / 7;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .s3d {
+    &__button {
+      width: 40px;
+      height: 40px;
+      svg {
+        width: 14px;
+        height: 12px;
+      }
+    }
+    &-infoBox {
+      width: 140px;
+      grid-column: 1 / 7;
+    }
+  }
+}

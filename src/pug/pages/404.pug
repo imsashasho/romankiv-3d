@@ -1,0 +1,30 @@
+extends ../layout/main
+	
+block meta
+	title= '404'
+	meta(name='description', content='')
+block head
+		link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+	script(src='./assets/scripts/index.js')
+
+block content
+	section(class="page404-wrap")
+		div(class="page404")
+			h1(class="page404__title") 404
+				span(class="page404__title-small") упс...
+			p(class="page404__subtitle") Что-то пошло не так, страница не найдена
+			div(class="link-wrap")
+				a(class="button-fill" onclick="window.history.go(-1);")
+					span.button-fill__text Назад
+				a(class="button-fill" href="/")
+					span.button-fill__text На главную
+
+block footer
+	footer.footer
+		include ../includes/footer.pug
+
+block header
+	header.header
+		include ../includes/header.pug
+

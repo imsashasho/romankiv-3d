@@ -1,0 +1,66 @@
+.s3d-preloader {
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+  //display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: not-allowed;
+  transition: visibility 0.1s linear 0.5s;
+  fill: $--bg;
+  padding: 0;
+  &-logo{
+    visibility: hidden;
+    transition: visibility 0.1s linear 0s;
+    max-width: 80vw;
+    min-width: 300px;
+    @media screen and (max-width:575px){
+      width: 250px;
+      min-width: 220px;
+    }
+  }
+  @keyframes loader {
+    0% { left: -100px }
+    100% { left: 110%; }
+  }
+
+  &-bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(244, 244, 242, .9);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.27, 0.7, 0.52, 0.83);
+  }
+}
+
+.preloader-active{
+  //display: flex;
+  visibility: visible;
+  pointer-events: painted;
+  transition: visibility 0.01s linear 0s;
+  .s3d-preloader-logo{
+    visibility: visible;
+    transition: visibility 0.1s linear 0.3s;
+    animation: logo 1.3s ease-in-out infinite;
+  }
+  .s3d-preloader-bg{
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.17, 0.7, 0.52, 0.93);
+  }
+}
+

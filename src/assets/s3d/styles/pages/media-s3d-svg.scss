@@ -1,0 +1,15 @@
+@media screen and (min-width: 1023px) {
+  .s3d {
+    &__svgWrap {
+      svg {
+        cursor: url('../images/icon/cursor.png'), auto;
+      }
+      .s3d-svg__house {
+        &:hover:not(.active-flat) {
+          fill: $color2;
+          opacity: .5;
+        }
+      }
+    }
+  }
+}

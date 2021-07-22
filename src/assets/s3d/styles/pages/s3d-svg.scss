@@ -1,0 +1,54 @@
+.s3d {
+
+  &__svgWrap {
+    z-index: 51;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: $color2;
+      margin: 0 auto;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      cursor: text;
+    }
+
+    &.s3d__svg__active {
+      z-index: 55;
+      svg {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: painted;
+      }
+    }
+
+    .polygon,
+    .s3d-svg__house {
+      fill: $color2;
+      opacity: 0;
+      cursor: pointer;
+      &.active-selected {
+        fill: $color2;
+        opacity: .7;
+      }
+      &.active-flat {
+        fill: $color1;
+        opacity: .7;
+      }
+    }
+  }
+
+  &__svg-container {
+    z-index: 55;
+    display: block !important;
+  }
+}
+

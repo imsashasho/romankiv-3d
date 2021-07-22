@@ -1,0 +1,42 @@
+.row {
+	@include row-flex();
+}
+.page__inner {
+	display: flex;
+	flex-direction: column;
+	z-index: 2;
+	.page__content {
+  padding-top: var(--header-h);
+		flex-grow: 1;
+	}
+	.page__footer-wrapper {
+		flex-shrink: 0;
+	}
+}
+.section-pading--top {
+	padding-top: 60px;
+}
+.btn--res{
+  border: none;
+  background-color: transparent;
+}
+
+.brd{
+  border: 1px solid red;
+}
+
+.underline{
+  position: relative;
+  display: flex;
+  color: #000;
+  &::after{
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    content: "";
+  }
+}

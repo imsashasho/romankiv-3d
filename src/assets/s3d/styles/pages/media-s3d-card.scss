@@ -1,0 +1,100 @@
+@media screen and (min-width: 1023px) {
+  .s3d {
+    &-card {
+      &:hover {
+        .s3d-card__top,
+        .s3d-card__middle,
+        .s3d-card__bottom {
+          border-color: $color2;
+        }
+        cursor: pointer;
+        .s3d-card__link svg path{
+          animation: s3dAnimateArrowHelper 2.2s ease infinite;
+        }
+      }
+      &__close {
+        &:hover{
+          transform: rotate(90deg);
+        }
+      }
+
+      &__add-favourites {
+        &:hover{
+          box-shadow: 0 4px 15px rgba(122, 65, 56, 0.3);
+          svg{
+            fill: #FFFFFF;
+          }
+          & input:checked + svg{
+            fill: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .s3d {
+    &-card {
+      &__table {
+        td {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .s3d {
+    &-card {
+      &__bottom {
+        padding: 25px 20px 40px;
+      }
+      &__table td:nth-child(odd){
+        padding: 0 25px 0 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .s3d {
+    &-card {
+      &__top {
+        padding: 10px;
+      }
+      &__close {
+        width: 30px;
+        height: 30px;
+      }
+      &__bottom {
+        padding: 10px 10px 20px;
+      }
+      &__add-favourites {
+        height: 30px;
+        width: 30px;
+      }
+      &__type {
+        height: 30px;
+        width: 30px;
+      }
+      &__link {
+        font-size: 12px;
+        margin-top: 12px;
+      }
+      &__image {
+        height: 110px;
+      }
+      &__table {
+        td {
+          font-size: 10px;
+          line-height: 1.6em;
+        }
+        td:nth-child(odd){
+          padding: 0 6px 0 0;
+        }
+      }
+    }
+  }
+}

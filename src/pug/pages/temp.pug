@@ -1,0 +1,30 @@
+
+extends ../layout/main
+block variable
+	-
+		var title_page = 'Квартира 2А'
+		var id_page = 'flat-page'
+		var class_page = 'flat-page'
+		var breadcrumbsBtn = 'filter'
+		var breadcrumbsSubitem = [
+			{
+				label: 'About',
+				link: pagesLink[0].about
+			}
+		]
+	
+block meta
+	title= title_page
+	meta(name='description', content='')
+block head
+		link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+	script(defer src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/.js')
+block content
+	.-content
+		include ../includes/breadcrumbs.pug
+block footer
+	include ../includes/footer.pug
+
+block header

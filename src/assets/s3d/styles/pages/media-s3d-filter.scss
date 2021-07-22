@@ -1,0 +1,276 @@
+@media screen and (min-width: 1023px) {
+  .s3d-filter {
+    &__table {
+      &__label {
+        &:hover:not(.active-flat) {
+          input:not(:checked) + svg {
+            fill: $color2;
+            stroke: $color2;
+          }
+        }
+        &.active-flat {
+          &:hover {
+            svg {
+              fill: $wc;
+              stroke: $wc;
+            }
+          }
+        }
+      }
+      &__tr {
+        &:hover {
+          background: #E1DDD2;
+        }
+      }
+      &__hide {
+        &:hover {
+          color: $color2;
+        }
+      }
+      &__button {
+        &--apply {
+          &:hover {
+            color: #ffffff;
+            opacity: 0.9;
+          }
+        }
+        &--reset {
+          &:hover {
+            color: $wc;
+            .s3d-filter__button--reset-icon {
+              svg{
+                fill: $wc;
+              }
+            }
+          }
+        }
+      }
+      &__mini-info {
+        &:hover {
+          color: $color2;
+        }
+      }
+    }
+  }
+  .active-filter .s3d-filter {
+    &__close-wrap {
+      &:hover {
+        transform: translate(100%, 0);
+        .s3d-filter__close {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .s3d {
+    &-filter {
+      &__close {
+        &-wrap {
+          &:hover {
+            transform: translate(80%, 0)!important;
+            .s3d-filter__close {
+              border-color: #ffffff;
+              transform: rotate(90deg);
+            }
+            span{
+              color: $color1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1440px) {
+  .s3d {
+    &-filter {
+      &__top {
+        padding-bottom: 33px;
+      }
+      &-wrap {
+        width: 360px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .s3d {
+    &-filter {
+      &__top {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .s3d {
+    &-filter {
+      flex: 1 1 100%;
+      padding: 0 10px;
+      &-wrap {
+        .s3d__favourites {
+          margin: 0 0 0 40px;
+        }
+      }
+      &__button{
+        &--reset {
+          &-icon {
+            margin: 0;
+          }
+          span {
+            display: none;
+          }
+        }
+        &--apply {
+          display: flex;
+          width: 80px;
+          margin: auto 0 0 5px;
+        }
+      }
+      &__rooms {
+        &--label{
+          height: 30px;
+          width: 30px;
+        }
+      }
+      //&-select__input--wrap {
+        //margin: 0;
+      //}
+
+      &__title {
+        font-size: 16px;
+      }
+      &__top {
+        .s3d__favourites{
+          margin: 0 0 0 40px;
+        }
+      }
+      &__head {
+        padding: 0 20px;
+      }
+      &__mini-info {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .s3d {
+    &-filter {
+      &-wrap {
+        &[data-type="plannings"] {
+          width: 100%;
+          height: auto;
+          box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.6);
+          .s3d-filter {
+            width: 100%;
+            &__table {
+              display: none;
+            }
+            &__button{
+              &--reset {
+                margin: auto 0 0 auto;
+                span {
+                  display: block;
+                }
+              }
+              &--apply {
+                height: 30px;
+                width: 150px;
+              }
+            }
+            &__close {
+              &-wrap {
+                right: 30px;
+                height: 30px;
+                width: 30px;
+                padding: 0;
+                transform: none;
+                background: none;
+                z-index: 12;
+              }
+            }
+            &__amount-flat {
+              display: none;
+            }
+            &__hide {
+              display: none;
+            }
+            &-select__input--wrap {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .s3d {
+    &-filter {
+      &-wrap {
+        width: 100%;
+      }
+      &__title {
+        line-height: 1em;
+      }
+      &__top {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 35px;
+        .s3d__favourites {
+          margin: 0 0 0 10px;
+        }
+      }
+      &__head {
+        padding: 0 10px;
+      }
+      &__button{
+        &--reset {
+          height: 40px;
+          width: 40px;
+        }
+        &--apply {
+          width: 40px;
+          height: 40px;
+          margin: auto 0 0 5px;
+          font-size: 10px;
+          span {
+            display: none;
+          }
+          &-icon {
+            display: block;
+          }
+        }
+      }
+
+      &__rooms--label {
+        height: 40px;
+        width: 40px;
+        margin: 0 2px;
+      }
+      &__close {
+        &-wrap {
+          top: calc(var(--s3d-header-height) + 20px + 12px);
+          right: 10px;
+          height: 30px;
+          width: 30px;
+          padding: 5px;
+          transform: none;
+          background: none;
+          z-index: 12;
+        }
+      }
+    }
+  }
+}

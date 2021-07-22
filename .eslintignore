@@ -1,0 +1,17 @@
+# Ignore artifacts:
+prod
+dist
+wp-content
+node_modules
+src/assets/scripts/gulp-modules/ts
+src/assets/scripts/libs
+src/assets/s3d/scripts/gulp-modules/ts
+src/assets/s3d/scripts/libs
+/.git
+/.vscode
+/.idea
+
+src/assets/scripts/libs/libs.js
+src/assets/scripts/gulp-modules/libs.js
+src/assets/s3d/scripts/libs/libs.js
+src/assets/s3d/scripts/gulp-modules/libs.js

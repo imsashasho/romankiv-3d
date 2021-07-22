@@ -1,0 +1,106 @@
+{
+  "flyby": {
+    "1": {
+      "outside": {
+        "id": "flyby_1_outside",
+        "generalWrapId": "#js-s3d__wrapper",
+        "imageUrl": "images/flyby/1/outside/",
+        "class": "js-s3d__wrapper",
+        "numberSlide": {
+          "min": 0,
+          "max": 119
+        },
+        "controlPoint": [
+          20,
+          48,
+          82,
+          111
+        ],
+        "activeSlide": 20,
+        "rotateSpeedDefault" : 20,
+        "rotateSpeed": [],
+        "mouseSpeed": 0.5,
+        "startDegCompass": 28
+      }
+    },
+    "2": {
+      "outside": {
+        "id": "flyby_2_outside",
+        "generalWrapId": "#js-s3d__wrapper",
+        "imageUrl": "images/flyby/2/outside/",
+        "class": "js-s3d__wrapper",
+        "numberSlide": {
+          "min": 0,
+          "max": 119
+        },
+        "controlPoint": [
+          8,
+          55,
+          80
+        ],
+        "activeSlide": 8,
+        "rotateSpeedDefault" : 20,
+        "rotateSpeed": [],
+        "mouseSpeed": 0.5,
+        "startDegCompass": 28
+      }
+    },
+    "3": {
+      "outside": {
+        "id": "flyby_3_outside",
+        "generalWrapId": "#js-s3d__wrapper",
+        "imageUrl": "images/flyby/3/outside/",
+        "class": "js-s3d__wrapper",
+        "numberSlide": {
+          "min": 0,
+          "max": 119
+        },
+        "controlPoint": [
+          34,
+          71,
+          98
+        ],
+        "activeSlide": 34,
+        "rotateSpeedDefault" : 20,
+        "rotateSpeed": [],
+        "mouseSpeed": 0.5,
+        "startDegCompass": 28
+      }
+    },
+    "4": {
+      "outside": {
+        "id": "flyby_4_outside",
+        "generalWrapId": "#js-s3d__wrapper",
+        "imageUrl": "images/flyby/4/outside/",
+        "class": "js-s3d__wrapper",
+        "numberSlide": {
+          "min": 0,
+          "max": 119
+        },
+        "controlPoint": [
+          38,
+          74,
+          107,
+          119
+        ],
+        "activeSlide": 38,
+        "rotateSpeedDefault" : 20,
+        "rotateSpeed": [],
+        "mouseSpeed": 0.5,
+        "startDegCompass": 28
+      }
+    }
+  },
+  "favourites": {
+    "id": "favourites",
+    "generalWrapId": ".js-s3d__slideModule"
+  },
+  "flat": {
+    "id": "flat",
+    "generalWrapId": ".js-s3d__slideModule"
+  },
+  "plannings": {
+    "id": "plannings",
+    "generalWrapId": ".js-s3d__slideModule"
+  }
+}

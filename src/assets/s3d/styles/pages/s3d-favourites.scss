@@ -1,0 +1,43 @@
+.s3d {
+  &-fv{
+    &__left {
+      position: fixed;
+      top: 0;
+      left: 0;
+      grid-area: left;
+      height: 100%;
+      width: 400px;
+    }
+    &__bg {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .s3d-card__close{
+      opacity: 1;
+      pointer-events: painted;
+    }
+    .s3d-card__add-favourites {
+      display: none;
+    }
+  }
+  &__favourites{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 28px;
+    margin: 0 0 0 auto;
+    &-amount{
+      margin: 0 8px 0 0;
+      @include s3d-text-m();
+      cursor: pointer;
+    }
+    svg{
+      height: 13px;
+      width: 14px;
+      fill: $color2;
+      cursor: pointer;
+      transition: transform 0.4s ease-in-out;
+    }
+  }
+}

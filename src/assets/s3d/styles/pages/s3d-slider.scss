@@ -1,0 +1,150 @@
+.s3d {
+  &__button {
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    align-items: center;
+    background: $color1;
+    padding: 8px;
+    transform: translateY(-50%);
+    transition: background-color .3s ease-in, box-shadow .3s ease-in;
+    outline-color: $color2;
+    cursor: pointer;
+
+    * {
+      pointer-events: none;
+    }
+
+    svg {
+      display: flex;
+      height: 16px;
+      width: 18px;
+      stroke: $color2;
+      flex: 1 1 100%;
+      transition: fill .3s ease-in;
+    }
+    &-left {
+      left: 50px;
+    }
+
+    &-right {
+      right: 50px;
+    }
+  }
+  &__slider{
+    &__bg{
+      position: fixed;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      width: 100%;
+      z-index: 155;
+      &-top{
+        top: 0;
+        height: 30vh;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+      }
+      &-bottom{
+        bottom: 0;
+        height: 15vh;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+      }
+    }
+  }
+  &-infoBox.s3d-card{
+    position: fixed;
+    top: 50%;
+    left: 100%;
+    grid-area: info-flat;
+    display: flex;
+    width: 250px;
+    flex: 0 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    //grid-column: 7;
+    //grid-row: 1 / 7;
+    margin: auto 0 auto auto;
+    background: $wc;
+    overflow: hidden;
+    transform: translate(-100%, -50%);
+    z-index: 999;
+    transition: transform 0.4s ease-in 0.3s;
+
+    // default change from js
+    pointer-events: none;
+    visibility: hidden;
+
+    &__hover{
+      display: flex;
+      height: 52px;
+      width: 100%;
+      order: 2;
+      z-index: 6;
+      span{
+        margin: 0 6px;
+      }
+    }
+
+    .s3d-card {
+      //&__top, &__middle, &__bottom {
+      //  border-color: #CFBE97;
+      //}
+      &__close, &__type, &__add-favourites {
+        pointer-events: none;
+        opacity: 0;
+      }
+      &__buttons {
+        pointer-events: none;
+        height: 0;
+        opacity: 0;
+      }
+    }
+    &.s3d-infoBox__moving {
+      transform: translate(0, 0)!important;
+    }
+    &.s3d-infoBox-hover {
+      visibility: visible;
+      pointer-events: painted;
+      //transform: translateX(0);
+      transition: transform 0.4s ease-in;
+    }
+    &.s3d-infoBox-active {
+      visibility: visible;
+      pointer-events: painted;
+      //transform: translateX(0);
+      transition: transform 0.4s ease-in;
+      .s3d-card {
+        &__close {
+          pointer-events: painted;
+          opacity: 1;
+        }
+        &__type {
+          pointer-events: painted;
+          opacity: 1;
+        }
+        &__add-favourites {
+          pointer-events: painted;
+          opacity: 1;
+        }
+        &__buttons {
+          pointer-events: painted;
+          height: initial;
+          opacity: 1;
+        }
+        &__link svg path {
+          animation: s3dAnimateArrowHelper 2.2s ease infinite;
+        }
+      }
+    }
+
+  }
+}
+

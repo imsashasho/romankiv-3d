@@ -1,0 +1,151 @@
+.fs-preloader {
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(244, 244, 242, .9);
+  cursor: not-allowed;
+  fill: $--bg;
+  padding: 0;
+  &-before{
+    z-index: 9000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,1);
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 50%;
+
+    pointer-events: none;
+    .fs-preloader-precent{
+      margin-top: 5px;
+    }
+    .fs-preloader-box{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &-logo{
+    max-width: 80vw;
+    min-width: 300px;
+    @media screen and (max-width:575px){
+      width: 250px;
+      min-width: 220px;
+    }
+  }
+  &-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  @keyframes loader {
+    0% { left: -100px }
+    100% { left: 110%; }
+  }
+  &-box {
+    width: 50px;
+    height: 50px;
+    background: $color1;
+    margin-bottom: 10px;
+    animation: fsAnimate .5s linear infinite;
+    border-radius: 3px;
+  }
+  @keyframes fsAnimate {
+    17% { border-bottom-right-radius: 3px; }
+    25% { transform: translateY(9px) rotate(22.5deg); }
+    50% {
+      transform: translateY(18px) scale(1,.9) rotate(45deg) ;
+      border-bottom-right-radius: 40px;
+    }
+    75% { transform: translateY(9px) rotate(67.5deg); }
+    100% { transform: translateY(0) rotate(90deg); }
+  }
+  &-shadow {
+    width: 50px;
+    height: 5px;
+    background:$color1;
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: fsShadow .5s linear infinite;
+  }
+  @keyframes fsShadow {
+    50% {
+      transform: scale(1.2,1);
+    }
+  }
+
+  &-bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+  &-precent{
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+    font-family: $default-font;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color: #221F20;
+  }
+}
+
+.preloader-active{
+  display: flex;
+  .fs-preloader-logo{
+    animation: logo 1.3s ease-in-out infinite;
+  }
+}
+.first-loader.fs-preloader {
+  height: 100% !important;
+}
+
+
+
+@media screen and (max-width:768px){
+  .fs-preloader{
+    &-before {
+      width: 80px;
+      height: 80px;
+      bottom: 60px;
+      .fs-preloader-box{
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &-mini{
+      bottom: 60px;
+    }
+    &-box{
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
