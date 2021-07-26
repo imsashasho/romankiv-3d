@@ -5,6 +5,8 @@
     flex-direction: column;
     flex: 1 1 auto;
     transition: box-shadow .5s ease-out;
+    //box-shadow: 0 10px 30px rgba(170, 182, 204, 0.25);
+    background: #EEEEEE;
     z-index: 999;
     &__top {
       position: relative;
@@ -14,27 +16,12 @@
       align-content: center;
       justify-content: center;
       flex: 1 1 auto;
-      //border: 2px solid #006164;
-      //border-left: none;
       padding: 30px 25px;
-      //transition: border-color 0.3s ease-in;
+      background: $wc;
     }
-
-    &__middle {
-      display: inline-block;
-      height: 10px;
-      width: 100%;
-      //border-left: 2px solid #006164;
-      //transition: border-color 0.3s ease-in;
-    }
-
     &__bottom {
       width: 100%;
       padding: 20px 20px 34px 36px;
-      background: $color2;
-      //border: 2px solid #006164;
-      //border-left: none;
-      //transition: border-color 0.3s ease-in;
     }
     &__icon{
       display: flex;
@@ -165,10 +152,10 @@
 
       border: none;
       font-family: $default-font;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 18px;
-      text-transform: capitalize;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      text-transform: uppercase;
       text-decoration: none;
       color: $colorTextM;
       background: transparent;
@@ -176,6 +163,9 @@
       overflow: hidden;
       pointer-events: painted;
       z-index: 1;
+      &:focus, &:active {
+        outline: none;
+      }
       span {
         flex: 0 0 auto;
       }
@@ -184,7 +174,8 @@
         overflow: hidden;
         path {
           transition: transform 0.4s ease-in-out;
-          transform: translate(calc(-100% + 18px));
+          transform: translate(0);
+          //transform: translate(calc(-100% + 18px));
         }
       }
       &-arrow {
@@ -212,7 +203,7 @@
         display: none;
       }
       input:checked + svg{
-        fill: #555568;
+        fill: $color1;
         stroke: transparent;
       }
       svg{

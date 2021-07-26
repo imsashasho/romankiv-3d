@@ -42,14 +42,12 @@
 
 @keyframes s3dAnimateArrowHelper {
   from {
-    transform: translate(calc(-100% + 18px));
-  //  transform: translateX(-70%);
-  }
-  50% {
     transform: translateX(0);
   }
-  to {
+  50% {
     transform: translate(calc(-100% + 18px));
-  //  transform: translateX(-70%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

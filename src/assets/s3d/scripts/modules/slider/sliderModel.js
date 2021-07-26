@@ -265,6 +265,7 @@ class SliderModel extends EventEmitter {
 
     img.onerror = function (e) {
       if (countRepeatLoad === 5) {
+        console.error('load image error', e);
         self.sendResponsiveError(this, self);
       } else {
         self.loadImage(+this.dataset.id, countRepeatLoad + 1);

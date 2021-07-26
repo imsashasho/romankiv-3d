@@ -5,7 +5,7 @@
   grid-template-areas: 'left . content';
   grid-template-columns: 400px 106px auto;
   grid-template-rows: 100%;
-  background: linear-gradient(180deg, #152222 0%, #017275 100%);
+  background: #F7F7F7;
   padding-top: var(--s3d-margin-top);
   padding-right: 50px;
   &__list{
@@ -14,7 +14,7 @@
     grid-auto-rows: auto;
     grid-gap: 27px;
     width: 100%;
-    max-height: calc(100% - 100px);
+    max-height: calc(100% - 64px);
     padding: 0;
     overflow-y: auto;
     margin-top: 20px;
@@ -57,7 +57,12 @@
   }
   &__title{
     width: 100%;
-    @extend .s3d-title;
+    font-family: $default-font;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #555568;
   }
   &__amount-flat{
     display: flex;
@@ -97,8 +102,14 @@
     svg{
       height: 16px;
       width: 18px;
-      fill: $color2;
+      fill: $color1;
       transition: transform 0.4s ease-in-out;
     }
+  }
+
+  &__not-found {
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
   }
 }

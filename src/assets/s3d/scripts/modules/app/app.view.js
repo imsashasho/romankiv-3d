@@ -12,6 +12,8 @@ class AppView extends EventEmitter {
         return;
       }
 
+      console.log(event);
+
       this.emit('chooseSlider', event);
       this.changeActiveButton(event.target.dataset.type);
     });
@@ -74,12 +76,19 @@ class AppView extends EventEmitter {
       const { type, side, flyby } = this._model.fsm.settings;
       const text = document.querySelector(`.js-s3d__select[data-type=${name}]`).textContent;
       document.querySelector('.js-s3d-ctr__option__text').innerHTML = text;
+
       $(`.js-s3d__select[data-type=${type}][data-side=${side}][data-flyby=${flyby}]`).addClass('active');
     } else if (name === 'plannings' || name === 'flat' || name === 'favourites' || name === 'floor') {
       $(`.js-s3d__select[data-type=${name}]`).addClass('active');
     } else {
       const { type, flyby, side } = this._model.fsm.settings;
       $(`.js-s3d__select[data-type=${type}][data-flyby=${flyby}][data-side=${side}]`).addClass('active');
+    }
+
+    if (name.includes('flyby')) {
+      const optionBtn = document.querySelector('.s3d-ctr__option');
+      optionBtn.blur();
+      optionBtn.classList.add('active');
     }
   }
 

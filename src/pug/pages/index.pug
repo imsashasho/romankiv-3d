@@ -45,27 +45,17 @@ block content
         +svg('Compass')
       .s3d-ctr__elem.js-s3d-ctr__elem
         .s3d-ctr__elem__title Меню 3D
-        .s3d-ctr__select.s3d-ctr__option.active
+        button(type="button").s3d-ctr__select.s3d-ctr__option.active
           .s3d-ctr__option__title 3D генплан
           .s3d-ctr__option__text.js-s3d-ctr__option__text загальний
           .s3d-ctr__option__buttons
-            button(type="button" data-type="flyby" data-flyby="1" data-side="outside").s3d-ctr__select.active.js-s3d__select загальний
-            button(type="button" data-type="flyby" data-flyby="2" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 1
-            button(type="button" data-type="flyby" data-flyby="3" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 2
-            button(type="button" data-type="flyby" data-flyby="4" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 3 та 4
-
-        //button(type="button" data-type="flyby" data-flyby="1" data-side="outside").s3d-ctr__select.js-s3d__select.active
-          //+svg('house')
-          | 3D генплан
-        //button(type="button" data-type="flyby" data-flyby="1" data-side="inside").s3d-ctr__select.js-s3d__select
-        //  //+svg('house')
-        //  | 3D двор
+            div(data-type="flyby" data-flyby="1" data-side="outside").s3d-ctr__select.active.js-s3d__select загальний
+            div(data-type="flyby" data-flyby="2" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 1
+            div(data-type="flyby" data-flyby="3" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 2
+            div(data-type="flyby" data-flyby="4" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 3 та 4
         button(type="button" data-type="plannings").s3d-ctr__select.js-s3d__select
-          //+svg('planings')
-          | Вибір <br>
-          | планування
+          | Планування
         button(type="button" data-type="flat" disabled).s3d-ctr__select.js-s3d__select
-          //+svg('planings')
           | Квартира
       .s3d-ctr__title.js-s3d-ctr__title Обрати за <wbr>поверхом
       .js-s3d-infoBox.s3d-infoBox.s3d-card(data-s3d-type='infoBox')
@@ -108,7 +98,7 @@ block content
             path( d="M6.5 0L0 5V14H4.3875V9.33333H8.6125V14H13V5L6.5 0Z")
         .s3d-ctr__back.js-s3d-ctr__back
           svg( width="41" height="14" viewBox="0 0 41 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-            path( d="M41 7H1M1 7L7 1M1 7L7 13" stroke="#CFBE97")
+            path( d="M41 7H1M1 7L7 1M1 7L7 13")
           | назад
       .s3d-ctr__favourites.js-s3d-favorite__wrap.s3d-hidden.js-s3d__favourites
         .s3d-ctr__favourites--text Обране:
@@ -131,18 +121,13 @@ block content
     .js-s3d__wrapper__favourites.s3d__wrap.s3d__wrapper__favourites(id='js-s3d__favourites')
       .s3d-fv.js-s3d-fv
         .s3d-fv__left
-          img( src="/wp-content/themes/template/assets/s3d/images/favourite-bg.jpg" class="s3d-fv__bg")
+          img( src=`/wp-content/themes/${nameProject}/assets/s3d/images/favourite-bg.jpg` class="s3d-fv__bg")
         .s3d-fv__right
           .s3d-fv__title Избранное
           .s3d-fv__amount-flat
             | Знайдено
             span.s3d-fv__amount-flat__num.js-s3d__amount-flat__selected 25
           .s3d-fv__list.js-s3d-fv__list
-    //.translate-layer.translate-layer__down
-    //  .translate-layer--2
-    //  .translate-layer--3
-    //  .translate-layer--4
-    //  .translate-layer--5
 
     .s3d-filter-wrap.js-s3d-filter
       .s3d-filter__close-wrap.js-s3d-filter__close
@@ -251,7 +236,7 @@ block content
                 path(d="M-4.76837e-07 3L2.5 2.5828e-07L5 3L2.87764 3L2.12236 3L-4.76837e-07 3Z")
           .s3d-filter__th(data-sort='none') В избранное
         .s3d-filter__body.js-s3d-filter__body
-      img( class='s3d-filter__bg' src='/wp-content/themes/template/assets/s3d/images/filter-bg.jpg')
+      img( class='s3d-filter__bg' src=`/wp-content/themes/${nameProject}/assets/s3d/images/filter-bg.jpg`)
       .s3d-filter__amount-flat
         | Знайдено
         span.s3d-filter__amount-flat__num.js-s3d__amount-flat__num 25

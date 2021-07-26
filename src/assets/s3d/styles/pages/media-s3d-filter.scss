@@ -4,8 +4,8 @@
       &__label {
         &:hover:not(.active-flat) {
           input:not(:checked) + svg {
-            fill: $color2;
-            stroke: $color2;
+            fill: $color1;
+            stroke: $color1;
           }
         }
         &.active-flat {
@@ -19,7 +19,7 @@
       }
       &__tr {
         &:hover {
-          background: #E1DDD2;
+          background: #E4E4E4;
         }
       }
       &__hide {

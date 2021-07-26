@@ -67,7 +67,7 @@
       align-items: center;
       align-content: center;
       width: 100%;
-      color: $wc;
+      color: $colorTextM;
       letter-spacing: -0.05em;
       font-size: 20px;
       font-weight: 400;
@@ -89,7 +89,7 @@
       padding-left: 40px;
       padding-right: 40px;
       padding-bottom: 45px;
-      background: #007275;
+      background: $wc;
       transition: height 0.4s ease-out 0.2s;
       z-index: 5;
     }
@@ -101,7 +101,7 @@
         display: none;
 
         &:checked+ label {
-          background: $color2;
+          background: #5C88DA;
         }
 
         &:disabled+ label {
@@ -116,13 +116,18 @@
         justify-content: center;
         width: 30px;
         height: 30px;
-        color: #b1b4bb;
+        color: $colorTextM;
+        font-family: $default-font;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 1em;
         align-items: center;
+        border: 1px solid #E4E4E4;
         cursor: pointer;
-        background: #006164;
+        background: transparent;
         transition: background-color .3s ease-in, color .3s ease-in;
         &:hover {
-          background: $color2;
+          background: #5C88DA;
           color: #ffffff;
         }
       }
@@ -161,17 +166,6 @@
             outline-color: $color1;
           }
         }
-
-        label{
-          display: flex;
-          align-items: center;
-          font-family: $default-font;
-          font-weight: 400;
-          font-size: 10px;
-          line-height: 1em;
-          color: $wc;
-        }
-
         & div:first-child label {
           margin-left: 0;
         }
@@ -181,7 +175,7 @@
         }
       }
       &__title {
-        color: $wc;
+        color: $colorTextM;
         font-family: $default-font;
         font-size: 12px;
         font-weight: 500;
@@ -237,16 +231,16 @@
         }
         svg {
           fill: transparent;
-          stroke: $color2;
+          stroke: #555568;
         }
 
         &.active-flat{
           svg {
             fill: transparent;
-            stroke: $wc;
+            stroke: #555568;
             &.active-flat{
               fill: transparent;
-              stroke: $wc;
+              stroke: #555568;
             }
           }
         }
@@ -258,7 +252,8 @@
       top: 0;
       display: flex;
       width: 100%;
-      padding: 0 15px;
+      padding: 0 30px;
+      background: #F7F7F7;
     }
 
     &__body{
@@ -294,7 +289,7 @@
       justify-content: center;
       width: 16%;
       padding: 18px 0 10px;
-      background: #FFFFFF;
+      //background: #FFFFFF;
       cursor: pointer;
       sup {
         position: absolute;
@@ -313,11 +308,11 @@
       display: flex;
       width: 100%;
       height: 42px;
-      padding: 0 15px;
+      padding: 0 30px;
       flex: 0 0 42px;
       background: #FFFFFF;
       cursor: pointer;
-      &:nth-child(odd){
+      &:nth-child(even){
         background: #F7F7F7;
       }
       &.active-flat{
@@ -340,7 +335,7 @@
         height: 18px;
         width: 17px;
         fill: transparent;
-        stroke: $color2;
+        stroke: #555568;
       }
       input{
         display: none;
@@ -358,7 +353,7 @@
       margin-left: 5px;
       &--svg{
         transform-origin: center;
-        fill: $color1;
+        fill: $colorTextM;
         stroke: none;
       }
       .down{
@@ -375,12 +370,12 @@
       display: none;
       transform: translate(-50%, 100%);
       padding: 0 20px 10px;
-      background: $color1;
+      background: $wc;
       font-family: $default-font;
       font-weight: 500;
       font-size: 12px;
       line-height: 1em;
-      color: $color2;
+      color: $colorTextM;
       transition: color 0.3s ease-in;
       border-radius: 0 0 50px 50px;
       cursor: pointer;
@@ -396,7 +391,7 @@
         border-top: 3px solid transparent;
         border-left: 3px solid transparent;
         border-right: 3px solid transparent;
-        border-bottom: 3px solid $color2;
+        border-bottom: 3px solid $colorTextM;
         transform: translateY(-50%);
       }
     }
@@ -417,7 +412,7 @@
         align-items: center;
         align-content: center;
         padding: 5px 5px 5px 25px;
-        background: $wc;
+        background: #F65275;
         cursor: pointer;
         transform: translate(calc(100% - 20px), 0);
         transition: transform 0.5s ease-in-out;
@@ -456,12 +451,12 @@
       height: 42px;
       align-items: center;
       align-content: center;
-      color: #221F20;
+      color: $wc;
       font-family: $default-font;
       font-size: 10px;
       font-weight: 500;
       line-height: 1em;
-      background: #F2F2F2;
+      background: #5C88DA;
       padding: 0 0 0 40px;
       flex: 0 0 42px;
 
@@ -523,7 +518,7 @@
           svg{
             width: 60%;
             height: 60%;
-            fill: $color2;
+            fill: #555568;
             transition: fill .4s ease-in-out;
           }
         }
@@ -653,7 +648,7 @@
   width: 400px;
   min-width: 320px;
   grid-area: filter;
-  background: #FFFFFF;
+  background: #F7F7F7;
   z-index: 130;
   opacity: 0;
   visibility: hidden;

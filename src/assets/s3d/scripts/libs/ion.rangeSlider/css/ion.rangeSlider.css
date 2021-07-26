@@ -150,7 +150,7 @@ Build date: 2018-12-11 23:23:51
 .irs--flat .irs-bar {
   top: 12px;
   height: 1px;
-  background-color: #CFBE97;
+  background-color: #F65275;
 }
 .irs--flat .irs-bar--single {
   border-radius: 4px 0 0 4px;
@@ -165,7 +165,7 @@ Build date: 2018-12-11 23:23:51
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #CFBE97;
+  background-color: #F65275;
 }
 .irs--flat .irs-handle > i:first-child {
   position: absolute;
@@ -176,7 +176,7 @@ Build date: 2018-12-11 23:23:51
   height: 4px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: #CFBE97;
+  background-color: #F65275;
 }
 .irs--flat .irs-handle.state_hover > i:first-child,
 .irs--flat .irs-handle:hover > i:first-child {

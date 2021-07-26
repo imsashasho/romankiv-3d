@@ -181,7 +181,7 @@ class FavouritesModel extends EventEmitter {
     div.querySelector('[data-key="number"]').innerHTML = el.number;
     div.querySelector('[data-key="floor"]').innerHTML = el.floor;
     div.querySelector('[data-key="rooms"]').innerHTML = el.rooms;
-    div.querySelector('[data-key="area"]').innerHTML = el['all_room'];
+    div.querySelector('[data-key="area"]').innerHTML = el['area'];
     div.querySelector('[data-key="src"]').src = el['img_small'] ? el['img_small'] : `${defaultProjectPath}/s3d/images/examples/no-image.png`;
     // div.querySelector('[data-key="src"]').src = el['img_small'] ? defaultProjectPath + el['img_small'] : `${defaultProjectPath}/s3d/images/examples/no-image.png`;
     div.querySelector('[data-key="checked"]').checked = true;

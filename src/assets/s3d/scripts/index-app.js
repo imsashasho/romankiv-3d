@@ -43,9 +43,7 @@ async function init() {
   }
 
   const lang = document.querySelector('html').lang || 'ua';
-  console.log(lang);
   const langTexts = await loadLangFile(lang);
-  console.log('langTexts', langTexts);
   i18next.init({
     lng: lang,
     debug: true,
@@ -53,7 +51,6 @@ async function init() {
       [lang]: langTexts,
     },
   });
-  console.log('i18next.init', true);
   new Promise(resolve => {
     loader(resolve, config.flyby[1].outside, nameProject);
   }).then(value => {

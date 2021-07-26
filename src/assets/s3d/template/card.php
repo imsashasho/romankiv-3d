@@ -12,7 +12,6 @@
         </label>
         <div class="s3d-card__image"><img src="" data-key="src"></div>
       </div>
-      <div class="s3d-card__middle"></div>
       <div class="s3d-card__bottom">
           <table class="s3d-card__table">
              <tbody>
