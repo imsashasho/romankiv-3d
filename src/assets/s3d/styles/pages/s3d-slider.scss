@@ -17,11 +17,15 @@
     transition: background-color .3s ease-in, box-shadow .3s ease-in;
     outline-color: $color2;
     cursor: pointer;
-
     * {
       pointer-events: none;
     }
-
+    &:focus {
+      background: radial-gradient(closest-side at 50%, $color1, $color1 calc(100% - 2px), rgba(92, 136, 218, 1));
+      //border: 1px solid rgba(255, 255, 255, 0.5);
+      outline-width: 0;
+      outline-color: rgba(255, 255, 255, 0);
+    }
     svg {
       display: flex;
       height: 16px;
@@ -72,7 +76,7 @@
     //grid-column: 7;
     //grid-row: 1 / 7;
     margin: auto 0 auto auto;
-    background: $wc;
+    //background: $wc;
     overflow: hidden;
     transform: translate(-100%, -50%);
     z-index: 999;

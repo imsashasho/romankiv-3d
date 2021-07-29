@@ -24,6 +24,7 @@ class FilterModel extends EventEmitter {
   init() {
     this.configProject = this.createFilterParam(this.flats);
     this.emit('setAmountAllFlat', _.size(this.flats));
+    this.emit('saveHeightFilterTop');
     this.filterFlatStart();
     this.deb = debounce(this.resize.bind(this), 500);
   }
@@ -147,6 +148,7 @@ class FilterModel extends EventEmitter {
         grid: false,
         min,
         max,
+        hide_min_max: true,
         from: min || 0,
         to: max || 0,
         step: config.step || 1,

@@ -2,7 +2,7 @@
 echo json_encode('<div class="s3d-flat js-s3d-flat">
         <div class="s3d-flat__left">
           <div class="s3d-flat__card js-s3d-flat__card">
-            <div class="s3d-flat__mini-info s3d-fon-monreal__top">
+            <div class="s3d-flat__mini-info">
               <div class="s3d-mini-info">
                 <div class="s3d-mini-info__amount ">54</div>
                 <div class="s3d-mini-info__title">номер</div>
@@ -16,8 +16,7 @@ echo json_encode('<div class="s3d-flat js-s3d-flat">
                 <div class="s3d-mini-info__title">комнат</div>
               </div>
             </div>
-            <div class="s3d-fon-monreal__middle"></div>
-            <div class="s3d-flat__list s3d-fon-monreal__bottom">
+            <div class="s3d-flat__list">
             <table class="s3d-flat__table">
               <tbody>
                 <tr class="s3d-flat__el">
@@ -80,13 +79,13 @@ echo json_encode('<div class="s3d-flat js-s3d-flat">
           </div>
         </div>  
         <div class="s3d-flat__image">
-          <img class="js-s3d-flat__image" src="assets/s3d/images/examples/KV.png" data-mfp-src="assets/s3d/images/examples/KV.png">
+          <img class="js-s3d-flat__image" src="" data-mfp-src="">
         </div>
         <div class="s3d-flat__mobile__header__bg"></div>
         <div class="s3d-flat__right">
           <div class="s3d-flat__floor">
             <svg viewBox="0 0 3843 1680" xmlns="http://www.w3.org/2000/svg" >
-              <image src="/wp-content/themes/bogun3D/assets/s3d/images/examples/floor.png" xlink:href="/wp-content/themes/bogun3D/assets/s3d/images/examples/floor.png" x="0" y="0" height="100%" width="100%" ></image>
+              <image src="/wp-content/themes/bogun/assets/s3d/images/examples/floor.png" xlink:href="/wp-content/themes/bogun/assets/s3d/images/examples/floor.png" x="0" y="0" height="100%" width="100%" ></image>
               <a xlink:href="/flat/?flat=456" class="appart__hover" data-sec="1" data-all_room="109.54" data-life_room="57.73" data-rooms="4" data-type="4А-9" data-id="456">
                    <polygon fill="#85C44" class=" u-svg-plan--active" points="26,8,25,1647,449,1647,450,990,688,991,682,770,539,770,540,13,537,11" data-id="456" data-sec="1" data-all_room="109.54" data-life_room="57.73" data-rooms="4" data-type="4А-9"></polygon> 
               </a>
@@ -111,7 +110,7 @@ echo json_encode('<div class="s3d-flat js-s3d-flat">
             </svg>
           </div>
           <div class="s3d-flat__right-data">
-            <div class="s3d-flat__data-title">план поверху:  <span class="s3d-flat__data-numFloor" >13-14<span></div>
+            <div class="s3d-flat__data-title">План поверху:  <span class="s3d-flat__data-numFloor" >13-14<span></div>
             <div class="s3d-flat__data-flat">
               <div><span data-type="type">2А</span></div>
               <div> пов: <span data-type="floor">6</span></div>

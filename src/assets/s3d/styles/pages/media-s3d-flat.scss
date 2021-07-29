@@ -9,10 +9,9 @@
         &:hover{
           color: $color1;
           svg {
-            fill: $color1;
+            stroke: $color1;
           }
           path {
-
             transform: translateX(0);
           }
         }
@@ -23,8 +22,8 @@
         }
       }
       &__floor {
-        a:hover polygon{
-          fill: $color1;
+        a:hover polygon:not(.u-svg-plan--active) {
+          fill: rgb(92, 136, 218);
           opacity: .5;
         }
       }
@@ -65,7 +64,7 @@
       }
       &__pdf {
         &:hover {
-          &:after {
+          .s3d-flat__pdf-text:after {
             transform: translate(0, 0);
           }
           //color: $color1;
@@ -383,6 +382,15 @@
       &__links {
         padding: 0;
         margin: 0;
+      }
+      &__button span{
+        width: auto;
+        padding: 0 20px;
+      }
+      &__callback {
+        flex: 1 1 100%;
+        max-width: none;
+        margin: 20px 0 0;
       }
       &__mobile__header__bg {
         width: calc(100% + 30px);

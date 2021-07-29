@@ -1,0 +1,72 @@
+@media screen and (max-width: 1440px) {
+  .s3d__helper-gif {
+    &__title {
+      font-size: 72px;
+    }
+    &__close {
+      font-size: 11px;
+    }
+    &__count {
+      font-size: 48px;
+    }
+    &__group {
+      margin-top: 20px;
+    }
+    &__gif {
+      height: 250px;
+      width: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .s3d__helper-gif {
+    &__title {
+      font-size: 64px;
+      line-height: 120%;
+    }
+    &__close {
+      font-size: 14px;
+    }
+    &__count {
+      font-size: 36px;
+    }
+    &__gif {
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .s3d__helper-gif {
+    &__wrap {
+      padding: 0 15px;
+    }
+    &__close {
+      bottom: 30px;
+      font-size: max(vw(12, 320), 12px);
+    }
+    &__title {
+      font-size: max(vw(30, 320), 30px);
+    }
+    &__count {
+      font-size: 24px;
+      margin-right: 20px;
+    }
+    &__group {
+      margin-top: 10px;
+    }
+    &__gif {
+      margin: 0 0 30px;
+    }
+    &__link {
+      height: 50px;
+      width: 50px;
+    }
+    &__gif {
+      height: max(vw(150, 320), 150px);
+      width: max(vw(150, 320), 150px);
+    }
+  }
+}

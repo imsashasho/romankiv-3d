@@ -17,6 +17,30 @@
   @return #{$remSize}rem;
 }
 
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers})
+};
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers})
+};
+
+@function vmax($pixels, $context: $full-width) {
+  @return #{($pixels/$context)* 100}vmax
+};
+
+@function vw($pixels, $context: $full-width) {
+  @return  #{($pixels/$context)* 100}vw
+}
+
+@function vh($pixels, $context: $full-width) {
+  @return  #{($pixels/$context)* 100}vh
+}
+
+@function lh($lh, $fz) {
+  @return #{($lh/$fz)}em
+}
+
 @mixin flexCenter() {
   align-items: center;
   display: flex;

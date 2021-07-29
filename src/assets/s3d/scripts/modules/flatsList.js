@@ -77,6 +77,7 @@ class FlatsList {
       }
 
       if (window.innerWidth <= 992) {
+        console.log(this);
         this.filter.emit('hideFilter');
       }
       this.updateFsm(config, id);
@@ -135,7 +136,7 @@ class FlatsList {
 					<div class="s3d-filter__td">${flat.type || '-'}</div>
 					<div class="s3d-filter__td">${flat.rooms}</div>
 					<div class="s3d-filter__td">${flat.floor}</div>
-					<div class="s3d-filter__td">${flat.area} m<sup>2</sup></div>
+					<div class="s3d-filter__td">${flat.area}</div>
 					<div class="s3d-filter__td">
 						<label data-id="${flat.id}" class="s3d-filter__table__label js-s3d-add__favourites">
 							<input type="checkbox" ${checked}>

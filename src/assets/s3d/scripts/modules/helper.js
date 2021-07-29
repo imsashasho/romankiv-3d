@@ -137,4 +137,121 @@ class Helper {
   }
 }
 
-export default Helper;
+class HelperGif {
+  constructor(data) {
+    this.currentWindow = 0;
+  }
+
+  async init() {
+    if (status === 'local') {
+      await $.ajax(`${defaultModulePath}template/helperGif.php`)
+        .then(helper => {
+          document.querySelector('.js-s3d__slideModule')
+            .insertAdjacentHTML('beforeend', JSON.parse(helper));
+        });
+    } else {
+      await $.ajax('/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        data: { action: 'getHelper' },
+      }).then(helper => {
+        document.querySelector('.js-s3d__slideModule')
+          .insertAdjacentHTML('beforeend', JSON.parse(helper));
+      });
+    }
+    this.wrap = document.querySelector('.js-s3d__helper-gif-wrap');
+
+    await $.ajax(`${defaultStaticPath}configHelperGif.json`)
+      .then(responsive => this.setConfig(responsive));
+    $('.js-s3d__helper-gif__close').on('click', () => {
+      this.hiddenHelper();
+    });
+
+    $('.js-s3d__helper-gif__link').on('click', () => {
+      // $('.js-s3d__helper__content').removeClass('s3d-active');
+      this.currentWindow++;
+      if (this.conf.length <= this.currentWindow) {
+        this.hiddenHelper();
+        return;
+      }
+      this.update(this.conf[this.currentWindow]);
+    });
+
+    const openHelper = $('.js-s3d-ctr__open-helper');
+    if (_.size(openHelper) > 0) {
+      openHelper.on('click', () => {
+        this.currentWindow = 0;
+        this.update(this.conf[0]);
+        this.showHelper();
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      if (this.currentWindow >= this.conf.length) return;
+      this.update(this.conf[this.currentWindow]);
+    });
+
+    if (window.localStorage.getItem('info')) return;
+    this.update(this.conf[0]);
+
+    this.wrap.querySelector('[data-all_count]').innerHTML = this.conf.length;
+    this.showHelper();
+  }
+
+  setConfig(config) {
+    let type = 'desktop';
+    if (document.documentElement.offsetWidth < 992) {
+      type = 'mobile';
+    }
+    const lang = $('html')[0].lang || 'ua';
+    this.conf = config[type][lang];
+  }
+
+  update(conf) {
+    const helper = document.querySelector('.js-s3d__helper-gif');
+
+    const promise = new Promise(callback => {
+      helper.style.opacity = 0;
+      setTimeout(() => {
+        callback();
+      }, 250);
+    });
+    promise.then(() => {
+      this.updateContent(conf);
+      helper.dataset.step = this.currentWindow;
+    }).then(() => {
+      helper.style.opacity = 1;
+    });
+  }
+
+  showHelper() {
+    this.wrap.classList.add('s3d-active');
+  }
+
+  hiddenHelper() {
+    this.wrap.classList.remove('s3d-active');
+    window.localStorage.setItem('info', true);
+    this.triggerGif(this.currentWindow);
+  }
+
+  updateContent(config) {
+    this.wrap.querySelector('[data-type="title"]').innerHTML = config.title;
+    this.wrap.querySelector('[data-type="close"]').innerHTML = config.close;
+
+    this.triggerGif(this.currentWindow);
+    this.triggerGif(this.currentWindow + 1);
+
+    this.wrap.querySelector('[data-current_count]').innerHTML = this.currentWindow + 1;
+  }
+
+  triggerGif(num) {
+    const numId = (num > 0) ? num : 1;
+    const container = document.getElementById(`animated-svg-${numId}`);
+    container.style.visibility = 'visible';
+    container.contentDocument
+      .querySelector('svg')
+      .dispatchEvent(new Event('click'));
+  }
+}
+
+
+export { Helper, HelperGif };

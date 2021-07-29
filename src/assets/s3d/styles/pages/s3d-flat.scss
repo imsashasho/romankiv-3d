@@ -147,7 +147,7 @@
         margin: 0;
         vertical-align: top;
         .s3d-flat__el__name {
-          font-weight: 500;
+          font-weight: 400;
           font-size: 18px;
         }
       }
@@ -156,7 +156,7 @@
         height: calc(1em + 20px);
         vertical-align: top;
         .s3d-flat__el__name {
-          font-weight: 500;
+          font-weight: 400;
           font-size: 18px;
         }
         &:after {
@@ -215,27 +215,29 @@
       grid-area: button;
     }
     &__pdf {
-      position: relative;
       display: flex;
       align-items: center;
       align-content: center;
       order: 2;
       @include s3d-text-m($wc);
       transition: color 0.3s ease-in;
-      overflow: hidden;
       text-decoration: none;
       text-transform: capitalize;
-      &:after {
-        content: "";
-        position: absolute;
-        bottom: 2px;
-        left: 0;
-        display: inline-block;
-        width: 100%;
-        height: 0;
-        border-bottom: 1px solid $wc;
-        transition: translate 0.4s ease-in-out;
-        transform: translate(-100%, 0);
+      &-text {
+        position: relative;
+        overflow: hidden;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          display: inline-block;
+          width: 100%;
+          height: 0;
+          border-bottom: 1px solid $wc;
+          transition: transform 0.4s ease-in-out;
+          transform: translate(-100%, 0);
+        }
       }
       span {
         text-transform: uppercase;
@@ -268,7 +270,7 @@
       border: none;
       background: $color1;
       font-family: $default-font;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 10px;
       line-height: 100%;
       text-align: center;
@@ -301,6 +303,7 @@
       }
       polygon.u-svg-plan--active{
         fill: $color1;
+        cursor: no-drop;
       }
     }
     &__like{
@@ -368,21 +371,20 @@
       span {
         font-size: 14px;
         font-family: $default-font;
-        font-weight: 500;
+        font-weight: 600;
         line-height: 20px;
-        color: #E1DDD2;
+        color: #555568;
       }
       input {
         display: none;
-        &:checked + span {
-          color: $color2;
-        }
+        //&:checked + span {
+        //  color: $color2;
+        //}
       }
 
       label {
         cursor: pointer;
         pointer-events: painted;
-
       }
 
       &.show{
@@ -405,7 +407,7 @@
         //padding: 10px 20px;
         background: #F7F7F7;
         font-family: $default-font;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 12px;
         line-height: 24px;
         color: $colorTextM;
@@ -444,7 +446,7 @@
       width: 36px;
       height: 20px;
       margin: 0 15px;
-      background: $color2;
+      background: #5C88DA;
       border-radius: 20px;
       padding: 2px;
       overflow: hidden;
@@ -468,7 +470,7 @@
     &__data {
       &-title {
         font-family: $default-font;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 24px;
         line-height: 1em;
         letter-spacing: -0.05em;
@@ -558,7 +560,7 @@
     }
     &__title{
       font-family: $default-font;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 12px;
       line-height: 1em;
       text-transform: capitalize;
@@ -570,35 +572,13 @@
       justify-content: center;
       margin: 0 0 15px 0;
       font-family: $default-font;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 36px;
       line-height: 1em;
       color: $wc;
     }
   }
 }
-
-//.s3d-fon-monreal {
-//  &__top {
-//    position: relative;
-//    border: 2px solid $color2;
-//    border-left: none;
-//  }
-//
-//  &__middle {
-//    display: inline-block;
-//    height: 10px;
-//    width: 100%;
-//    flex: 0 0 10px;
-//    border-left: 2px solid $color2;
-//  }
-//
-//  &__bottom {
-//    width: 100%;
-//    border: 2px solid $color2;
-//    border-left: none;
-//  }
-//}
 
 img.mfp-img{
   background: #ffffff;

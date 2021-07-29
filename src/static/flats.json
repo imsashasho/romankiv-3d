@@ -29,7 +29,8 @@
     "img_small": "assets/s3d/images/examples/flats/vertical.jpg",
     "images": {
       "without": {
-        "2d": "assets/s3d/images/examples/re-planning-2d.png"
+        "2d": "assets/s3d/images/examples/re-planning-2d.png",
+        "3d": "assets/s3d/images/examples/re-planning-3d.png"
       },
       "with": {
         "3d": "assets/s3d/images/examples/re-planning-3d.png"
@@ -140,7 +141,8 @@
     "img_small": "assets/s3d/images/examples/flats/horizontal.jpg",
     "images": {
       "without": {
-        "2d": "assets/s3d/images/examples/re-planning-2d.png"
+        "2d": "assets/s3d/images/examples/re-planning-2d.png",
+        "3d": "assets/s3d/images/examples/re-planning-3d.png"
       },
       "with": {
         "3d": "assets/s3d/images/examples/re-planning-3d.png"

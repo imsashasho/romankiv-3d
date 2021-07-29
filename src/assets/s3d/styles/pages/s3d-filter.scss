@@ -118,7 +118,7 @@
         height: 30px;
         color: $colorTextM;
         font-family: $default-font;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 12px;
         line-height: 1em;
         align-items: center;
@@ -316,7 +316,7 @@
         background: #F7F7F7;
       }
       &.active-flat{
-        background: $color2;
+        background: #5C88DA;
         color: #ffffff;
       }
     }
@@ -412,7 +412,7 @@
         align-items: center;
         align-content: center;
         padding: 5px 5px 5px 25px;
-        background: #F65275;
+        background: #FFFFFF;
         cursor: pointer;
         transform: translate(calc(100% - 20px), 0);
         transition: transform 0.5s ease-in-out;
@@ -424,7 +424,7 @@
         left: 50%;
         width: 24px;
         height: 1px;
-        background: $color2;
+        background: #F65275;
         transition: color 0.5s ease-in;
         &:nth-child( 1 ) {
           transform: translate(-50%, -50%)rotate(-45deg);
@@ -454,7 +454,7 @@
       color: $wc;
       font-family: $default-font;
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1em;
       background: #5C88DA;
       padding: 0 0 0 40px;
@@ -477,10 +477,6 @@
         background: $color2;
         border: none;
         @include s3d-text-table(#3b4456, 1em, 600);
-        //font-family: $default-font;
-        //font-size: 12px;
-        //font-weight: 600;
-        //line-height: 12px;
         text-transform: uppercase;
         transition: all .4s ease-in-out;
         &-icon {
@@ -617,7 +613,7 @@
       }
     }
     .irs--flat .irs-handle.state_hover > i:first-child, .irs--flat .irs-handle:hover > i:first-child {
-      background: $color2;
+      background: $color1;
     }
 
     &__scroll-active {

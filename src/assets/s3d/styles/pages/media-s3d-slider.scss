@@ -39,6 +39,12 @@
     &__button {
       width: 40px;
       height: 40px;
+      &-right {
+        right: 15px;
+      }
+      &-left {
+        left: 15px;
+      }
       svg {
         width: 14px;
         height: 12px;

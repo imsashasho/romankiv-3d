@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    transition: box-shadow .5s ease-out;
+    transition: box-shadow .4s ease-out;
     //box-shadow: 0 10px 30px rgba(170, 182, 204, 0.25);
     background: #EEEEEE;
     z-index: 999;
@@ -48,15 +48,15 @@
       z-index: 5;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.4s ease-in-out;
       &:after{
         position: absolute;
         top: 50%;
         left: 50%;
         content: "";
         width: 60%;
-        height: 2px;
-        background: $color2;
+        height: 1px;
+        background: $colorTextM;
         transform: translate(-50%,-50%)rotate(45deg);
       }
       &:before{
@@ -65,8 +65,8 @@
         left: 50%;
         content: "";
         width: 60%;
-        height: 2px;
-        background: $color2;
+        height: 1px;
+        background: $colorTextM;
         transform: translate(-50%,-50%)rotate(-45deg);
       }
 
@@ -80,7 +80,7 @@
       margin: 0;
       order: 1;
       z-index: 2;
-      transition: opacity 0.6s cubic-bezier(.41,.57,.26,1);
+      transition: opacity 0.4s cubic-bezier(.41,.57,.26,1);
       img{
         display: inline-block;
         max-height: 100%;
@@ -106,7 +106,7 @@
       @include s3d-text-s(#392425);
       text-align: center;
       z-index: 5;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.4s ease-in-out;
     }
     &__table{
       display: flex;
@@ -128,7 +128,7 @@
 
       td:nth-child(odd){
         width: 100%;
-        padding: 0 16px 0 0;
+        padding: 0 30px 0 0;
       }
     }
     &__buttons{
@@ -198,7 +198,7 @@
       border: none;
       cursor: pointer;
       z-index: 3;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.4s ease-in-out;
       input{
         display: none;
       }

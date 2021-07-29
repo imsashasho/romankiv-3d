@@ -121,9 +121,10 @@
     &__option {
       position: relative;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      //flex-direction: column;
       &__title {
-
+        white-space: nowrap;
       }
       &__text {
         text-transform: lowercase;

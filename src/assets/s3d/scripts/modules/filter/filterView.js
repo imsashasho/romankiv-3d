@@ -6,8 +6,7 @@ class FilterView extends EventEmitter {
     super();
     this._model = model;
     this._elements = elements;
-    this.filterTopHeight = document.querySelector('.s3d-filter__top').offsetHeight;
-
+    this.saveHeightFilterTop();
     $('.js-s3d-filter__button--reset').on('click', () => {
       this.emit('resetFilter');
     });
@@ -42,12 +41,17 @@ class FilterView extends EventEmitter {
     model.on('setAmountAllFlat', data => { this.setAmountAllFlat(data); });
     model.on('setAmountSelectFlat', data => { this.setAmountSelectFlat(data); });
     model.on('updateMiniInfo', data => { this.updateMiniInfo(data); });
+    model.on('saveHeightFilterTop', () => this.saveHeightFilterTop());
   }
 
   // показать фильтр
   show() {
     $('.s3d-filter__top').css('height', this.filterTopHeight);
     $('.js-s3d-filter').addClass('s3d-open-filter');
+  }
+
+  saveHeightFilterTop() {
+    this.filterTopHeight = document.querySelector('.s3d-filter__top').offsetHeight;
   }
 
   // спрятать фильтр

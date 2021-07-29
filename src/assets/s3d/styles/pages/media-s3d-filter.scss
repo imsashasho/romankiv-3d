@@ -11,44 +11,44 @@
         &.active-flat {
           &:hover {
             svg {
-              fill: $wc;
-              stroke: $wc;
+              fill: $color1;
+              stroke: $color1;
             }
           }
         }
       }
-      &__tr {
+    }
+    &__tr {
+      &:hover {
+        background: #E4E4E4;
+      }
+    }
+    &__hide {
+      &:hover {
+        color: $color1;
+      }
+    }
+    &__button {
+      &--apply {
         &:hover {
-          background: #E4E4E4;
+          color: $color1;
+          opacity: 0.9;
         }
       }
-      &__hide {
+      &--reset {
         &:hover {
-          color: $color2;
-        }
-      }
-      &__button {
-        &--apply {
-          &:hover {
-            color: #ffffff;
-            opacity: 0.9;
-          }
-        }
-        &--reset {
-          &:hover {
-            color: $wc;
-            .s3d-filter__button--reset-icon {
-              svg{
-                fill: $wc;
-              }
+          color: $color1;
+          .s3d-filter__button--reset-icon {
+            svg {
+              fill: $color1;
             }
           }
         }
       }
-      &__mini-info {
-        &:hover {
-          color: $color2;
-        }
+    }
+    &__mini-info {
+      &:hover {
+        color: $color2;
       }
     }
   }
@@ -91,7 +91,7 @@
         padding-bottom: 33px;
       }
       &-wrap {
-        width: 360px;
+        //width: 360px;
       }
     }
   }
@@ -255,9 +255,9 @@
       }
 
       &__rooms--label {
-        height: 40px;
-        width: 40px;
-        margin: 0 2px;
+        height: 30px;
+        width: 30px;
+        //margin: 0 2px;
       }
       &__close {
         &-wrap {
