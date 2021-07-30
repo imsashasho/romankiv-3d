@@ -143,21 +143,21 @@ class HelperGif {
   }
 
   async init() {
-    if (status === 'local') {
-      await $.ajax(`${defaultModulePath}template/helperGif.php`)
-        .then(helper => {
-          document.querySelector('.js-s3d__slideModule')
-            .insertAdjacentHTML('beforeend', JSON.parse(helper));
-        });
-    } else {
-      await $.ajax('/wp-admin/admin-ajax.php', {
-        method: 'POST',
-        data: { action: 'getHelper' },
-      }).then(helper => {
+    // if (status === 'local') {
+    await $.ajax(`${defaultModulePath}template/helperGif.php`)
+      .then(helper => {
         document.querySelector('.js-s3d__slideModule')
           .insertAdjacentHTML('beforeend', JSON.parse(helper));
       });
-    }
+    // } else {
+    // await $.ajax('/wp-admin/admin-ajax.php', {
+    //   method: 'POST',
+    //   data: { action: 'getHelper' },
+    // }).then(helper => {
+    //   document.querySelector('.js-s3d__slideModule')
+    //     .insertAdjacentHTML('beforeend', JSON.parse(helper));
+    // });
+    // }
     this.wrap = document.querySelector('.js-s3d__helper-gif-wrap');
 
     await $.ajax(`${defaultStaticPath}configHelperGif.json`)

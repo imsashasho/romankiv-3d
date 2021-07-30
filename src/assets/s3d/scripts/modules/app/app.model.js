@@ -288,7 +288,7 @@ class AppModel extends EventEmitter {
     const fvController = new FavouritesController(fvModel, fvView);
     this.favourites = fvModel;
     fvModel.init();
-    this.createStructureSvg();
+    // this.createStructureSvg();
     this.checkFirstLoadState();
   }
 

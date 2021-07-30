@@ -215,6 +215,7 @@ class FlatModel extends EventEmitter {
     })
       .then(resp => JSON.parse(resp))
       .then(url => {
+        console.log(url)
         document.body.insertAdjacentHTML('beforebegin', `<a class="initClickPdf" target="_blank" href="${url}"></a>`);
         document.querySelector('.initClickPdf').click();
       });

@@ -48,7 +48,11 @@
   .s3d__wrap{
     height: calc(100% - 48px);
   }
-
+  .s3d-header {
+    .header-content {
+      padding: 0 20px;
+    }
+  }
 }
 @media screen and (max-width: 600px) {
   .s3d__slideModule{
@@ -57,5 +61,10 @@
   }
   .s3d__wrap{
     height: calc(100% - 38px);
+  }
+  .s3d-header {
+    .header-content {
+      padding: 0 15px;
+    }
   }
 }
