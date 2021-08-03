@@ -372,6 +372,7 @@ class AppModel extends EventEmitter {
   }
 
   updateCurrentFilterFlatsId(value) {
+    console.log('updateCurrentFilterFlatsId', value);
     this.currentFilterFlatsId$.next(value);
   }
 
@@ -428,6 +429,7 @@ class AppModel extends EventEmitter {
 
     if (id) {
       this.activeFlat = +id;
+      config.flatId = +id;
     }
     config.type = data.type;
     config.ActiveHouse = this.ActiveHouse;
@@ -444,7 +446,7 @@ class AppModel extends EventEmitter {
     config.updateCurrentFilterFlatsId = this.updateCurrentFilterFlatsId;
     config.history = this.history;
     config.infoBox = this.infoBox;
-    config.flatId = +id;
+
     this.fsm.dispatch(settings, nameMethod, this, config);
   }
 

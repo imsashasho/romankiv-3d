@@ -14,7 +14,7 @@ class FilterModel extends EventEmitter {
       area: 'range',
       floor: 'range',
       rooms: 'checkbox',
-      option: 'option',
+      // option: 'option',
     };
     this.configProject = {};
     this.updateCurrentFilterFlatsId = config.updateCurrentFilterFlatsId;
@@ -35,7 +35,9 @@ class FilterModel extends EventEmitter {
     addBlur('.s3d-pl__right');
     const filterSettings = this.getFilterParam(this.configProject);
     this.updateAllParamFilter(filterSettings);
+    console.log('this.flats', this.flats, filterSettings);
     const flats = this.startFilter(this.flats, filterSettings);
+    console.log('flats', flats);
     this.emit('setAmountSelectFlat', flats.length);
     this.updateCurrentFilterFlatsId(flats);
 

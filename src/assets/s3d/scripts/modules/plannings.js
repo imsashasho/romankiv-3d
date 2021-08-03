@@ -25,6 +25,7 @@ class Plannings {
   }
 
   init() {
+    this.defaultShowingFlats = this.createDefaultFlatsId();
     if (status === 'local') {
       $.ajax(`${defaultModulePath}template/card.php`).then(response => {
         this.templateCard = JSON.parse(response);
@@ -71,6 +72,11 @@ class Plannings {
 
   visibleAvailableContainer(isShowing = false) {
     this.wrapperNotFoundFlat.style.display = isShowing ? '' : 'none';
+  }
+
+  createDefaultFlatsId() {
+    const flats = this.getFlat();
+    return Object.keys(flats);
   }
 
   subscribeFilterFlat() {

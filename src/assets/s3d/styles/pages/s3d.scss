@@ -175,6 +175,7 @@
   }
 
   &-header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
     .header-content {
       padding: 0 50px;
     }
@@ -249,7 +250,7 @@
   height: auto;
   flex-direction: column;
   padding-top: 100vh;
-  background: #006164;
+  //background: #006164;
   opacity: 0;
 
   &.translate-layer__up{
