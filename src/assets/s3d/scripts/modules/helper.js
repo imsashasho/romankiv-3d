@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import gsap from 'gsap';
+import BezierEasing from 'bezier-easing';
 
 class Helper {
   constructor(data) {
@@ -86,9 +88,9 @@ class Helper {
         });
       }
 
-      this.updateContent(conf);
       $('.js-s3d__helper')[0].dataset.step = this.currentWindow;
       wrap.append(...result);
+      this.updateContent(conf);
     }).then(() => {
       helper.style.opacity = 1;
       wrap[0].style.opacity = 1;
@@ -147,7 +149,7 @@ class HelperGif {
     await $.ajax(`${defaultModulePath}template/helperGif.php`)
       .then(helper => {
         document.querySelector('.js-s3d__slideModule')
-          .insertAdjacentHTML('beforeend', JSON.parse(helper));
+          .insertAdjacentHTML('afterend', JSON.parse(helper));
       });
     // } else {
     // await $.ajax('/wp-admin/admin-ajax.php', {
@@ -162,6 +164,7 @@ class HelperGif {
 
     await $.ajax(`${defaultStaticPath}configHelperGif.json`)
       .then(responsive => this.setConfig(responsive));
+
     $('.js-s3d__helper-gif__close').on('click', () => {
       this.hiddenHelper();
     });
@@ -175,7 +178,6 @@ class HelperGif {
       }
       this.update(this.conf[this.currentWindow]);
     });
-
     const openHelper = $('.js-s3d-ctr__open-helper');
     if (_.size(openHelper) > 0) {
       openHelper.on('click', () => {
@@ -184,15 +186,14 @@ class HelperGif {
         this.showHelper();
       });
     }
-
     window.addEventListener('resize', () => {
       if (this.currentWindow >= this.conf.length) return;
       this.update(this.conf[this.currentWindow]);
     });
 
     if (window.localStorage.getItem('info')) return;
-    this.update(this.conf[0]);
-
+    this.updateContent(this.conf[0]);
+    this.triggerGif(this.currentWindow);
     this.wrap.querySelector('[data-all_count]').innerHTML = this.conf.length;
     this.showHelper();
   }
@@ -207,20 +208,21 @@ class HelperGif {
   }
 
   update(conf) {
-    const helper = document.querySelector('.js-s3d__helper-gif');
-
-    const promise = new Promise(callback => {
-      helper.style.opacity = 0;
-      setTimeout(() => {
-        callback();
-      }, 250);
-    });
-    promise.then(() => {
-      this.updateContent(conf);
-      helper.dataset.step = this.currentWindow;
-    }).then(() => {
-      helper.style.opacity = 1;
-    });
+    this.updateContent(conf);
+    this.triggerGif(this.currentWindow, 'hide');
+    this.triggerGif(this.currentWindow + 1);
+    // const promise = new Promise(callback => {
+    //   helper.style.opacity = 0;
+    //   setTimeout(() => {
+    //     callback();
+    //   }, 250);
+    // });
+    // promise.then(() => {
+    //   helper.dataset.step = this.currentWindow;
+    //   this.updateContent(conf);
+    // }).then(() => {
+    //   helper.style.opacity = 1;
+    // });
   }
 
   showHelper() {
@@ -230,27 +232,44 @@ class HelperGif {
   hiddenHelper() {
     this.wrap.classList.remove('s3d-active');
     window.localStorage.setItem('info', true);
-    this.triggerGif(this.currentWindow);
+    this.triggerGif(this.currentWindow, 'hide');
   }
 
   updateContent(config) {
+    const helper = document.querySelector('.js-s3d__helper-gif');
+    helper.dataset.step = this.currentWindow;
     this.wrap.querySelector('[data-type="title"]').innerHTML = config.title;
     this.wrap.querySelector('[data-type="close"]').innerHTML = config.close;
-
-    this.triggerGif(this.currentWindow);
-    this.triggerGif(this.currentWindow + 1);
-
     this.wrap.querySelector('[data-current_count]').innerHTML = this.currentWindow + 1;
   }
 
-  triggerGif(num) {
+  triggerGif(num, type = 'show') {
     const numId = (num > 0) ? num : 1;
     const container = document.getElementById(`animated-svg-${numId}`);
-    container.style.visibility = 'visible';
+    const easing = new BezierEasing(0, 1, 1, 0);
+    const animate = gsap.timeline({ direction: 1.8, ease: easing });
+    const prevAlpha = (type === 'hide') ? 1 : 0;
+    const pastAlpha = (type === 'hide') ? 0 : 1;
     container.contentDocument
       .querySelector('svg')
       .dispatchEvent(new Event('click'));
+    animate.fromTo(container, { autoAlpha: prevAlpha }, { autoAlpha: pastAlpha });
+
+    // container.style.visibility = 'visible';
+    // container.style.opacity = 1;
   }
+
+  // hideGif(num) {
+  //   const numId = (num > 0) ? num : 1;
+  //   const container = document.getElementById(`animated-svg-${numId}`);
+  //   container.contentDocument
+  //     .querySelector('svg')
+  //     .dispatchEvent(new Event('click'));
+  //   container.style.opacity = 0;
+  //   // setTimeout(() => {
+  //     container.style.visibility = 'hidden';
+  //   // }, 500);
+  // }
 }
 
 

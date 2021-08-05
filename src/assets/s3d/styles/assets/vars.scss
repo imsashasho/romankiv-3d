@@ -23,9 +23,12 @@ $name-project: 'bogun';
   --s3d-font-size-s: 10px;
   --s3d-font-size-m: 14px;
   --s3d-font-size-table: 13px;
-  --s3d-header-height: 50px;
-  --s3d-header-margin: 50px;
-  --s3d-content-margin-top: 30px;
+  --s3d-header-height: 130px;
+  //--s3d-header-height: 50px;
+  --s3d-header-margin: 0px;
+  //--s3d-header-margin: 50px;
+  --s3d-content-margin-top: 0px;
+  //--s3d-content-margin-top: 30px;
   --s3d-margin-top: calc(var(--s3d-header-margin) + var(--s3d-header-height) + var(--s3d-content-margin-top));
 }
 

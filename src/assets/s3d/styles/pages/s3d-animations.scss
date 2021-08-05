@@ -51,3 +51,14 @@
     transform: translateX(0);
   }
 }
+@keyframes s3dAnimateArrowHelperGif {
+  from {
+    transform: translateX(-30%);
+  }
+  50% {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(-30%);
+  }
+}

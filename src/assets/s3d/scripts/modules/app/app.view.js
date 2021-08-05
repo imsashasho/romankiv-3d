@@ -12,8 +12,6 @@ class AppView extends EventEmitter {
         return;
       }
 
-      console.log(event);
-
       this.emit('chooseSlider', event);
       this.changeActiveButton(event.target.dataset.type);
     });

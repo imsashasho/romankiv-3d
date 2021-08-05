@@ -51,11 +51,9 @@
         color: $mc3;
       }
     }
-
     .s3d__button{
       position: fixed;
     }
-
     &-only:not(.rc){
       display: none
     }
@@ -175,8 +173,10 @@
   }
 
   &-header {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    background: none;
+    //background: rgba(255, 255, 255, 0.9);
     .header-content {
+      max-height: 130px;
       padding: 0 50px;
     }
     .header-left, .header-right {
@@ -192,6 +192,9 @@
   }
 }
 
+.content-menu .header-left-link {
+  pointer-events: inherit;
+}
 
 #js-s3d{
   &__wrapper{
@@ -238,61 +241,61 @@
 }
 
 
-.translate-layer{
-  z-index: 600;
-  position: absolute;
-  top: -270vh;
-  left: 0;
-  bottom: auto;
-  right: auto;
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-direction: column;
-  padding-top: 100vh;
-  //background: #006164;
-  opacity: 0;
-
-  &.translate-layer__up{
-    top: 100%;
-  }
-
-  &.translate-layer__down{
-    top: -270vh;
-  }
-
-  &.translate-layer__down.active{
-    top: 100%;
-    transition: top 1.2s linear;
-    opacity: 1;
-  }
-
-  &.translate-layer__up.active{
-    top: -270vh;
-    transition: top 1.2s linear;
-    opacity: 1;
-  }
-
-  &--2{
-    height: 70vh;
-    background: #007275;
-  }
-
-  &--3{
-    height: 50vh;
-    background: #60898A;
-  }
-
-  &--4{
-    height: 30vh;
-    background: #A4A797;
-  }
-
-  &--5{
-    height: 20vh;
-    background: #CFBE97;
-  }
-}
+//.translate-layer{
+//  z-index: 600;
+//  position: absolute;
+//  top: -270vh;
+//  left: 0;
+//  bottom: auto;
+//  right: auto;
+//  display: flex;
+//  width: 100%;
+//  height: auto;
+//  flex-direction: column;
+//  padding-top: 100vh;
+//  //background: #006164;
+//  opacity: 0;
+//
+//  &.translate-layer__up{
+//    top: 100%;
+//  }
+//
+//  &.translate-layer__down{
+//    top: -270vh;
+//  }
+//
+//  &.translate-layer__down.active{
+//    top: 100%;
+//    transition: top 1.2s linear;
+//    opacity: 1;
+//  }
+//
+//  &.translate-layer__up.active{
+//    top: -270vh;
+//    transition: top 1.2s linear;
+//    opacity: 1;
+//  }
+//
+//  &--2{
+//    height: 70vh;
+//    background: #007275;
+//  }
+//
+//  &--3{
+//    height: 50vh;
+//    background: #60898A;
+//  }
+//
+//  &--4{
+//    height: 30vh;
+//    background: #A4A797;
+//  }
+//
+//  &--5{
+//    height: 20vh;
+//    background: #CFBE97;
+//  }
+//}
 
 .wrapper__first-info {
   z-index: 205;

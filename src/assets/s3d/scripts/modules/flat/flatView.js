@@ -18,12 +18,12 @@ class FlatView extends EventEmitter {
     // events handler form start
     model.wrapper.on('click', '.js-callback-form', e => {
       e.preventDefault();
-      $('.js-phone-order-popup').addClass('active');
+      $('.sideform').addClass('sideform-active');
     });
 
-    model.wrapper.on('click', '.close-btn', e => {
+    model.wrapper.on('click', '.js-close', e => {
       e.preventDefault();
-      $('.js-phone-order-popup').removeClass('active');
+      $('.sideform').removeClass('sideform-active');
     });
     // events handler form end
 

@@ -187,9 +187,11 @@ function fsm() {
             this.preloaderWithoutPercent.show();
             this.preloaderWithoutPercent.hide();
           }
-          this.changeViewBlock(config.id);
-          this.compass(this[config.id].currentCompassDeg);
-          this.iteratingConfig();
+          setTimeout(() => {
+            this.changeViewBlock(config.id);
+            this.compass(this[config.id].currentCompassDeg);
+            this.iteratingConfig();
+          }, 400);
         },
         search(config, change) {
           if (this[config.id] === undefined) {
@@ -227,19 +229,21 @@ function fsm() {
       },
       plannings: {
         general(config) {
+          this.preloaderWithoutPercent.show();
           if (!this.plannings) {
-            this.preloaderWithoutPercent.show();
             // this.preloader.show();
             // this.preloader.turnOff($('.js-s3d-ctr__open-filter'));
             this.plannings = new Plannings(config);
             this.plannings.init();
           } else {
-            this.preloaderWithoutPercent.show();
+            // this.preloaderWithoutPercent.show();
             this.preloaderWithoutPercent.hide();
             // this.emit('animateChangeBlock');
           }
-          this.changeViewBlock(this.fsm.state);
-          this.iteratingConfig();
+          setTimeout(() => {
+            this.changeViewBlock(this.fsm.state);
+            this.iteratingConfig();
+          }, 400);
         },
         resize() {
           this.iteratingConfig();

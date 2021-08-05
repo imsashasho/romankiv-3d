@@ -12,7 +12,7 @@
     background: #ffffff;
     box-shadow: 0 30px 50px rgba(59, 68, 86, .15);
     flex-direction: column;
-    font-weight: 600;
+    font-weight: 400;
     opacity: 0;
     padding: 20px 30px;
     pointer-events: none;
@@ -64,7 +64,7 @@
       width: 100%;
       color: #140101;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 30px;
 
       span {
@@ -162,7 +162,7 @@
         &-type,
         &-place {
           font-size: 10px;
-          font-weight: 600;
+          font-weight: 400;
           line-height: 16px;
         }
       }

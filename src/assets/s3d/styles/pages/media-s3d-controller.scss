@@ -87,7 +87,8 @@
     &-ctr{
       grid-gap: 20px;
       grid-template-columns: 160px 200px 46px 1fr 1fr 1fr;
-      grid-template-rows: var(--s3d-header-height) 2px auto auto 1fr auto auto;
+      grid-template-rows: var(--s3d-header-height) auto auto 1fr auto auto;
+      //grid-template-rows: var(--s3d-header-height) 2px auto auto 1fr auto auto;
       &__compass {
         height: 63px;
         width: 63px;
@@ -144,7 +145,8 @@
   .s3d {
     &-ctr {
       grid-gap: 15px;
-      grid-template-rows: var(--s3d-header-height) 2px 30px auto 1fr auto auto 50px;
+      grid-template-rows: var(--s3d-header-height) 30px auto 1fr auto auto 50px;
+      //grid-template-rows: var(--s3d-header-height) 2px 30px auto 1fr auto auto 50px;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
       grid-template-areas: '. . . back . .'
       '. . . . . .'
@@ -220,13 +222,20 @@
       }
       &[data-type="flat"] {
         grid-template-areas: '. . filter . . .'
-        '. . . . . .'
         'back back . . favourite favourite'
         'compass . . . . .'
         '. . . . . .'
         'title title title opens opens opens'
         '. . . . . .'
         'buttons buttons buttons buttons buttons buttons';
+        //grid-template-areas: '. . filter . . .'
+        //'. . . . . .'
+        //'back back . . favourite favourite'
+        //'compass . . . . .'
+        //'. . . . . .'
+        //'title title title opens opens opens'
+        //'. . . . . .'
+        //'buttons buttons buttons buttons buttons buttons';
       }
       &__return {
         padding: 0 0 0 20px;
@@ -245,14 +254,21 @@
   .s3d {
     &-ctr {
       &[data-type="plannings"], &[data-type="favourites"] {
-        grid-template-rows: var(--s3d-header-height) 0 auto 45px 1fr auto 50px;
+        grid-template-rows: var(--s3d-header-height) auto 45px 1fr auto 50px;
+        //grid-template-rows: var(--s3d-header-height) 0 auto 45px 1fr auto 50px;
         grid-template-areas: '. . . . . .'
-        '. . . . . .'
         'back back filter filter filter filter'
         'compass . . . favourite favourite'
         '. . . . . .'
         'title title title opens opens opens'
         'buttons buttons buttons buttons buttons buttons';
+        //grid-template-areas: '. . . . . .'
+        //'. . . . . .'
+        //'back back filter filter filter filter'
+        //'compass . . . favourite favourite'
+        //'. . . . . .'
+        //'title title title opens opens opens'
+        //'buttons buttons buttons buttons buttons buttons';
         .s3d-ctr {
           &__open {
             &-filter {

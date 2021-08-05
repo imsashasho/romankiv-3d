@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import gsap from 'gsap';
+import BezierEasing from 'bezier-easing';
 
 function addBlur(wrap, time) {
   $(wrap).addClass('s3d-blur');
@@ -54,23 +56,41 @@ function preloader() {
 }
 
 function preloaderWithoutPercent() {
+  const container = document.querySelector('.js-s3d-preloader');
+  const logoContainer = document.querySelector('.js-s3d-preloader-logo');
+  const bgContainer = document.querySelector('.js-s3d-preloader-bg');
+  const easing = new BezierEasing(0, 1, 1, 0);
+
+  const animate = gsap.timeline({
+    duration: 0.8,
+    ease: easing,
+  });
+
   return {
     isAnimating: false,
     show() {
-      this.isAnimating = true
-      $('.js-s3d-preloader').addClass('preloader-active');
-      // $('.js-s3d-preloader-bg').css({ filter: 'blur(10px)' });
-      setTimeout(() => { this.isAnimating = false; });
+      this.isAnimating = true;
+      container.classList.add('preloader-active');
+      animate.fromTo(container, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 })
+        .fromTo(bgContainer, { y: '100%' }, { y: 0 }, '>')
+        .fromTo(logoContainer, { autoAlpha: 0 }, { autoAlpha: 1 }, '>')
+        .then(() => {
+          this.isAnimating = false;
+        });
     },
     hide() {
       if (!this.isAnimating) {
-        $('.js-s3d-preloader').removeClass('preloader-active');
-        // $('.js-s3d-preloader-bg').css({ filter: 'none' });
-        return;
+        animate.fromTo(logoContainer, { autoAlpha: 1 }, { autoAlpha: 0 })
+          .fromTo(bgContainer, { y: 0 }, { y: '-100%' }, '>')
+          .fromTo(container, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.3 }, '>')
+          .then(() => {
+            container.classList.remove('preloader-active');
+          });
+      } else {
+        setTimeout(() => {
+          this.hide();
+        }, 300);
       }
-      setTimeout(() => {
-        this.hide();
-      }, 500);
     },
   };
 }
