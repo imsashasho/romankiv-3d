@@ -37,7 +37,8 @@
     grid-template-areas: 'content';
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: calc(var(--s3d-margin-top) + 65px);
+    padding-top: calc(var(--s3d-header-height) + 30px);
+    //padding-top: calc(var(--s3d-margin-top) + 65px);
     &__list {
       grid-gap: 10px 25px;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

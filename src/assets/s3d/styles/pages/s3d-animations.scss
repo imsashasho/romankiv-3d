@@ -53,12 +53,29 @@
 }
 @keyframes s3dAnimateArrowHelperGif {
   from {
-    transform: translateX(-30%);
+    transform: translateX(0);
   }
   50% {
     transform: translateX(30%);
   }
   to {
-    transform: translateX(-30%);
+    transform: translateX(0);
+  }
+}
+
+@keyframes s3dPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(246, 82, 117, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(246, 82, 117, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(246, 82, 117, 0);
   }
 }

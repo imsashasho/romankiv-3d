@@ -1,6 +1,7 @@
 <?php
 echo json_encode('<div class="s3d-flat js-s3d-flat">
         <div class="s3d-flat__left">
+          <div class="s3d-flat__left-bg"></div>
           <div class="s3d-flat__card js-s3d-flat__card">
             <div class="s3d-flat__mini-info">
               <div class="s3d-mini-info">

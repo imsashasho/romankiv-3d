@@ -35,11 +35,11 @@
       transition: fill .3s ease-in;
     }
     &-left {
-      left: 50px;
+      left: 72px;
     }
 
     &-right {
-      right: 50px;
+      right: 72px;
     }
   }
   &__slider{
@@ -52,10 +52,8 @@
       z-index: 155;
       &-top{
         top: 0;
-        height: 112px;
-        //height: 30vh;
+        height: var(--s3d-header-height);
         background: rgba(255, 255, 255, 0.9);
-        //background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
       }
       &-bottom{
         bottom: 0;

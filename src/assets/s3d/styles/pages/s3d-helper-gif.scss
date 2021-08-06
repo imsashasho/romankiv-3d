@@ -71,20 +71,35 @@
     margin-top: 30px;
   }
   &__link {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90px;
     width: 90px;
     border-radius: 50%;
-    background: #F65275;
+    //background: #F65275;
     cursor: pointer;
+    animation: s3dAnimateArrowHelperGif 2s cubic-bezier(.32,.87,.42,1) infinite;
+    //animation: s3dAnimateArrowHelperGif 2s cubic-bezier(.32,.87,.42,1) infinite, s3dPulse 1s cubic-bezier(.32,.87,.42,1) infinite;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background: #F65275;
+      border-radius: 50%;
+      z-index: -1;
+      animation: s3dPulse 1s infinite;
+    }
     &-arrow {
       display: inline-block;
       height: 40%;
       width: 40%;
       stroke: $wc;
-      animation: s3dAnimateArrowHelperGif 2s cubic-bezier(.32,.87,.42,1) infinite;
     }
   }
   &__gif {

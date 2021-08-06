@@ -23,11 +23,11 @@ $name-project: 'bogun';
   --s3d-font-size-s: 10px;
   --s3d-font-size-m: 14px;
   --s3d-font-size-table: 13px;
-  --s3d-header-height: 130px;
+  --s3d-header-height: 146px;
   //--s3d-header-height: 50px;
   --s3d-header-margin: 0px;
   //--s3d-header-margin: 50px;
-  --s3d-content-margin-top: 0px;
+  --s3d-content-margin-top: 20px;
   //--s3d-content-margin-top: 30px;
   --s3d-margin-top: calc(var(--s3d-header-margin) + var(--s3d-header-height) + var(--s3d-content-margin-top));
 }
@@ -37,6 +37,7 @@ $name-project: 'bogun';
     --s3d-title: 30px;
     --s3d-font-size-m: 12px;
     --s3d-font-size-table: 11px;
+    --s3d-header-height: 112px;
   }
 }
 
@@ -51,12 +52,13 @@ $name-project: 'bogun';
     --s3d-title: 24px;
     --s3d-font-size-m: 12px;
     --s3d-font-size-table: 10px;
-    --s3d-header-margin: 20px;
+    --s3d-header-height: 70px;
+    //--s3d-header-margin: 20px;
   }
 }
 
-@media screen and (max-width:680px){
-  :root{
-    --s3d-header-height: 40px;
-  }
-}
+//@media screen and (max-width:680px){
+//  :root{
+//    --s3d-header-height: 50px;
+//  }
+//}

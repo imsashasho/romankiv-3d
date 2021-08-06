@@ -24,7 +24,8 @@
     max-height: 100vh;
     display: grid;
     padding: 0;
-    grid-template-columns: 220px 220px 65px 1fr 1fr 70px minmax(200px, 0.7fr) minmax(200px, 0.7fr);
+    grid-template-columns: 225px 325px 90px 1fr 1fr 70px minmax(200px, 0.7fr) minmax(200px, 0.7fr);
+    //grid-template-columns: 220px 220px 65px 1fr 1fr 70px minmax(200px, 0.7fr) minmax(200px, 0.7fr);
     grid-template-rows: var(--s3d-margin-top) auto auto auto 1fr auto auto auto 40px;
     grid-template-areas:
     'info info . .       .       .  .     .'
@@ -57,7 +58,8 @@
       align-items: flex-start;
       height: 100%;
       width: 100%;
-      padding: var(--s3d-margin-top) 0 39px 0;
+      padding: 0 0 39px 0;
+      //padding: var(--s3d-margin-top) 0 39px 0;
       background: url("/wp-content/themes/#{$name-project}/assets/s3d/images/flat-bg.jpg") center /cover;
       &-buttons {
         display: flex;
@@ -67,6 +69,12 @@
         align-content: center;
         width: calc(100% - 190px);
         margin: auto 0 0 190px;
+      }
+      &-bg {
+        display: inline-block;
+        height: var(--s3d-margin-top);
+        width: 100%;
+        background: #eeeeee;
       }
     }
     &__right {
@@ -395,7 +403,7 @@
       display: flex;
       height: auto;
       flex: 1 0 20%;
-      margin: 20px 0 0;
+      margin: 30px 0 0;
       cursor: pointer;
       span{
         display: flex;
@@ -551,7 +559,7 @@
     align-items: flex-start;
     flex: 0 1 auto;
     height: 60px;
-    padding: 0 30px;
+    padding: 0 40px;
     border-left: 2px solid rgba(255, 255, 255, 0.2);
     grid-area: mini;
     &:nth-child(1) {
@@ -561,7 +569,7 @@
     &__title{
       font-family: $default-font;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 1em;
       text-transform: capitalize;
       color: $wc;
@@ -573,7 +581,8 @@
       margin: 0 0 15px 0;
       font-family: $default-font;
       font-weight: 400;
-      font-size: 36px;
+      font-size: 48px;
+      letter-spacing: -0.02em;
       line-height: 1em;
       color: $wc;
     }

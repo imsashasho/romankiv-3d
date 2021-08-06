@@ -173,11 +173,11 @@
   }
 
   &-header {
-    background: none;
     //background: rgba(255, 255, 255, 0.9);
+    background: none;
     .header-content {
-      max-height: 130px;
-      padding: 0 50px;
+      height: var(--s3d-header-height);
+      padding: 0 72px;
     }
     .header-left, .header-right {
       width: initial;

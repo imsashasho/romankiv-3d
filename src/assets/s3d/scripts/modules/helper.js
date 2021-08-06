@@ -142,13 +142,16 @@ class Helper {
 class HelperGif {
   constructor(data) {
     this.currentWindow = 0;
+    this.easing = new BezierEasing(0, 1, 1, 0);
+    this.animation = gsap.timeline({ duration: 0.4, ease: this.easing });
   }
 
   async init() {
     // if (status === 'local') {
     await $.ajax(`${defaultModulePath}template/helperGif.php`)
       .then(helper => {
-        document.querySelector('.js-s3d__slideModule')
+        // document.querySelector('.js-s3d__slideModule')
+        document.querySelector('body')
           .insertAdjacentHTML('afterend', JSON.parse(helper));
       });
     // } else {
@@ -178,6 +181,7 @@ class HelperGif {
       }
       this.update(this.conf[this.currentWindow]);
     });
+
     const openHelper = $('.js-s3d-ctr__open-helper');
     if (_.size(openHelper) > 0) {
       openHelper.on('click', () => {
@@ -192,10 +196,13 @@ class HelperGif {
     });
 
     if (window.localStorage.getItem('info')) return;
-    this.updateContent(this.conf[0]);
-    this.triggerGif(this.currentWindow);
+    this.updateContent(this.conf[0], () => {
+      this.triggerGif(this.currentWindow);
+    });
     this.wrap.querySelector('[data-all_count]').innerHTML = this.conf.length;
-    this.showHelper();
+    setTimeout(() => {
+      this.showHelper();
+    }, 500);
   }
 
   setConfig(config) {
@@ -208,9 +215,10 @@ class HelperGif {
   }
 
   update(conf) {
-    this.updateContent(conf);
-    this.triggerGif(this.currentWindow, 'hide');
-    this.triggerGif(this.currentWindow + 1);
+    this.updateContent(conf, () => {
+      this.triggerGif(this.currentWindow, 'hide');
+      this.triggerGif(this.currentWindow + 1);
+    });
     // const promise = new Promise(callback => {
     //   helper.style.opacity = 0;
     //   setTimeout(() => {
@@ -235,12 +243,29 @@ class HelperGif {
     this.triggerGif(this.currentWindow, 'hide');
   }
 
-  updateContent(config) {
+  updateContent(config, cb) {
     const helper = document.querySelector('.js-s3d__helper-gif');
     helper.dataset.step = this.currentWindow;
-    this.wrap.querySelector('[data-type="title"]').innerHTML = config.title;
-    this.wrap.querySelector('[data-type="close"]').innerHTML = config.close;
-    this.wrap.querySelector('[data-current_count]').innerHTML = this.currentWindow + 1;
+
+    const titleContainer = this.wrap.querySelector('[data-type="title"]');
+    const closeContainer = this.wrap.querySelector('[data-type="close"]');
+    const groupContainer = this.wrap.querySelector('.s3d__helper-gif__group');
+    const countCurrentContainer = this.wrap.querySelector('[data-current_count]');
+    console.log(closeContainer);
+    this.animation
+      .fromTo(titleContainer, { opacity: 1 }, { opacity: 0 })
+      .fromTo(closeContainer, { opacity: 1 }, { opacity: 0 }, '<')
+      .fromTo(groupContainer, { opacity: 1 }, { opacity: 0 }, '<')
+      .then(() => {
+        titleContainer.innerHTML = config.title;
+        closeContainer.innerHTML = config.close;
+        countCurrentContainer.innerHTML = this.currentWindow + 1;
+        cb();
+        this.animation
+          .fromTo(titleContainer, { opacity: 0 }, { opacity: 1 })
+          .fromTo(closeContainer, { opacity: 0 }, { opacity: 1 }, '<')
+          .fromTo(groupContainer, { opacity: 0 }, { opacity: 1 }, '<');
+      }, '>');
   }
 
   triggerGif(num, type = 'show') {
