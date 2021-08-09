@@ -155,58 +155,58 @@
     }
   }
 }
-
-@media screen and (min-width: 768px) and (max-width: 992px) {
-  .s3d {
-    &-filter {
-      &-wrap {
-        &[data-type="plannings"] {
-          width: 100%;
-          height: auto;
-          box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.6);
-          .s3d-filter {
-            width: 100%;
-            &__table {
-              display: none;
-            }
-            &__button{
-              &--reset {
-                margin: auto 0 0 auto;
-                span {
-                  display: block;
-                }
-              }
-              &--apply {
-                height: 30px;
-                width: 150px;
-              }
-            }
-            &__close {
-              &-wrap {
-                right: 30px;
-                height: 30px;
-                width: 30px;
-                padding: 0;
-                transform: none;
-                background: none;
-                z-index: 12;
-              }
-            }
-            &__amount-flat {
-              display: none;
-            }
-            &__hide {
-              display: none;
-            }
-            &-select__input--wrap {
-              font-size: 12px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//
+//@media screen and (min-width: 768px) and (max-width: 992px) {
+//  .s3d {
+//    &-filter {
+//      &-wrap {
+//        &[data-type="plannings"] {
+//          width: 100%;
+//          height: auto;
+//          box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.6);
+//          .s3d-filter {
+//            width: 100%;
+//            &__table {
+//              display: none;
+//            }
+//            &__button{
+//              &--reset {
+//                margin: auto 0 0 auto;
+//                span {
+//                  display: block;
+//                }
+//              }
+//              &--apply {
+//                height: 30px;
+//                width: 150px;
+//              }
+//            }
+//            &__close {
+//              &-wrap {
+//                right: 30px;
+//                height: 30px;
+//                width: 30px;
+//                padding: 0;
+//                transform: none;
+//                background: none;
+//                z-index: 12;
+//              }
+//            }
+//            &__amount-flat {
+//              display: none;
+//            }
+//            &__hide {
+//              display: none;
+//            }
+//            &-select__input--wrap {
+//              font-size: 12px;
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
 
 
 @media screen and (max-width: 600px) {
@@ -227,6 +227,9 @@
         }
       }
       &__head {
+        padding: 0 10px;
+      }
+      &__tr {
         padding: 0 10px;
       }
       &__button{
@@ -255,7 +258,7 @@
       }
       &__close {
         &-wrap {
-          top: calc(var(--s3d-header-height) + 20px + 12px);
+          top: calc(var(--s3d-header-height) + 12px);
           right: 10px;
           height: 30px;
           width: 30px;

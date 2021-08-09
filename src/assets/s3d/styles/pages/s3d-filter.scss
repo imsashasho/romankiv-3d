@@ -60,6 +60,21 @@
       .s3d__favourites {
         margin: 0 0 0 auto;
       }
+
+      &[data-type="plannings"] {
+        .s3d-filter__table {
+          display: none;
+        }
+        .s3d-filter__bg {
+          display: inline-block;
+        }
+        .s3d-filter__amount-flat {
+          display: none;
+        }
+        .s3d-filter__hide {
+          display: none;
+        }
+      }
     }
 
     &__title {

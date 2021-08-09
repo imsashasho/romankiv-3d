@@ -40,6 +40,20 @@
 
 @media screen and (max-width: 992px) {
   .s3d {
+    &__button {
+      //width: 40px;
+      //height: 40px;
+      &-right {
+        right: 30px;
+      }
+      &-left {
+        left: 30px;
+      }
+      svg {
+        width: 14px;
+        height: 12px;
+      }
+    }
     &-infoBox {
       grid-column: 3 / 7;
     }

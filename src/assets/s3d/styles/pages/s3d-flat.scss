@@ -120,6 +120,7 @@
     }
     &__table {
       width: 100%;
+      border-collapse: collapse;
       sup {
         position: absolute;
         transform: translateY(-0.5em);
@@ -176,7 +177,6 @@
           width: 100%;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-        //border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
       &:nth-child(3) {
         height: calc(1em + 30px);

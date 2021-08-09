@@ -108,12 +108,13 @@
       &__open {
         &-filter {
           height: 50px;
+          width: 206px;
           margin: 0 auto 0 50px;
           &__icon {
             width: 50px;
           }
           &__text {
-            padding: 0 32px 0 25px;
+            padding: 0 0 0 25px;
           }
           &__logo {
             width: 50px;
@@ -152,22 +153,23 @@
 @media screen and (max-width: 992px) {
   .s3d {
     &-ctr {
-      grid-gap: 30px 20px;
-      grid-template-rows: var(--s3d-header-height) 30px auto 1fr auto 50px;
+      grid-gap: 30px 30px;
+      grid-template-rows: var(--s3d-header-height) 50px auto 1fr auto 50px;
       //grid-template-rows: var(--s3d-header-height) 2px 30px auto 1fr auto auto 50px;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-areas: '. . back . . .'
+      grid-template-areas: '. . back back . .'
       'filter filter . . favourite favourite'
       'compass . . . . .'
       '. . . . . .'
       'title title title opens opens opens'
       'buttons buttons buttons buttons buttons buttons';
-      padding: 0;
+      padding: 0 30px;
       //padding: 50px 0 0;
       &__elem {
         flex-direction: row;
-        width: 100%;
         padding: 0;
+        width: calc(100% + 60px);
+        margin-left: -30px;
         &__title {
           display: none;
         }
@@ -180,11 +182,9 @@
         flex: 1 1 100%;
         height: 50px;
         justify-content: center;
-        //text-align: center;
         align-content: center;
         align-items: center;
         flex-direction: row;
-        //background: rgba(0, 114, 117, 1);
         &:disabled {
           background: rgba(114, 114, 114, 1);
         }
@@ -215,15 +215,15 @@
       }
 
       &__title {
-        margin: auto 0 0 20px;
+        margin: auto 0 0 30px;
       }
       &__open {
-        margin: auto 20px 0 auto;
+        margin: auto 0 0 auto;
         &-helper {
           margin: auto 15px 0 auto;
         }
         &-filter {
-          margin: 0 auto 0 20px;
+          margin: 0 auto 0 0;
         }
       }
       &__favourites {
@@ -246,8 +246,25 @@
         //'. . . . . .'
         //'buttons buttons buttons buttons buttons buttons';
       }
+      &[data-type="plannings"], &[data-type="favourites"] {
+        grid-template-rows: var(--s3d-header-height) auto 45px 1fr auto 50px;
+        grid-template-areas: '. . back back . .'
+        '. . filter filter favourite favourite'
+        'compass . . . . .'
+        '. . . . . .'
+        'title title title opens opens opens'
+        'buttons buttons buttons buttons buttons buttons';
+        .s3d-ctr {
+          &__open {
+            &-filter {
+              margin: 0;
+            }
+          }
+        }
+      }
       &__return {
-        padding: 0 0 0 20px;
+        padding: 0;
+        margin: 0 0 0 10px;
       }
       &__toHome {
         svg {
@@ -259,41 +276,41 @@
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 992px) {
-  .s3d {
-    &-ctr {
-      &[data-type="plannings"], &[data-type="favourites"] {
-        grid-template-rows: var(--s3d-header-height) auto 45px 1fr auto 50px;
-        //grid-template-rows: var(--s3d-header-height) 0 auto 45px 1fr auto 50px;
-        grid-template-areas: '. . back back . .'
-        '. . filter filter favourite favourite'
-        'compass . . . . .'
-        '. . . . . .'
-        'title title title opens opens opens'
-        'buttons buttons buttons buttons buttons buttons';
-        //grid-template-areas: '. . . . . .'
-        //'. . . . . .'
-        //'back back filter filter filter filter'
-        //'compass . . . favourite favourite'
-        //'. . . . . .'
-        //'title title title opens opens opens'
-        //'buttons buttons buttons buttons buttons buttons';
-        padding: 0 20px;
-        .s3d-ctr {
-          &__elem {
-            width: calc(100% + 40px);
-            margin-left: -20px;
-          }
-          &__open {
-            &-filter {
-              margin: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//@media screen and (min-width: 600px) and (max-width: 992px) {
+//  .s3d {
+//    &-ctr {
+//      &[data-type="plannings"], &[data-type="favourites"] {
+//        grid-template-rows: var(--s3d-header-height) auto 45px 1fr auto 50px;
+//        //grid-template-rows: var(--s3d-header-height) 0 auto 45px 1fr auto 50px;
+//        grid-template-areas: '. . back back . .'
+//        '. . filter filter favourite favourite'
+//        'compass . . . . .'
+//        '. . . . . .'
+//        'title title title opens opens opens'
+//        'buttons buttons buttons buttons buttons buttons';
+//        //grid-template-areas: '. . . . . .'
+//        //'. . . . . .'
+//        //'back back filter filter filter filter'
+//        //'compass . . . favourite favourite'
+//        //'. . . . . .'
+//        //'title title title opens opens opens'
+//        //'buttons buttons buttons buttons buttons buttons';
+//        //padding: 0 30px;
+//        .s3d-ctr {
+//          &__elem {
+//            width: calc(100% + 60px);
+//            margin-left: -30px;
+//          }
+//          &__open {
+//            &-filter {
+//              margin: 0;
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
 
 @media screen and (max-width: 767px) {
   .s3d {
@@ -316,7 +333,8 @@
 
 @media screen and (max-width: 600px) {
   .s3d {
-    &-ctr{
+    &-ctr {
+      gap: 30px 10px;
       grid-template-rows: calc(var(--s3d-header-height) +  var(--s3d-header-margin)) 40px auto 1fr auto 40px;
       grid-template-areas: '. . back . . .'
       'filter filter filter . favourite favourite'
@@ -324,9 +342,13 @@
       '. . . . . .'
       'title title title title title opens'
       'buttons buttons buttons buttons buttons buttons';
-      padding: 20px 0 0;
+      padding: 0;
       &__compass {
         display: none;
+      }
+      &__elem {
+        width: 100%;
+        margin-left: 0;
       }
       &__open {
         margin: auto 15px 0 auto;
@@ -375,6 +397,8 @@
         height: 40px;
         width: 40px;
         margin: auto 15px 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
         background: $color1;
         &--text {
           display: none;
@@ -392,7 +416,7 @@
           font-size: 8px;
           border-radius: 50%;
           background: $wc;
-          color: $color1;
+          color: $colorTextM;
           z-index: 5;
           &:before {
             display: none;
@@ -422,18 +446,20 @@
           display: none;
         }
       }
-      &[data-type="plannings"] {
+      &[data-type="plannings"], &[data-type="favourites"] {
         grid-template-areas: '. . . . . .'
-        'back back  . . favourite filter'
+        'back back  . . filter favourite'
         'compass . . . . .'
         '. . . . . .'
         'title title title opens opens opens'
         'buttons buttons buttons buttons buttons buttons';
         .s3d-ctr__open-filter{
-          margin: 0 15px 0 auto;
+          margin: 0 0 0 auto;
+          border-radius: 50%;
         }
         .s3d-ctr__favourites {
-          margin: auto 0 0 auto;
+          margin: auto auto 0 0;
+          visibility: visible!important;
         }
       }
     }

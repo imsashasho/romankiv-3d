@@ -19,7 +19,7 @@ $name-project: 'bogun';
 
 :root{
 
-  --s3d-title: 36px;
+  --s3d-title: 48px;
   --s3d-font-size-s: 10px;
   --s3d-font-size-m: 14px;
   --s3d-font-size-table: 13px;
@@ -49,7 +49,7 @@ $name-project: 'bogun';
 }
 @media screen and (max-width:600px){
   :root{
-    --s3d-title: 24px;
+    --s3d-title: 18px;
     --s3d-font-size-m: 12px;
     --s3d-font-size-table: 10px;
     --s3d-header-height: 70px;

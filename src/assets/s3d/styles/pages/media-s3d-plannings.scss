@@ -35,12 +35,12 @@
   .s3d-fv, .s3d-pl{
     grid-template-columns: 1fr;
     grid-template-areas: 'content';
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-top: calc(var(--s3d-header-height) + 30px);
     //padding-top: calc(var(--s3d-margin-top) + 65px);
     &__list {
-      grid-gap: 10px 25px;
+      grid-gap: 20px 20px;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
   }
@@ -52,15 +52,18 @@
     grid-template-areas: 'content';
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: var(--s3d-margin-top);
+    padding-top: calc(var(--s3d-margin-top) + 15px);
     &__list {
       max-height: calc(100% - 50px);
       grid-gap: 13px;
       grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
       margin-top: 15px;
     }
+    &__title {
+      font-size: 18px;
+    }
     &__amount-flat {
-      margin: 6px auto 0 0;
+      margin: 10px auto 0 0;
     }
   }
 }

@@ -77,7 +77,6 @@ class FlatsList {
       }
 
       if (window.innerWidth <= 992) {
-        console.log(this);
         this.filter.emit('hideFilter');
       }
       this.updateFsm(config, id);

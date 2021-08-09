@@ -91,10 +91,7 @@
         padding: 0 0 30px 0;
       }
       &__list {
-        padding: 17px 30px 17px 0;
-      }
-      &__el {
-        padding: 8px 0;
+        padding: 33px 30px 17px 0;
       }
       &__card {
         max-height: calc(100% - 180px);
@@ -169,10 +166,11 @@
       height: 100%;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 0 20px 0 0;
-      grid-template-columns: 254px 20px 1fr auto;
-      grid-template-rows: var(--s3d-margin-top) auto auto auto 1fr auto auto auto 50px;
+      padding: 0 30px 0 0;
+      grid-template-columns: 33.33vw 30px 1fr auto;
+      grid-template-rows: var(--s3d-margin-top) 30px auto auto auto 1fr auto auto auto 50px;
       grid-template-areas:
+          'info . . .'
           'info . . .'
           'info . title favourite'
           'info . links links'
@@ -186,7 +184,7 @@
         position: fixed;
         top: 0;
         height: calc(var(--vh, 1vh) * 100 - 50px);
-        width: 256px;
+        width: 33.33vw;
         padding: 0;
         //padding: calc(var(--s3d-margin-top) + 43px) 0 0 0;
         &-buttons {
@@ -202,14 +200,14 @@
       }
       &__card {
         max-height: calc(100% - 100px);
-        padding: 25px 20px;
+        padding: 30px 20px;
       }
 
       //&__compass {
       //  margin: 0 0 20px 0;
       //}
       &__mini-info {
-        padding: 15px 15px 15px 0;
+        padding: 0;
       }
       &__image {
         max-width: none;
@@ -228,8 +226,7 @@
       }
       &__el {
         height: calc(1em + 15px);
-        font-size: 12px;
-        color: $colorTextM;
+        font-size: 11px;
         &:nth-child(1) .s3d-flat__el__name,
         &:nth-child(2) .s3d-flat__el__name {
           font-size: 14px;
@@ -243,6 +240,7 @@
       &__callback {
         margin: 30px 5px 0;
         max-width: 360px;
+        padding: 0 10px;
         &-wrap {
           margin: 0;
         }
@@ -274,11 +272,6 @@
       }
       &__amount {
         font-size: 30px;
-        margin-top: 10px;
-        color: $colorTextM;
-      }
-      &__title {
-        color: $colorTextM;
       }
     }
   }
@@ -294,7 +287,8 @@
         height: 40px;
         width: 40px;
         margin: auto 0 0 auto;
-        background: $color2;
+        border-radius: 50%;
+        background: $color1;
         &--text {
           display: none;
         }
@@ -318,6 +312,9 @@
         }
         &-icon {
           margin: 0;
+          svg {
+            fill: $wc;
+          }
         }
       }
       &__show-3d {
@@ -360,7 +357,7 @@
       &__left {
         position: static;
         height: initial;
-        width: auto;
+        width: 100%;
         padding: 0;
         margin: 0 auto;
         flex-direction: row;
@@ -369,40 +366,73 @@
         &-buttons {
           flex-direction: row;
           flex-wrap: wrap;
-          margin: 20px 0;
+          margin: 20px 0 0;
+        }
+        &-bg {
+          display: none;
         }
       }
       &__right {
         padding: 0 10px 30px;
       }
+      &__el {
+        height: calc(1em + 11px);
+        font-size: 10px;
+        color: $colorTextM;
+        &:nth-child(2) {
+          &:after {
+            border-bottom: 1px solid rgba(85, 85, 104, 0.2);
+          }
+        }
+      }
       &__pdf {
-        margin: 0 auto;
+        margin: 0 auto 0 0;
+        color: $colorTextM;
+        &-icon {
+          margin: 0 0 0 10px;
+          svg {
+            fill: $colorTextM;
+          }
+        }
       }
       &__compass {
         order: 3;
-        margin: 0 auto;
+        margin: 0 0 0 auto;
       }
       &__mini-info {
-        padding: 20px 35px;
+        padding: 0 15px;
       }
       &__title {
         padding: 0;
       }
+      &__image {
+        padding: 0;
+      }
       &__list {
-        padding: 20px 35px;
+        padding: 30px 0 0;
       }
       &__links {
         padding: 0;
         margin: 0;
       }
-      &__button span{
-        width: auto;
-        padding: 0 20px;
+      &__floor {
+        margin: 40px 0 0 0;
+      }
+      &__button {
+        height: 28px;
+        span{
+          width: auto;
+          padding: 0 20px;
+        }
       }
       &__callback {
-        flex: 1 1 100%;
+        flex: 1 1 50%;
         max-width: none;
-        margin: 20px 0 0;
+        margin: 20px 10px 0;
+        line-height: 1.4em;
+        &-wrap {
+          flex-wrap: nowrap;
+        }
       }
       &__mobile__header__bg {
         width: calc(100% + 30px);
@@ -410,6 +440,27 @@
         margin: 0 0 0 -15px;
         grid-row: 1 /span 2;
         grid-column: 1 /span 2;
+      }
+    }
+    &-mini-info {
+      padding: 0;
+      flex-grow: 1;
+      align-items: center;
+      &:nth-child(1) {
+
+      }
+      &:nth-child(2) {
+        flex-grow: 2;
+      }
+      &:nth-child(3) {
+      }
+      &__amount {
+        font-size: 30px;
+        //margin-top: 10px;
+        color: $colorTextM;
+      }
+      &__title {
+        color: $colorTextM;
       }
     }
   }
