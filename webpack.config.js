@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
-  // mode: 'production',
-  mode: 'development',
+  mode: 'production',
+  // mode: 'development',
   entry: {
     index: './src/assets/s3d/scripts/index-app.js',
   },
