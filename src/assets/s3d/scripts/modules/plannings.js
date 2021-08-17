@@ -33,7 +33,8 @@ class Plannings {
         setTimeout(() => {
           // this.preloader.turnOff($('.js-s3d__select[data-type="plannings"]'));
           // this.preloader.hide();
-          this.preloaderWithoutPercent.hide();
+          // this.preloaderWithoutPercent.hide();
+          this.preloader.hide();
         }, 600);
       });
     } else {
@@ -43,10 +44,12 @@ class Plannings {
       }).then(response => {
         this.templateCard = JSON.parse(response);
         this.subscribeFilterFlat();
+
         setTimeout(() => {
-          // this.preloader.turnOff($('.js-s3d__select[data-type="plannings"]'));
-          // this.preloader.hide();
-          this.preloaderWithoutPercent.hide();
+          this.preloader.hide();
+          this.preloader.miniOff();
+          this.preloader.turnOff($('.js-s3d__select[data-type="plannings"]'));
+          // this.preloaderWithoutPercent.hide();
         }, 600);
       });
     }

@@ -144,15 +144,18 @@ class AppModel extends EventEmitter {
   }
 
   getParamPlannings(searchParams) {
-    return searchParams;
+    return {
+      type: 'plannings',
+    };
+    // return searchParams;
   }
 
   getParam(searchParams, id) {
     const conf = {
-      type: searchParams['s3d_type'],
+      type: searchParams['type'],
     };
 
-    switch (searchParams['s3d_type']) {
+    switch (searchParams['type']) {
         case 'flyby':
           conf['flyby'] = _.has(searchParams, 'flyby') ? searchParams['flyby'] : '1';
           conf['side'] = _.has(searchParams, 'side') ? searchParams['side'] : 'outside';
@@ -185,10 +188,10 @@ class AppModel extends EventEmitter {
     const searchParams = this.parseUrl();
     const id = _.has(searchParams, 'id') ? _.toNumber(searchParams.id) : undefined;
     const flat = this.getFlat(id);
-    const hasConfigPage = Object.keys(this.config).includes(searchParams['s3d_type']);
-    if (!_.has(searchParams, 's3d_type') || !hasConfigPage) return this.getParamDefault(searchParams, flat);
+    const hasConfigPage = Object.keys(this.config).includes(searchParams['type']);
+    if (!_.has(searchParams, 'type') || !hasConfigPage) return this.getParamDefault(searchParams, flat);
 
-    switch (searchParams['s3d_type']) {
+    switch (searchParams['type']) {
         case 'flyby':
           return this.getParamFlyby(searchParams, flat);
         case 'plannings':

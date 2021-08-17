@@ -147,22 +147,13 @@ class HelperGif {
   }
 
   async init() {
-    // if (status === 'local') {
     await $.ajax(`${defaultModulePath}template/helperGif.php`)
       .then(helper => {
         // document.querySelector('.js-s3d__slideModule')
         document.querySelector('body')
           .insertAdjacentHTML('afterend', JSON.parse(helper));
       });
-    // } else {
-    // await $.ajax('/wp-admin/admin-ajax.php', {
-    //   method: 'POST',
-    //   data: { action: 'getHelper' },
-    // }).then(helper => {
-    //   document.querySelector('.js-s3d__slideModule')
-    //     .insertAdjacentHTML('beforeend', JSON.parse(helper));
-    // });
-    // }
+
     this.wrap = document.querySelector('.js-s3d__helper-gif-wrap');
 
     await $.ajax(`${defaultStaticPath}configHelperGif.json`)
@@ -173,7 +164,6 @@ class HelperGif {
     });
 
     $('.js-s3d__helper-gif__link').on('click', () => {
-      // $('.js-s3d__helper__content').removeClass('s3d-active');
       this.currentWindow++;
       if (this.conf.length <= this.currentWindow) {
         this.hiddenHelper();
@@ -219,18 +209,6 @@ class HelperGif {
       this.triggerGif(this.currentWindow, 'hide');
       this.triggerGif(this.currentWindow + 1);
     });
-    // const promise = new Promise(callback => {
-    //   helper.style.opacity = 0;
-    //   setTimeout(() => {
-    //     callback();
-    //   }, 250);
-    // });
-    // promise.then(() => {
-    //   helper.dataset.step = this.currentWindow;
-    //   this.updateContent(conf);
-    // }).then(() => {
-    //   helper.style.opacity = 1;
-    // });
   }
 
   showHelper() {
@@ -251,7 +229,7 @@ class HelperGif {
     const closeContainer = this.wrap.querySelector('[data-type="close"]');
     const groupContainer = this.wrap.querySelector('.s3d__helper-gif__group');
     const countCurrentContainer = this.wrap.querySelector('[data-current_count]');
-    console.log(closeContainer);
+
     this.animation
       .fromTo(titleContainer, { opacity: 1 }, { opacity: 0 })
       .fromTo(closeContainer, { opacity: 1 }, { opacity: 0 }, '<')
@@ -279,22 +257,7 @@ class HelperGif {
       .querySelector('svg')
       .dispatchEvent(new Event('click'));
     animate.fromTo(container, { autoAlpha: prevAlpha }, { autoAlpha: pastAlpha });
-
-    // container.style.visibility = 'visible';
-    // container.style.opacity = 1;
   }
-
-  // hideGif(num) {
-  //   const numId = (num > 0) ? num : 1;
-  //   const container = document.getElementById(`animated-svg-${numId}`);
-  //   container.contentDocument
-  //     .querySelector('svg')
-  //     .dispatchEvent(new Event('click'));
-  //   container.style.opacity = 0;
-  //   // setTimeout(() => {
-  //     container.style.visibility = 'hidden';
-  //   // }, 500);
-  // }
 }
 
 

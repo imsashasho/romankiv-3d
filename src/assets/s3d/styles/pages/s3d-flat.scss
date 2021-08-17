@@ -58,8 +58,8 @@
       align-items: flex-start;
       height: 100%;
       width: 100%;
-      padding: 0 0 39px 0;
-      //padding: var(--s3d-margin-top) 0 39px 0;
+      //padding: 0 0 39px 0;
+      padding: var(--s3d-margin-top) 0 39px 0;
       background: url("/wp-content/themes/#{$name-project}/assets/s3d/images/flat-bg.jpg") center /cover;
       &-buttons {
         display: flex;

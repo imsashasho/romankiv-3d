@@ -31,7 +31,7 @@ function preloader() {
         el.addClass('s3d-unActive').prop('disabled', true);
         return;
       }
-      const arr = ['.s3d__button', '.s3d-ctr__option', '.js-s3d-select[data-type="plannings"]', '.js-s3d-controller__openFilter'];
+      const arr = ['.s3d__button', '.js-s3d-select[data-type="plannings"]', '.js-s3d-controller__openFilter'];
       arr.forEach(name => {
         $(name).addClass('s3d-unActive').prop('disabled', true);
       });

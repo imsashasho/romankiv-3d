@@ -191,8 +191,9 @@ function fsm() {
             this.changeViewBlock(config.id);
             this.compass(this[config.id].currentCompassDeg);
             this.iteratingConfig();
-          }, 400);
+          }, 350);
         },
+
         search(config, change) {
           if (this[config.id] === undefined) {
             this.preloader.show();
@@ -229,13 +230,13 @@ function fsm() {
       },
       plannings: {
         general(config) {
-          this.preloaderWithoutPercent.show();
           if (!this.plannings) {
-            // this.preloader.show();
+            this.preloader.show();
             // this.preloader.turnOff($('.js-s3d-ctr__open-filter'));
             this.plannings = new Plannings(config);
             this.plannings.init();
           } else {
+            this.preloaderWithoutPercent.show();
             // this.preloaderWithoutPercent.show();
             this.preloaderWithoutPercent.hide();
             // this.emit('animateChangeBlock');
@@ -243,7 +244,7 @@ function fsm() {
           setTimeout(() => {
             this.changeViewBlock(this.fsm.state);
             this.iteratingConfig();
-          }, 400);
+          }, 350);
         },
         resize() {
           this.iteratingConfig();
@@ -265,10 +266,11 @@ function fsm() {
             // this.preloader.show();
             // this.emit('animateChangeBlock');
           }
-
-          this.changeViewBlock(this.fsm.state);
-          this.compass(this.flat.currentCompassDeg);
-          this.iteratingConfig();
+          setTimeout(() => {
+            this.changeViewBlock(this.fsm.state);
+            this.compass(this.flat.currentCompassDeg);
+            this.iteratingConfig();
+          }, 350);
           this.flat.update(config);
         },
         resize() {
