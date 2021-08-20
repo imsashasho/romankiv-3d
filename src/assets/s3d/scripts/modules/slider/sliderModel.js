@@ -25,6 +25,12 @@ class SliderModel extends EventEmitter {
     this.history = config.history;
     this.infoBox = config.infoBox;
     this.isInfoBoxMoving = true;
+    this.infoBoxActive = false;
+    this.infoBoxHidden = true;
+
+    this.infoBlockTranslateFlybyHandler = config.infoBlockTranslateFlybyHandler;
+    this.clearStyleInfoBlockTranslateFlyby = config.clearStyleInfoBlockTranslateFlyby;
+    this.infoBlockTranslateFlyby = config.infoBlockTranslateFlyby;
 
     this.compass = config.compass;
     this.currentCompassDeg = 0;
@@ -108,15 +114,41 @@ class SliderModel extends EventEmitter {
     if (this.isRotating$.value) {
       return;
     }
+    const { id, type } = event.target.dataset;
+    // debugger;
     if (this.isKeyDown) {
       this.infoBox.disable(true);
       this.emit('hideActiveSvg');
       this.checkMouseMovement.call(this, event);
     } else if (event.target.tagName === 'polygon') {
+      // debugger
+      // this.infoBox.updatePosition(event);
+      // this.infoBox.changeState('hover', this.getFlat(+event.target.dataset.id));
+      if (event.target.tagName === 'polygon' && type && type === 'flyby') {
+        if (!this.infoBoxActive) {
+          this.infoBox.changeState('static');
+          this.infoBoxHidden = true;
+          this.hoverFlatId$.next(null);
+        }
+        this.infoBlockTranslateFlyby(event);
+        return;
+      } else {
+        this.clearStyleInfoBlockTranslateFlyby();
+      }
+      if (this.infoBoxActive) return;
+      if (this.hoverFlatId$.value === +id) return;
+      // ---
+      // if (event.target.tagName === 'polygon' && type && type === 'flyby') {
+      //   this.infoBlockTranslateFlyby(event);
+      // } else {
+      //   this.clearStyleInfoBlockTranslateFlyby();
+      // }
       this.infoBox.updatePosition(event);
+
       this.infoBox.changeState('hover', this.getFlat(+event.target.dataset.id));
-    } else {
+    } else if (!this.infoBoxActive) {
       this.infoBox.changeState('static');
+      this.clearStyleInfoBlockTranslateFlyby();
     }
   }
 
@@ -125,6 +157,18 @@ class SliderModel extends EventEmitter {
     if (this.isRotating$.value) {
       return;
     }
+    this.clearStyleInfoBlockTranslateFlyby();
+    const {
+      type, flyby,
+    } = event.target.dataset;
+
+    if (type && type === 'flyby') {
+      this.infoBox.changeState('static');
+      this.hoverFlatId$.next(null);
+      this.infoBlockTranslateFlybyHandler(event, type, flyby);
+      return;
+    }
+
     const id = +event.target.dataset.id;
     this.infoBox.changeState('active', this.getFlat(id));
     this.activeFlat = +id;

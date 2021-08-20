@@ -2,6 +2,7 @@ import { BehaviorSubject } from 'rxjs';
 import $ from 'jquery';
 import _ from 'lodash';
 import { fsm, fsmConfig } from '../fsm';
+import { isDevice } from '../checkDevice';
 import {
   preloader, debounce, preloaderWithoutPercent,
 } from '../general/General';
@@ -49,6 +50,41 @@ class AppModel extends EventEmitter {
     this.subject = new BehaviorSubject(this.flatList);
     this.fsmConfig = fsmConfig();
     this.fsm = fsm();
+
+    this.lang = document.querySelector('html').lang;
+    this.infoBlockTranslateFlybyTexts = {
+      ua: {
+        1: 'загальний план',
+        2: 'будинок 1',
+        3: 'будинок 2',
+        4: 'будинок 3 та 4',
+        build: 'Будинок',
+        complex: 'Зовнішній \n фасад',
+        courtyard: 'Внутрішній \n фасад',
+      },
+      en: {
+        1: 'загальний план',
+        2: 'будинок 1',
+        3: 'будинок 2',
+        4: 'будинок 3 та 4',
+        build: 'House',
+        complex: 'External \n facade',
+        courtyard: 'Internal \n facade',
+      },
+      ru: {
+        1: 'загальний план',
+        2: 'будинок 1',
+        3: 'будинок 2',
+        4: 'будинок 3 та 4',
+        build: 'Дом',
+        complex: 'Внешний \n фасад',
+        courtyard: 'Внутренний \n фасад',
+      },
+    };
+
+    this.infoBlockTranslateFlybyWrapContainer = document.querySelector('.js-s3d-hover-translate')
+    this.infoBlockTranslateFlybyContainer = document.querySelector('.js-s3d-hover-translate--text')
+    this.infoBlockTranslateFlybyLinkContainer = document.querySelector('.js-s3d-hover-translate [data-link]')
   }
 
   set activeFlat(value) {
@@ -60,7 +96,7 @@ class AppModel extends EventEmitter {
   }
 
   selectSlideHandler(event) {
-    const { type, flyby, side } = event.currentTarget.dataset;
+    const { type, flyby, side = 'outside' } = event.currentTarget.dataset;
     if (type && (type !== this.fsm.state || flyby !== this.fsm.settings.flyby || side !== this.fsm.settings.side)) {
       this.updateHistory({
         type, flyby, side, method: 'general',
@@ -113,6 +149,41 @@ class AppModel extends EventEmitter {
     const { searchParams } = new URL(window.location);
     const parseSearchParam = Object.fromEntries(searchParams.entries());
     return parseSearchParam;
+  }
+
+  getInfoBlockTranslateText(flyby) {
+    // if (flyby.includes('complex')) {
+    // if (type.includes(flyby)) {
+    return this.infoBlockTranslateFlybyTexts[this.lang][flyby];
+    // }
+    // return this.infoBlockTranslateFlybyTexts[this.lang][flyby];
+  }
+
+  infoBlockTranslateFlyby(e) {
+    const { clientX: x, clientY: y } = e;
+    const { flyby } = e.target.dataset;
+    const text = this.getInfoBlockTranslateText(flyby);
+
+    this.infoBlockTranslateFlybyWrapContainer.style = `opacity: 1; top: ${y}px; left: ${x}px;`;
+    this.infoBlockTranslateFlybyContainer.innerText = text;
+    this.infoBlockTranslateFlybyLinkContainer.dataset.type = `${flyby}`;
+  }
+
+  clearStyleInfoBlockTranslateFlyby() {
+    this.infoBlockTranslateFlybyWrapContainer.style = '';
+  }
+
+  infoBlockTranslateFlybyHandler(e, type, flyby) {
+    if (!isDevice('mobile')) {
+      this.selectSlideHandler(e);
+      // this.selectSlider(e, flyby + build)
+      return;
+    }
+    if (type && type === 'flyby') {
+      this.infoBlockTranslateFlyby(e);
+      return;
+    }
+    this.clearStyleInfoBlockTranslateFlyby();
   }
 
   checkFirstLoadState() {
@@ -275,6 +346,9 @@ class AppModel extends EventEmitter {
       currentFilterFlatsId$: this.currentFilterFlatsId$,
       updateCurrentFilterFlatsId: this.updateCurrentFilterFlatsId,
       activeFlat: this.activeFlat,
+      infoBlockTranslateFlybyHandler: this.infoBlockTranslateFlybyHandler.bind(this),
+      clearStyleInfoBlockTranslateFlyby: this.clearStyleInfoBlockTranslateFlyby.bind(this),
+      infoBlockTranslateFlyby: this.infoBlockTranslateFlyby.bind(this),
     };
     const filterModel = new FilterModel({ flats: this.getFlat(), updateCurrentFilterFlatsId: this.updateCurrentFilterFlatsId });
     // const filterModel = new FilterModel(generalConfig);
@@ -449,6 +523,10 @@ class AppModel extends EventEmitter {
     config.updateCurrentFilterFlatsId = this.updateCurrentFilterFlatsId;
     config.history = this.history;
     config.infoBox = this.infoBox;
+
+    config.infoBlockTranslateFlybyHandler = this.infoBlockTranslateFlybyHandler.bind(this);
+    config.clearStyleInfoBlockTranslateFlyby = this.clearStyleInfoBlockTranslateFlyby.bind(this);
+    config.infoBlockTranslateFlyby = this.infoBlockTranslateFlyby.bind(this);
 
     this.fsm.dispatch(settings, nameMethod, this, config);
   }

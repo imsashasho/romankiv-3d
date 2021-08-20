@@ -143,6 +143,7 @@
         transform: translate(100%, 0);
         visibility: hidden;
         opacity: 0;
+
         pointer-events: none;
         padding: 0 0 0 2px;
         transition: opacity 0.01s ease-in-out;
@@ -169,9 +170,12 @@
         transition: transform 0.4s ease-in-out;
       }
 
-      &:focus, &:active {
+       &.active {
         background: #5C88DA;
         color: rgba(255,255,255,1);
+      }
+
+      &:focus, &:hover {
         .s3d-ctr__option__buttons {
           opacity: 1;
           visibility: visible;

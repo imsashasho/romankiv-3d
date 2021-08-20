@@ -180,10 +180,10 @@ class HelperGif {
         this.showHelper();
       });
     }
-    window.addEventListener('resize', () => {
-      if (this.currentWindow >= this.conf.length) return;
-      this.update(this.conf[this.currentWindow]);
-    });
+    // window.addEventListener('resize', () => {
+    //   if (this.currentWindow >= this.conf.length) return;
+    //   this.update(this.conf[this.currentWindow]);
+    // });
 
     if (window.localStorage.getItem('info')) return;
     this.updateContent(this.conf[0], () => {

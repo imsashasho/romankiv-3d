@@ -71,8 +71,8 @@ function preloaderWithoutPercent() {
     show() {
       this.isAnimating = true;
       container.classList.add('preloader-active');
-      animate.fromTo(container, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 })
-        .fromTo(bgContainer, { y: '100%' }, { y: 0 }, '>')
+      animate.fromTo(container, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 })
+        .fromTo(bgContainer, { y: '100%' }, { y: 0, duration: 0.3 }, '>')
         .fromTo(logoContainer, { autoAlpha: 0 }, { autoAlpha: 1 }, '>')
         .then(() => {
           this.isAnimating = false;
@@ -81,15 +81,15 @@ function preloaderWithoutPercent() {
     hide() {
       if (!this.isAnimating) {
         animate.fromTo(logoContainer, { autoAlpha: 1 }, { autoAlpha: 0 })
-          .fromTo(bgContainer, { y: 0 }, { y: '-100%' }, '>')
-          .fromTo(container, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.3 }, '>')
+          .fromTo(bgContainer, { y: 0 }, { y: '-100%', duration: 0.3 }, '>')
+          .fromTo(container, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.01 }, '>')
           .then(() => {
             container.classList.remove('preloader-active');
           });
       } else {
         setTimeout(() => {
           this.hide();
-        }, 300);
+        }, 100);
       }
     },
   };

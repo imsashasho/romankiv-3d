@@ -187,11 +187,9 @@ function fsm() {
             this.preloaderWithoutPercent.show();
             this.preloaderWithoutPercent.hide();
           }
-          setTimeout(() => {
-            this.changeViewBlock(config.id);
-            this.compass(this[config.id].currentCompassDeg);
-            this.iteratingConfig();
-          }, 350);
+          this.changeViewBlock(config.id);
+          this.compass(this[config.id].currentCompassDeg);
+          this.iteratingConfig();
         },
 
         search(config, change) {
@@ -241,10 +239,10 @@ function fsm() {
             this.preloaderWithoutPercent.hide();
             // this.emit('animateChangeBlock');
           }
-          setTimeout(() => {
+          // setTimeout(() => {
             this.changeViewBlock(this.fsm.state);
             this.iteratingConfig();
-          }, 350);
+          // }, 350);
         },
         resize() {
           this.iteratingConfig();
@@ -266,11 +264,11 @@ function fsm() {
             // this.preloader.show();
             // this.emit('animateChangeBlock');
           }
-          setTimeout(() => {
+          // setTimeout(() => {
             this.changeViewBlock(this.fsm.state);
             this.compass(this.flat.currentCompassDeg);
             this.iteratingConfig();
-          }, 350);
+          // }, 350);
           this.flat.update(config);
         },
         resize() {

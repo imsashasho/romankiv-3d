@@ -28,6 +28,12 @@ block content
   //- include ../includes/breadcrumbs.pug
   .js-s3d__slideModule.s3d__slideModule.scroll
     div#js-s3d__wrapper
+      .s3d-hover-translate-wrap.js-s3d-hover-translate
+        .s3d-hover-translate.js-s3d-hover-translate--text Зовнішній фасад
+        a(href='#' data-link data-type='').s3d-hover-translate__link Переглянути
+        .s3d-hover-translate__close(data-closed)
+          span
+          span
     .s3d-ctr.js-s3d-ctr.unselectable(data-type='complex')
       .s3d-ctr__open-filter.js-s3d-ctr__open-filter
         .s3d-ctr__open-filter__icon
@@ -45,7 +51,7 @@ block content
         +svg('Compass')
       .s3d-ctr__elem.js-s3d-ctr__elem
         .s3d-ctr__elem__title Меню 3D
-        button(type="button").s3d-ctr__select.s3d-ctr__option.active
+        button(type="button").s3d-ctr__select.s3d-ctr__option
           .s3d-ctr__option__title 3D генплан
           .s3d-ctr__option__text.js-s3d-ctr__option__text загальний
           .s3d-ctr__option__buttons

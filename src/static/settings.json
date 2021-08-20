@@ -34,11 +34,11 @@
           "max": 119
         },
         "controlPoint": [
-          8,
-          55,
-          80
+          34,
+          71,
+          98
         ],
-        "activeSlide": 8,
+        "activeSlide": 34,
         "rotateSpeedDefault" : 20,
         "rotateSpeed": [],
         "mouseSpeed": 0.5,
@@ -56,11 +56,12 @@
           "max": 119
         },
         "controlPoint": [
-          34,
-          71,
-          98
+          38,
+          74,
+          107,
+          119
         ],
-        "activeSlide": 34,
+        "activeSlide": 38,
         "rotateSpeedDefault" : 20,
         "rotateSpeed": [],
         "mouseSpeed": 0.5,
@@ -78,12 +79,11 @@
           "max": 119
         },
         "controlPoint": [
-          38,
-          74,
-          107,
-          119
+          8,
+          55,
+          80
         ],
-        "activeSlide": 38,
+        "activeSlide": 8,
         "rotateSpeedDefault" : 20,
         "rotateSpeed": [],
         "mouseSpeed": 0.5,

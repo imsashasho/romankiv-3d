@@ -62,6 +62,7 @@ class InfoBox {
 
   changeState(value, flat = null) {
     const id = _.has(flat, 'id') ? _.toNumber(flat.id) : undefined;
+    // debugger;
     if (this.state === 'active') {
       if (this.state !== value) {
         return;
@@ -76,6 +77,7 @@ class InfoBox {
       this.updateState('static', null);
       return;
     }
+
     if (value === 'hover') {
       if (id === this.hoverFlatId) {
         // return;
