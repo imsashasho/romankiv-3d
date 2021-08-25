@@ -115,16 +115,16 @@ class SliderModel extends EventEmitter {
       return;
     }
     const { id, type } = event.target.dataset;
-    // debugger;
+
     if (this.isKeyDown) {
       this.infoBox.disable(true);
       this.emit('hideActiveSvg');
       this.checkMouseMovement.call(this, event);
-    } else if (event.target.tagName === 'polygon') {
+    } else if (event.target.tagName === 'polygon' || event.target.tagName === 'path') {
       // debugger
       // this.infoBox.updatePosition(event);
       // this.infoBox.changeState('hover', this.getFlat(+event.target.dataset.id));
-      if (event.target.tagName === 'polygon' && type && type === 'flyby') {
+      if (type && type === 'flyby') {
         if (!this.infoBoxActive) {
           this.infoBox.changeState('static');
           this.infoBoxHidden = true;
@@ -153,6 +153,7 @@ class SliderModel extends EventEmitter {
   }
 
   touchPolygonHandler(event) {
+    console.log(event);
     event.preventDefault();
     if (this.isRotating$.value) {
       return;
