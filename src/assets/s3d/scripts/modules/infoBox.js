@@ -152,6 +152,7 @@ class InfoBox {
     // const pos = $('.s3d__wrap').offset();
     // const x = e.pageX - pos.left;
     // const y = e.pageY - pos.top;
+    // debugger;
     const { x, y } = placeElemInWrapperNearMouse(this.infoBox, $(window), e);
     this.infoBox.css({
       top: y,

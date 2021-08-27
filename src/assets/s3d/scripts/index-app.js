@@ -33,10 +33,8 @@ async function loadLangFile(lang) {
 
 async function init() {
   window.createMarkup = CreateMarkup;
-  let config;
-  await $.ajax(`${defaultStaticPath}settings.json`).then(resolve => {
-    config = resolve;
-  });
+  // let config;
+  const config = await $.ajax(`${defaultStaticPath}settings.json`).then(resolve => resolve);
   const languageContainer = document.querySelector('.screen__lang');
   if (languageContainer) {
     document.querySelector('.header__call').insertAdjacentElement('beforeBegin', languageContainer);
@@ -57,14 +55,11 @@ async function init() {
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
     if (!value.fastSpeed) {
       // else speed slowly update link with light image
-      for (const pr in config) {
-        if (config[pr].imageUrl || window.status !== 'local') {
-          config[pr].imageUrl += 'mobile/';
-        }
-      }
-    }
-    if (isDevice('mobile') || document.documentElement.offsetWidth <= 768) {
-      $('.js-s3d__slideModule').addClass('s3d-mobile');
+      // for (const pr in config) {
+      // if (config[pr].imageUrl || window.status !== 'local') {
+      //   config[pr].imageUrl += 'mobile/';
+      // }
+      // }
     }
 
     config.flyby[1].outside['browser'] = Object.assign(isBrowser(), value);

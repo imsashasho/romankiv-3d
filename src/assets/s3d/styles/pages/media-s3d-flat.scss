@@ -171,7 +171,6 @@
       grid-template-rows: var(--s3d-margin-top) 30px auto auto auto 1fr auto auto auto 50px;
       grid-template-areas:
           'info . . .'
-          'info . . .'
           'info . title favourite'
           'info . links links'
           'info . type type'
@@ -185,8 +184,8 @@
         top: 0;
         height: calc(var(--vh, 1vh) * 100 - 50px);
         width: 33.33vw;
-        padding: 0;
-        //padding: calc(var(--s3d-margin-top) + 43px) 0 0 0;
+        //padding: 0;
+        padding: var(--s3d-margin-top) 0 0 0;
         &-buttons {
           width: 100%;
           margin: auto 0 30px 0;
@@ -200,7 +199,7 @@
       }
       &__card {
         max-height: calc(100% - 100px);
-        padding: 30px 20px;
+        padding: 0 30px 30px;
       }
 
       //&__compass {
@@ -272,6 +271,9 @@
       }
       &__amount {
         font-size: 30px;
+      }
+      &__title {
+        font-size: 10px;
       }
     }
   }

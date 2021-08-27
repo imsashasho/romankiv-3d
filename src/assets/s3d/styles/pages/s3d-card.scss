@@ -81,11 +81,12 @@
       order: 1;
       z-index: 2;
       transition: opacity 0.4s cubic-bezier(.41,.57,.26,1);
-      img{
+      img {
         display: inline-block;
         max-height: 100%;
         max-width: 100%;
         object-fit: contain;
+        transition: transform 0.4s cubic-bezier(.41,.57,.26,1);
       }
       span{
         margin-left: 7px;
@@ -173,7 +174,8 @@
         max-width: 100%;
         overflow: hidden;
         path {
-          transition: transform 0.4s ease-in-out;
+          transition: transform 0.3s cubic-bezier(.24,1,.78,.01);
+          //transition: transform 0.4s ease-in-out;
           transform: translate(0);
           //transform: translate(calc(-100% + 18px));
         }

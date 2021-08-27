@@ -153,7 +153,6 @@ class SliderModel extends EventEmitter {
   }
 
   touchPolygonHandler(event) {
-    console.log(event);
     event.preventDefault();
     if (this.isRotating$.value) {
       return;
@@ -494,6 +493,7 @@ class SliderModel extends EventEmitter {
 
   determinePositionActiveFlat(id, numSlide) {
     const element = $(`.js-s3d__svgWrap[data-id=${numSlide}] polygon[data-id=${id}]`);
+    console.log('determinePositionActiveFlat');
     if (_.size(element) === 0) {
       return 0;
     } else {

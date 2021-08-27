@@ -312,24 +312,24 @@
 //  }
 //}
 
-@media screen and (max-width: 767px) {
-  .s3d {
-    &-ctr{
-      &__open-helper {
-        margin: auto 15px 0 auto;
-      }
-      &[data-type="plannings"], &[data-type="favourites"] {
-        grid-template-rows: calc(var(--s3d-header-height) ) 40px auto 1fr auto 40px;
-        grid-template-areas: '. . . . . .'
-        'back back . filter filter filter'
-        'compass . . favourite favourite favourite'
-        '. . . . . .'
-        'title title title opens opens opens'
-        'buttons buttons buttons buttons buttons buttons';
-      }
-    }
-  }
-}
+//@media screen and (max-width: 767px) {
+//  .s3d {
+//    &-ctr{
+//      &__open-helper {
+//        margin: auto 15px 0 auto;
+//      }
+//      &[data-type="plannings"], &[data-type="favourites"] {
+//        grid-template-rows: calc(var(--s3d-header-height) ) 40px auto 1fr auto 40px;
+//        grid-template-areas: '. . back . . .'
+//        'back back . filter filter filter'
+//        'compass . . favourite favourite favourite'
+//        '. . . . . .'
+//        'title title title opens opens opens'
+//        'buttons buttons buttons buttons buttons buttons';
+//      }
+//    }
+//  }
+//}
 
 @media screen and (max-width: 600px) {
   .s3d {

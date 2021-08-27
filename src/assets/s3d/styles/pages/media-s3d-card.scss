@@ -8,6 +8,9 @@
           border-color: $color2;
         }
         cursor: pointer;
+        .s3d-card__image img {
+          transform: scale(1.15);
+        }
         .s3d-card__link svg path{
           animation: s3dAnimateArrowHelper 2.2s ease infinite;
         }

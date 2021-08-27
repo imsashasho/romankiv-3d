@@ -7,7 +7,7 @@
   grid-template-rows: 100%;
   background: #F7F7F7;
   padding-top: var(--s3d-margin-top);
-  padding-right: 50px;
+  padding-right: 72px;
   &__list{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -18,7 +18,7 @@
     padding: 0;
     flex: 0 1 auto;
     overflow-y: auto;
-    margin-top: 20px;
+    margin-top: 30px;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -61,17 +61,17 @@
     width: 100%;
     font-family: $default-font;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 48px;
     line-height: 100%;
     letter-spacing: -0.02em;
     color: #555568;
   }
-  &__amount-flat{
+  &__amount-flat {
     display: flex;
     align-items: center;
     @include s3d-text-m();
     text-transform: lowercase;
-    margin: 15px auto 0 0;
+    margin: 20px auto 0 0;
 
     &__num {
       margin: 0 3px;

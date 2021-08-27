@@ -19,6 +19,7 @@ import PopupChangeFlyby from '../popupChangeFlyby';
 import FavouritesModel from '../favourites/favouritesModel';
 import FavouritesController from '../favourites/favouritesController';
 import FavouritesView from '../favourites/favouritesView';
+import placeElemInWrapperNearMouse from '../placeElemInWrapperNearMouse';
 
 class AppModel extends EventEmitter {
   constructor(data) {
@@ -50,7 +51,7 @@ class AppModel extends EventEmitter {
     this.subject = new BehaviorSubject(this.flatList);
     this.fsmConfig = fsmConfig();
     this.fsm = fsm();
-
+    this.isMobile = false;
     this.lang = document.querySelector('html').lang;
     this.infoBlockTranslateFlybyTexts = {
       ua: {
@@ -82,9 +83,9 @@ class AppModel extends EventEmitter {
       },
     };
 
-    this.infoBlockTranslateFlybyWrapContainer = document.querySelector('.js-s3d-hover-translate')
-    this.infoBlockTranslateFlybyContainer = document.querySelector('.js-s3d-hover-translate--text')
-    this.infoBlockTranslateFlybyLinkContainer = document.querySelector('.js-s3d-hover-translate [data-link]')
+    this.infoBlockTranslateFlybyWrapContainer = document.querySelector('.js-s3d-hover-translate');
+    this.infoBlockTranslateFlybyContainer = document.querySelector('.js-s3d-hover-translate--text');
+    this.infoBlockTranslateFlybyLinkContainer = document.querySelector('.js-s3d-hover-translate [data-link]');
   }
 
   set activeFlat(value) {
@@ -117,6 +118,11 @@ class AppModel extends EventEmitter {
   }
 
   init() {
+    if (isDevice('mobile') || document.documentElement.offsetWidth <= 768) {
+      $('.js-s3d__slideModule').addClass('s3d-mobile');
+      this.isMobile = true;
+    }
+
     this.history = new History({ updateFsm: this.updateFsm });
     this.history.init();
     this.preloader.turnOn();
@@ -160,13 +166,19 @@ class AppModel extends EventEmitter {
   }
 
   infoBlockTranslateFlyby(e) {
-    const { clientX: x, clientY: y } = e;
+    // const { clientX: x, clientY: y } = e;
     const { flyby } = e.target.dataset;
     const text = this.getInfoBlockTranslateText(flyby);
-
-    this.infoBlockTranslateFlybyWrapContainer.style = `opacity: 1; top: ${y}px; left: ${x}px;`;
     this.infoBlockTranslateFlybyContainer.innerText = text;
     this.infoBlockTranslateFlybyLinkContainer.dataset.type = `${flyby}`;
+
+    if (this.isMobile) {
+      this.infoBlockTranslateFlybyWrapContainer.style = 'opacity: 1; bottom: 0px; left: 0px;';
+      return;
+    }
+
+    const { x, y } = placeElemInWrapperNearMouse(this.infoBlockTranslateFlybyWrapContainer, document.documentElement, e, 30);
+    this.infoBlockTranslateFlybyWrapContainer.style = `opacity: 1; top: ${y}px; left: ${x}px;`;
   }
 
   clearStyleInfoBlockTranslateFlyby() {
@@ -174,7 +186,7 @@ class AppModel extends EventEmitter {
   }
 
   infoBlockTranslateFlybyHandler(e, type, flyby) {
-    if (!isDevice('mobile')) {
+    if (!this.isMobile) {
       this.selectSlideHandler(e);
       // this.selectSlider(e, flyby + build)
       return;
@@ -465,6 +477,7 @@ class AppModel extends EventEmitter {
   }
 
   updateFsm(data, id) {
+    console.trace();
     let config;
     let settings = data;
     let nameMethod;
