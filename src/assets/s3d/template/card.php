@@ -36,7 +36,7 @@
           <div class="s3d-card__buttons">
                 <button type="button" class="s3d-card__link js-s3d-card__link">Детальніше
                   <svg width="164" height="13" viewBox="0 0 164 13" fill="none" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M0 6.5H163M163 6.5L157.3 1M163 6.5L157.3 12" stroke="#555568"></path>
+                     <path d="M0 6.5H163M163 6.5L157.3 1M163 6.5L157.3 12"></path>
                   </svg>
                 </button>
           </div>

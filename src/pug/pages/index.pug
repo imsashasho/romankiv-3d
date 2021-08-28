@@ -28,12 +28,6 @@ block content
   //- include ../includes/breadcrumbs.pug
   .js-s3d__slideModule.s3d__slideModule.scroll
     div#js-s3d__wrapper
-      .s3d-hover-translate-wrap.js-s3d-hover-translate
-        .s3d-hover-translate.js-s3d-hover-translate--text Зовнішній фасад
-        a(href='#' data-link data-type='').s3d-hover-translate__link Переглянути
-        .s3d-hover-translate__close(data-closed)
-          span
-          span
     .s3d-ctr.js-s3d-ctr.unselectable(data-type='complex')
       .s3d-ctr__open-filter.js-s3d-ctr__open-filter
         .s3d-ctr__open-filter__icon
@@ -64,6 +58,17 @@ block content
         button(type="button" data-type="flat" disabled).s3d-ctr__select.js-s3d__select
           | Квартира
       .s3d-ctr__title.js-s3d-ctr__title Обрати за <wbr>поверхом
+      .s3d-hover-translate-wrap.js-s3d-hover-translate
+        .s3d-hover-translate.js-s3d-hover-translate--text Зовнішній фасад
+        button( type="button" class="s3d-card__link" data-id="33" data-s3d-update='id' data-s3d-event='transition')
+          span Детальніше
+          .s3d-card__link-arrow(data-link data-flyby='' )
+            svg(width="164" height="13" viewBox="0 0 164 13" fill="none" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg")
+              path(d="M0 6.5H163M163 6.5L157.3 1M163 6.5L157.3 12")
+        //a(href='#' data-link data-type='').s3d-hover-translate__link Переглянути
+        .s3d-hover-translate__close(data-closed)
+          span
+          span
       .js-s3d-infoBox.s3d-infoBox.s3d-card(data-s3d-type='infoBox')
         .s3d-card__top
           label(data-s3d-update='id' data-id='1' class="s3d-card__add-favourites s3d-infoBox__add-favourites js-s3d-add__favourites")
@@ -97,7 +102,7 @@ block content
               span Детальніше
               .s3d-card__link-arrow
                 svg(width="164" height="13" viewBox="0 0 164 13" fill="none" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg")
-                  path(d="M0 6.5H163M163 6.5L157.3 1M163 6.5L157.3 12" stroke="#555568")
+                  path(d="M0 6.5H163M163 6.5L157.3 1M163 6.5L157.3 12")
       .s3d-ctr__return.js-s3d-ctr__return
         .s3d-ctr__toHome.js-s3d-ctr__toHome
           svg( width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg")

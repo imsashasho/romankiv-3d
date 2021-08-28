@@ -173,6 +173,7 @@
       svg {
         max-width: 100%;
         overflow: hidden;
+        stroke: #555568;
         path {
           transition: transform 0.3s cubic-bezier(.24,1,.78,.01);
           //transition: transform 0.4s ease-in-out;
@@ -213,7 +214,7 @@
         width: 45%;
         fill: transparent;
         stroke: #555568;
-        stroke-width: 1px;
+        stroke-width: 2px;
         pointer-events: none;
         transition: stroke .3s ease-out, fill .3s ease-out;
       }

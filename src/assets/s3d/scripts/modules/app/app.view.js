@@ -71,11 +71,11 @@ class AppView extends EventEmitter {
 
   changeActiveButton(name) {
     const optionBtn = document.querySelector('.s3d-ctr__option');
+    this._model.clearStyleInfoBlockTranslateFlyby();
     $('.s3d-ctr__select.active').removeClass('active');
     if (name.includes('flyby')) {
       const { type, side, flyby } = this._model.fsm.settings;
       const text = document.querySelector(`.js-s3d__select[data-type="${type}"][data-flyby="${flyby}"][data-side="${side}"]`).textContent;
-      // const text = document.querySelector(`.js-s3d__select[data-type=${name}]`).textContent;
       document.querySelector('.js-s3d-ctr__option__text').innerHTML = text;
 
       $(`.js-s3d__select[data-type=${type}][data-side=${side}][data-flyby=${flyby}]`).addClass('active');
@@ -85,12 +85,9 @@ class AppView extends EventEmitter {
       const { type, flyby, side } = this._model.fsm.settings;
       $(`.js-s3d__select[data-type=${type}][data-flyby=${flyby}][data-side=${side}]`).addClass('active');
     }
-    // optionBtn.blur();
+
     if (name.includes('flyby')) {
-      // const optionBtn = document.querySelector('.s3d-ctr__option');
-      // optionBtn.blur();
       optionBtn.classList.add('active');
-      // optionBtn.classList.add('hover');
     }
   }
 

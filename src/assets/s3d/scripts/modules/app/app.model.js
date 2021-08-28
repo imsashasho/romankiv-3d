@@ -85,6 +85,7 @@ class AppModel extends EventEmitter {
 
     this.infoBlockTranslateFlybyWrapContainer = document.querySelector('.js-s3d-hover-translate');
     this.infoBlockTranslateFlybyContainer = document.querySelector('.js-s3d-hover-translate--text');
+    this.infoBlockTranslateFlybyClosedContainer = document.querySelector('.js-s3d-hover-translate [data-closed]');
     this.infoBlockTranslateFlybyLinkContainer = document.querySelector('.js-s3d-hover-translate [data-link]');
   }
 
@@ -137,6 +138,17 @@ class AppModel extends EventEmitter {
       updateFsm: this.updateFsm,
       history: this.history,
     });
+    this.infoBlockTranslateFlybyLinkContainer.addEventListener('click', e => {
+      const { flyby } = e.currentTarget.dataset;
+      this.updateFsm({
+        type: 'flyby',
+        flyby,
+      });
+    });
+    this.infoBlockTranslateFlybyClosedContainer.addEventListener('click', e => {
+      this.clearStyleInfoBlockTranslateFlyby();
+    });
+
     this.setDefaultConfigFlyby(this.config.flyby);
     // window.localStorage.removeItem('info')
     this.helper = new Helper();
@@ -170,10 +182,10 @@ class AppModel extends EventEmitter {
     const { flyby } = e.target.dataset;
     const text = this.getInfoBlockTranslateText(flyby);
     this.infoBlockTranslateFlybyContainer.innerText = text;
-    this.infoBlockTranslateFlybyLinkContainer.dataset.type = `${flyby}`;
+    this.infoBlockTranslateFlybyLinkContainer.dataset.flyby = `${flyby}`;
 
     if (this.isMobile) {
-      this.infoBlockTranslateFlybyWrapContainer.style = 'opacity: 1; bottom: 0px; left: 0px;';
+      this.infoBlockTranslateFlybyWrapContainer.style = 'opacity: 1; top: auto; bottom: 0px; left: 0px; pointer-events: painted;';
       return;
     }
 
@@ -477,7 +489,6 @@ class AppModel extends EventEmitter {
   }
 
   updateFsm(data, id) {
-    console.trace();
     let config;
     let settings = data;
     let nameMethod;
@@ -494,7 +505,9 @@ class AppModel extends EventEmitter {
       settings = data;
       config = this.config[settings.type][+settings.flyby][settings.side];
     } else if (data.type === 'flyby' && id) {
-      settings = this.checkNextFlyby(data, id);
+      if (id) {
+        settings = this.checkNextFlyby(data, id);
+      }
       const type = _.has(settings, 'type') ? settings.type : this.defaultFlybySettings.type;
       const flyby = _.has(settings, 'flyby') ? +settings.flyby : this.defaultFlybySettings.flyby;
       const side = _.has(settings, 'side') ? settings.side : this.defaultFlybySettings.side;
@@ -508,6 +521,15 @@ class AppModel extends EventEmitter {
       }
       config = this.config[type][flyby][side];
     } else if (data.type === 'flyby') {
+      const type = _.has(data, 'type') ? data.type : this.defaultFlybySettings.type;
+      const flyby = _.has(data, 'flyby') ? +data.flyby : this.defaultFlybySettings.flyby;
+      const side = _.has(data, 'side') ? data.side : this.defaultFlybySettings.side;
+      settings = {
+        type,
+        flyby,
+        side,
+      };
+
       config = this.config[data.type || this.defaultFlybySettings.type][+data.flyby || this.defaultFlybySettings.flyby][data.side || this.defaultFlybySettings.side];
       if (_.isUndefined(config)) {
         console.error('updateFsm  has type but has not another parameters');
