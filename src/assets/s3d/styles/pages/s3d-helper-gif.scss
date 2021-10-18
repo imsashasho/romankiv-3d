@@ -84,7 +84,6 @@
     background: #F65275;
     cursor: pointer;
     animation: s3dAnimateArrowHelperGif 0.6s cubic-bezier(.32,.87,.42,1) infinite alternate-reverse;
-    //animation: s3dAnimateArrowHelperGif 2s cubic-bezier(.32,.87,.42,1) infinite, s3dPulse 1s cubic-bezier(.32,.87,.42,1) infinite;
     &:after {
       content: "";
       position: absolute;
@@ -93,25 +92,12 @@
       display: inline-block;
       height: 100%;
       width: 100%;
-      //background: #F65275;
       border: 4px solid #F65275;
       border-radius: 50%;
       z-index: -1;
+      box-sizing: border-box;
       animation: intervalHamburgerBorder 1.2s infinite;
     }
-    //&:after {
-    //  content: "";
-    //  position: absolute;
-    //  top: 0;
-    //  left: 0;
-    //  display: inline-block;
-    //  height: 100%;
-    //  width: 100%;
-    //  background: #F65275;
-    //  border-radius: 50%;
-    //  z-index: -1;
-    //  animation: s3dPulse 1s infinite;
-    //}
     &-arrow {
       display: inline-block;
       height: 40%;
@@ -127,7 +113,6 @@
     height: max(vw(300, 1920), 300px);
     width: max(vw(300, 1920), 300px);
     margin: 0 0 50px;
-    //pointer-events: none;
     object {
       position: absolute;
       top: 0;
@@ -136,9 +121,7 @@
       height: 100%;
       width: 100%;
       transform: translate(-50%, 0);
-      //visibility: hidden;
       opacity: 0;
-      //transition: opacity 0.5s ease-in-out;
     }
   }
 }

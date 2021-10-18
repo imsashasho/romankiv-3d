@@ -473,7 +473,6 @@ class AppModel extends EventEmitter {
   }
 
   updateCurrentFilterFlatsId(value) {
-    console.log('updateCurrentFilterFlatsId', value);
     this.currentFilterFlatsId$.next(value);
   }
 

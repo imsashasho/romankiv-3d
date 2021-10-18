@@ -5,7 +5,7 @@
 // assets
 @import "./assets/mixins";  // миксины
 //@import "./assets/fonts";  // шрифты
-//@import "./reset";  // сброс
+@import "./reset";  // сброс
 
 
 // sass artem
@@ -37,4 +37,4 @@
 @import "./pages/media-s3d-filter";
 @import "./pages/media-s3d-favourites";
 @import "./pages/media-s3d-slider";
-@import "./pages/montreal";
+//@import "./pages/montreal";

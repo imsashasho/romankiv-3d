@@ -67,6 +67,7 @@
         padding: 25px 15px;
         background: #5C88DA;
         .s3d-card__link {
+          display: flex;
           flex: 0 0 auto;
           margin: 0 0 0 auto;
           color: $wc;
@@ -201,7 +202,6 @@
   }
 
   &-title {
-    //font-family: 'Mont-Light', sans-serif;
     font-family: $default-font;
     font-size: var(--s3d-title);
     font-weight: 400;
@@ -211,7 +211,6 @@
   }
 
   &-header {
-    //background: rgba(255, 255, 255, 0.9);
     background: none;
     .header-content {
       height: var(--s3d-header-height);
@@ -233,6 +232,7 @@
     height: 0;
     display: flex;
     align-items: center;
+    justify-self: center;
     text-align: center;
     border-radius: 50%;
     padding: 50% 16px;
@@ -247,13 +247,11 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      //display: none;
       height: 20px;
       width: 20px;
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
-      //pointer-events: painted;
       &:after, &:before {
         position: absolute;
         top: 50%;
@@ -272,22 +270,22 @@
       }
     }
 
-    //&__link {
-    //  //display: none;
-    //  font-family: $default-font;
-    //  font-weight: 500;
-    //  font-size: 14px;
-    //  line-height: 1.8em;
-    //  color: $wc;
-    //  margin: 20px 0 0 auto;
-    //  padding: 10px 60px;
-    //  border-radius: 50px;
-    //  text-decoration: none;
-    //  visibility: hidden;
-    //  opacity: 0;
-    //  pointer-events: none;
+    &__link {
+      display: none;
+      font-family: $default-font;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.8em;
+      color: $wc;
+      margin: 20px 0 0 auto;
+      padding: 10px 60px;
+      border-radius: 50px;
+      text-decoration: none;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
     //  //pointer-events: painted;
-    //}
+    }
     &-wrap {
       position: absolute;
       top: -100%;
@@ -297,6 +295,7 @@
       //pointer-events: none;
       transition: opacity 0.5s ease-in-out;
     }
+
   }
 }
 
