@@ -76,7 +76,7 @@ class AppModel extends EventEmitter {
         1: 'общий план',
         2: 'Дом 1',
         3: 'Дом 2',
-        4: 'Дом 3 та 4',
+        4: 'Дом 3 и 4',
         build: 'Дом',
         complex: 'Внешний \n фасад',
         courtyard: 'Внутренний \n фасад',
