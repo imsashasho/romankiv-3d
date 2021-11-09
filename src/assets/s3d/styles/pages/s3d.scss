@@ -241,7 +241,6 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 140%;
-    text-transform: capitalize;
     color: $wc;
     &__close {
       position: absolute;
@@ -269,7 +268,6 @@
         transform: translate(-50%, -50%)rotate(-45deg);
       }
     }
-
     &__link {
       display: none;
       font-family: $default-font;

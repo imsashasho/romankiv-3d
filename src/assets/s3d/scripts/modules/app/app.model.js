@@ -55,16 +55,16 @@ class AppModel extends EventEmitter {
     this.lang = document.querySelector('html').lang;
     this.infoBlockTranslateFlybyTexts = {
       ua: {
-        1: 'загальний план',
-        2: 'будинок 1',
-        3: 'будинок 2',
-        4: 'будинок 3 та 4',
+        1: 'Загальний план',
+        2: 'Будинок 1',
+        3: 'Будинок 2',
+        4: 'Будинок 3 та 4',
         build: 'Будинок',
         complex: 'Зовнішній \n фасад',
         courtyard: 'Внутрішній \n фасад',
       },
       en: {
-        1: 'загальний план',
+        1: 'Загальний план',
         2: 'House 1',
         3: 'House 2',
         4: 'House 3 та 4',
@@ -73,7 +73,7 @@ class AppModel extends EventEmitter {
         courtyard: 'Internal \n facade',
       },
       ru: {
-        1: 'общий план',
+        1: 'Общий план',
         2: 'Дом 1',
         3: 'Дом 2',
         4: 'Дом 3 и 4',
