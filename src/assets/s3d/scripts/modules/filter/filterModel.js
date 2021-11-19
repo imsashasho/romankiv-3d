@@ -34,6 +34,7 @@ class FilterModel extends EventEmitter {
     addBlur('.js-s3d-filter__table');
     addBlur('.s3d-pl__right');
     const filterSettings = this.getFilterParam(this.configProject);
+
     this.updateAllParamFilter(filterSettings);
     const flats = this.startFilter(this.flats, filterSettings);
     this.emit('setAmountSelectFlat', flats.length);
