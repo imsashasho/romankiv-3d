@@ -221,22 +221,39 @@ class AppModel extends EventEmitter {
     return this.getParamFlyby(searchParams, flat);
   }
 
-  getParamFlyby(searchParams, flat) {
+  parseParam(params, key) {
+    return _.has(params, key) ? { [key]: JSON.parse(params[key]) } : {};
+  }
+
+  getParamFlyby(searchParams) {
     const conf = {
-      type: 'flyby',
-      flyby: '1',
-      side: 'outside',
+      ...this.parseParam(searchParams, 'favourites'),
+      type: searchParams.type ? searchParams.type : 'flyby',
+      flyby: searchParams.flyby ? searchParams.flyby : '1',
+      side: searchParams.side ? searchParams.side : 'outside',
     };
 
-    if (_.has(searchParams, 'method')) {
-      conf['method'] = searchParams['method'];
-    } else if (!_.isUndefined(flat)) {
-      conf['method'] = 'search';
-    } else {
-      conf['method'] = 'general';
-    }
-    return conf;
+    const flatId = searchParams.id;
+    const id = (flatId && this.getFlat(flatId)) ? { id: searchParams.id } : {};
+    return { ...conf, ...id };
   }
+
+  // getParamFlyby(searchParams, flat) {
+  //   const conf = {
+  //     type: 'flyby',
+  //     flyby: '1',
+  //     side: 'outside',
+  //   };
+  //
+  //   if (_.has(searchParams, 'method')) {
+  //     conf['method'] = searchParams['method'];
+  //   } else if (!_.isUndefined(flat)) {
+  //     conf['method'] = 'search';
+  //   } else {
+  //     conf['method'] = 'general';
+  //   }
+  //   return conf;
+  // }
 
   getParamPlannings(searchParams) {
     return {
@@ -284,6 +301,7 @@ class AppModel extends EventEmitter {
     const id = _.has(searchParams, 'id') ? _.toNumber(searchParams.id) : undefined;
     const flat = this.getFlat(id);
     const hasConfigPage = Object.keys(this.config).includes(searchParams['type']);
+
     if (!_.has(searchParams, 'type') || !hasConfigPage) return this.getParamDefault(searchParams, flat);
 
     switch (searchParams['type']) {
