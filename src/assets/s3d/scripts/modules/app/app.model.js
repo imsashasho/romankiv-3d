@@ -325,7 +325,7 @@ class AppModel extends EventEmitter {
           if (hasId && !_.has(result, [num])) {
             result[num] = {};
           }
-          if (hasId && !_.has(result, [side])) {
+          if (hasId && !_.has(result, [num, side])) {
             result[num][side] = [];
           }
           if (hasId) {
