@@ -170,15 +170,10 @@ class AppModel extends EventEmitter {
   }
 
   getInfoBlockTranslateText(flyby) {
-    // if (flyby.includes('complex')) {
-    // if (type.includes(flyby)) {
     return this.infoBlockTranslateFlybyTexts[this.lang][flyby];
-    // }
-    // return this.infoBlockTranslateFlybyTexts[this.lang][flyby];
   }
 
   infoBlockTranslateFlyby(e) {
-    // const { clientX: x, clientY: y } = e;
     const { flyby } = e.target.dataset;
     const text = this.getInfoBlockTranslateText(flyby);
     this.infoBlockTranslateFlybyContainer.innerText = text;
@@ -200,7 +195,6 @@ class AppModel extends EventEmitter {
   infoBlockTranslateFlybyHandler(e, type, flyby) {
     if (!this.isMobile) {
       this.selectSlideHandler(e);
-      // this.selectSlider(e, flyby + build)
       return;
     }
     if (type && type === 'flyby') {
@@ -237,23 +231,6 @@ class AppModel extends EventEmitter {
     const id = (flatId && this.getFlat(flatId)) ? { id: searchParams.id } : {};
     return { ...conf, ...id };
   }
-
-  // getParamFlyby(searchParams, flat) {
-  //   const conf = {
-  //     type: 'flyby',
-  //     flyby: '1',
-  //     side: 'outside',
-  //   };
-  //
-  //   if (_.has(searchParams, 'method')) {
-  //     conf['method'] = searchParams['method'];
-  //   } else if (!_.isUndefined(flat)) {
-  //     conf['method'] = 'search';
-  //   } else {
-  //     conf['method'] = 'general';
-  //   }
-  //   return conf;
-  // }
 
   getParamPlannings(searchParams) {
     return {
@@ -407,7 +384,7 @@ class AppModel extends EventEmitter {
     const fvController = new FavouritesController(fvModel, fvView);
     this.favourites = fvModel;
     fvModel.init();
-    // this.createStructureSvg();
+    this.createStructureSvg();
     this.checkFirstLoadState();
   }
 
