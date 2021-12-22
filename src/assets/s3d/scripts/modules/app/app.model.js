@@ -377,7 +377,11 @@ class AppModel extends EventEmitter {
     filterModel.init();
     this.filter = filterModel;
     const listFlat = new FlatsList(this);
-    this.popupChangeFlyby = new PopupChangeFlyby(this);
+    function getFlatDataById(id) {
+      return listFlat.filter.flats[id];
+    }
+
+    this.popupChangeFlyby = new PopupChangeFlyby(this, getFlatDataById);
 
     const fvModel = new FavouritesModel(generalConfig);
     const fvView = new FavouritesView(fvModel, {});

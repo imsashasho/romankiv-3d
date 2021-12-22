@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 class PopupChangeFlyby {
-  constructor(data) {
+  constructor(data, getFlat) {
     this.state = {};
     this.popup = $('.js-s3d-popup-flyby');
     this.updateFsm = data.updateFsm;
@@ -11,7 +11,7 @@ class PopupChangeFlyby {
     this.popup.on('click', '[data-type="next"]', event => {
       this.activateTranslate();
     });
-
+    this.getFlat = getFlat;
     this.updateState = this.updateState.bind(this);
     this.updateContent = this.updateContent.bind(this);
   }
@@ -23,6 +23,7 @@ class PopupChangeFlyby {
   updateContent(flat) {
     const wrap = $('.js-s3d-popup-flyby__active');
     const cor = flat.getBoundingClientRect();
+    const choosedFlatData = this.getFlat(flat.dataset.id);
     wrap.css({
       top: cor.y,
       left: cor.x,
@@ -41,7 +42,7 @@ class PopupChangeFlyby {
     });
 
     this.flatId = _.toNumber(flat.dataset.id);
-    this.popup.find('[data-type="title"]').html(flat.dataset.type);
+    this.popup.find('[data-type="title"]').html(choosedFlatData.type);
   }
 
   openPopup(setting) {

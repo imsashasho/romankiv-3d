@@ -77,6 +77,7 @@
     //font-size: 12px;
     //line-height: 1.8em;
     //color: #E1DDD2;
+    color: #fff;
     margin: 10px 0 0;
   }
   &__link {
@@ -166,15 +167,17 @@
     &-all {
       height: 100%;
       flex: 1 1 100%;
-      background: rgba(0, 114, 117, 0.9);
-      color: #007275;
+      background: rgba(246,82,117, 0.9);
+      color: #f65275;
     }
 
     &-active {
       height: 200%;
       flex: 0 0 auto;
       opacity: 0.8;
-      background: linear-gradient(0, rgba(0,114,117,1) 0%, rgba(0,114,117,1) calc(50% - 100px), rgba(255,255,255,1) calc(50% - 1px), rgba(255,255,255,1) calc(50% + 1px), rgba(0,114,117,1) calc(50% + 100px), rgba(0,114,117,1) 100%);
+      background: linear-gradient(0, #f65275 0%, #f65275 calc(50% - 100px), #f65275 calc(50% - 1px), rgba(255,255,255,1) calc(50% + 1px), #f65275 calc(50% + 100px), #f65275 100%);
+      background: linear-gradient(0, #f65275 0%, #f65275 calc(50% - 100px), #f65275 calc(46% - 1px), white calc(50% + 1px), #f65275 calc(50% + 100px), #f65275 100%);
+      
     }
 
   }
