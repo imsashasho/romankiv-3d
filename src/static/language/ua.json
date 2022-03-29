@@ -5,9 +5,9 @@
     },
     "flat": {
       "buttons": {
-        "with": "С мебелью",
-        "without": "Без мебели",
-        "rePlanning": "Без стен"
+        "with": "With furniture",
+        "without": "Without furniture",
+        "rePlanning": "Without walls"
       }
     }
   }
