@@ -22,7 +22,8 @@ window.nameProject = 'bogun';
 window.defaultProjectPath = `/wp-content/themes/${window.nameProject}/assets/`;
 window.defaultModulePath = `/wp-content/themes/${window.nameProject}/assets/s3d/`;
 window.defaultStaticPath = `/wp-content/themes/${window.nameProject}/static/`;
-window.status = 'local';
+window.status = window.location.href.match(/localhost/) ? 'local' : 'dev';
+console.log(window.status);
 // window.status = 'dev';
 // window.status = 'prod';
 
