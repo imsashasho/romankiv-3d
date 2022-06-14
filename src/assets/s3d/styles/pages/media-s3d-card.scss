@@ -23,13 +23,12 @@
 
       &__add-favourites {
         &:hover{
-          box-shadow: 0 4px 15px rgba(122, 65, 56, 0.3);
           svg{
-            fill: $color1;
-            stroke: $color1;
+            fill: $mc2;
+            stroke: $mc2;
           }
           & input:checked + svg{
-            fill: $color1;
+            fill: $mc2;
           }
         }
       }

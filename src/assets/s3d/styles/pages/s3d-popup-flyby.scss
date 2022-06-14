@@ -168,15 +168,15 @@
       height: 100%;
       flex: 1 1 100%;
       background: rgba(246,82,117, 0.9);
-      color: #f65275;
+      color: #8cb90c;
     }
 
     &-active {
       height: 200%;
       flex: 0 0 auto;
       opacity: 0.8;
-      background: linear-gradient(0, #f65275 0%, #f65275 calc(50% - 100px), #f65275 calc(50% - 1px), rgba(255,255,255,1) calc(50% + 1px), #f65275 calc(50% + 100px), #f65275 100%);
-      background: linear-gradient(0, #f65275 0%, #f65275 calc(50% - 100px), #f65275 calc(46% - 1px), white calc(50% + 1px), #f65275 calc(50% + 100px), #f65275 100%);
+      background: linear-gradient(0, #8cb90c 0%, #8cb90c calc(50% - 100px), #8cb90c calc(50% - 1px), rgba(255,255,255,1) calc(50% + 1px), #8cb90c calc(50% + 100px), #8cb90c 100%);
+      background: linear-gradient(0, #8cb90c 0%, #8cb90c calc(50% - 100px), #8cb90c calc(46% - 1px), white calc(50% + 1px), #8cb90c calc(50% + 100px), #8cb90c 100%);
       
     }
 

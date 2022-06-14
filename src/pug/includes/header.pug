@@ -1,3 +1,116 @@
-header.s3d-header(style='position: fixed;top: 0;left:0;width:100%;z-index: 1000;')
+header.s3d-header(style='position: fixed;top: 0;left:0;width:100%;z-index: 1000;').header
   .header-content.brd
-    +img('logo.svg').header__logo
+    .header-inner.container
+        .header__left
+            a(href='index.html').header__link
+                +svg('logo').header-logo__svg
+            .header-back-3d 
+              +svg('arrow-back')
+              a.header-back-3d-link назад
+            .header-mobile
+                a(href='apartment').header-apartment__link.header-apartment__link--mob Обрати квартиру 
+                a(href='camera').header__call
+                    +svg('call').call__svg
+                a(href='camera').header__cam.header__cam--mob
+                    +svg('cam').cam__svg
+            .header-burger__group
+                a(href="#menu")#toggle-menu
+                    span 
+                    p.toggle-menu__title Меню
+                    p.toggle-menu__title--hidden Закрити
+                #menu.container
+                    .menu-decoration
+                        img(src="assets/images/menu-deco.png", alt="")
+                    .menu__left
+                        .menu__left--social
+                            a.main-bottom__social-link(href="#" target="_blank")
+                                +svg('facebook') 
+                            a.main-bottom__social-link(href="#" target="_blank")
+                                +svg('instagram')
+                            .menu-line
+                        ul.menu-list 
+                            li.menu-item 
+                                a(href="#home").menu-link Головна
+                            li.menu-item
+                                a(href="#home").menu-link Розташування
+                            li.menu-item
+                                a(href="#home").menu-link Інфраструктура
+                            li.menu-item 
+                                a(href="#home").menu-link Обрати квартиру
+                            li.menu-item
+                                a(href="#home").menu-link Переваги
+                            li.menu-item 
+                                a(href="construction.html").menu-link Хід будівництва
+                            li.menu-item 
+                                a(href="#home").menu-link Умови придбання
+                            li.menu-item
+                                a(href="news.html").menu-link Новини та акції
+                            li.menu-item
+                                a(href="documents.html").menu-link Документи
+                    .menu__right
+                        .menu-langs
+                            a(href='/ua').main-bottom__langs-switch UA
+                            a(href='/ru').main-bottom__langs-switch RU
+                        .menu-line
+
+                //- a(href="burger").burger.header-burger__link 
+                //-     +svg('burger').burger__svg
+                //- p.burger__descr Меню
+            
+        .header__right
+            .header-3d-favourites 
+              span 2
+              +svg('favourites')
+            a(href='apartment').header-apartment__link Обрати квартиру
+            .call
+                .call__num
+                    a(href='tel:0442992203').call__phone.active +38(095)показать
+                    a(href='tel:0442992203').call__phone-hidden.show + 38 (095) 555 55 55
+                .request
+                    a(href='#').request__link.js-form-open Замовити дзвінок   
+            .call-tablet 
+                a(href='camera').header__call
+                    +svg('call').call__svg
+
+            a(href='camera').cam.header__cam
+                +svg('cam').cam__svg
+
+            .header-burger__group--3d
+                a(href="#menu")#toggle-menu
+                    span 
+                    p.toggle-menu__title Меню
+                    p.toggle-menu__title--hidden Закрити
+                #menu.container
+                    .menu-decoration
+                        img(src="assets/images/menu-deco.png", alt="")
+                    .menu__left
+                        .menu__left--social
+                            a.main-bottom__social-link(href="#" target="_blank")
+                                +svg('facebook') 
+                            a.main-bottom__social-link(href="#" target="_blank")
+                                +svg('instagram')
+                            .menu-line
+                        ul.menu-list 
+                            li.menu-item 
+                                a(href="#home").menu-link Головна
+                            li.menu-item
+                                a(href="#home").menu-link Розташування
+                            li.menu-item
+                                a(href="#home").menu-link Інфраструктура
+                            li.menu-item 
+                                a(href="#home").menu-link Обрати квартиру
+                            li.menu-item
+                                a(href="#home").menu-link Переваги
+                            li.menu-item 
+                                a(href="construction.html").menu-link Хід будівництва
+                            li.menu-item 
+                                a(href="#home").menu-link Умови придбання
+                            li.menu-item
+                                a(href="news.html").menu-link Новини та акції
+                            li.menu-item
+                                a(href="documents.html").menu-link Документи
+                    .menu__right
+                        .menu-langs
+                            a(href='/ua').main-bottom__langs-switch UA
+                            a(href='/ru').main-bottom__langs-switch RU
+                        .menu-line

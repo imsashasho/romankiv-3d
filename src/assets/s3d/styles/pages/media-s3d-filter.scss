@@ -4,15 +4,15 @@
       &__label {
         &:hover:not(.active-flat) {
           input:not(:checked) + svg {
-            fill: $color1;
-            stroke: $color1;
+            fill: $mc2;
+            stroke: $mc2;
           }
         }
         &.active-flat {
           &:hover {
             svg {
-              fill: $color1;
-              stroke: $color1;
+              fill: $mc2;
+              stroke: $mc2;
             }
           }
         }
@@ -25,22 +25,22 @@
     }
     &__hide {
       &:hover {
-        color: $color1;
+        color: $wc;
       }
     }
     &__button {
       &--apply {
         &:hover {
-          color: $color1;
+          color: $wc;
           opacity: 0.9;
         }
       }
       &--reset {
         &:hover {
-          color: $color1;
+          color: $wc;
           .s3d-filter__button--reset-icon {
             svg {
-              fill: $color1;
+              fill: $wc;
             }
           }
         }

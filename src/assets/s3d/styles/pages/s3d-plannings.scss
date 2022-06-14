@@ -10,7 +10,7 @@
   padding-right: 72px;
   &__list{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
     grid-auto-rows: auto;
     grid-gap: 32px;
     width: 100%;
@@ -61,15 +61,15 @@
     width: 100%;
     font-family: $default-font;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 100%;
     letter-spacing: -0.02em;
-    color: #555568;
+    color: #181818;
   }
   &__amount-flat {
     display: flex;
     align-items: center;
-    @include s3d-text-m();
+    @include s3d-text-m($textGrey);
     text-transform: lowercase;
     margin: 20px auto 0 0;
 

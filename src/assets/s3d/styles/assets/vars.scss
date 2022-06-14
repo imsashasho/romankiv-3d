@@ -7,8 +7,32 @@ $bc: #000000;
 //$bc2: #000000;
 $color1: #F65275;
 $color2: #F7F7F7;
-$colorTextM: #555568;
-$colorTextS: #555568;
+$colorTextM: #ffffff;
+$colorTextS: #FFFFFF;
+
+$default-font: 'gilroy', sans-serif;
+$default-font2: 'montser', sans-serif;
+
+$mc1: #283013;
+$mc2: #8cb90c;
+$mc3: #2d2d2d;
+$textGrey: #676863;
+$textLight: #9a9f8c;
+$wc: #fff;
+$bc: #000;
+$bc2: #0e0e0e;
+$bTitle: #181818;
+$adCol: #cecece;
+$lightGrey: #e0e0e0;
+$grey: #363636;
+$grey2: #676863;
+$greyBg: #f0f0f0;
+
+
+$mc: #1a2941;
+$bg: #fafafa;
+$light: #fcfcfc;
+$dark: #1a2941;
 
 $padding-wrap: 45px;
 $padding-wrap--small: 20px;
@@ -21,9 +45,9 @@ $name-project: 'bogun';
 
   --s3d-title: 48px;
   --s3d-font-size-s: 10px;
-  --s3d-font-size-m: 14px;
+  --s3d-font-size-m: 16px;
   --s3d-font-size-table: 13px;
-  --s3d-header-height: 146px;
+  --s3d-header-height: 80px;
   //--s3d-header-height: 50px;
   --s3d-header-margin: 0px;
   //--s3d-header-margin: 50px;

@@ -150,7 +150,7 @@ Build date: 2018-12-11 23:23:51
 .irs--flat .irs-bar {
   top: 12px;
   height: 1px;
-  background-color: #F65275;
+  background-color: #ffffff;
 }
 .irs--flat .irs-bar--single {
   border-radius: 4px 0 0 4px;
@@ -165,7 +165,7 @@ Build date: 2018-12-11 23:23:51
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #F65275;
+  background-color: #ffffff;
 }
 .irs--flat .irs-handle > i:first-child {
   position: absolute;
@@ -176,11 +176,11 @@ Build date: 2018-12-11 23:23:51
   height: 4px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: #F65275;
+  background-color: #ffffff;
 }
 .irs--flat .irs-handle.state_hover > i:first-child,
 .irs--flat .irs-handle:hover > i:first-child {
-  background-color: #a43540;
+  background-color: #ffffff;
 }
 .irs--flat .irs-min,
 .irs--flat .irs-max {
@@ -431,7 +431,7 @@ Build date: 2018-12-11 23:23:51
 .irs--sharp .irs-bar {
   top: 30px;
   height: 2px;
-  background-color: #ee22fa;
+  background-color: #ffffff;
 }
 .irs--sharp .irs-bar--single {
   border-radius: 2px 0 0 2px;
@@ -445,7 +445,7 @@ Build date: 2018-12-11 23:23:51
   top: 25px;
   width: 10px;
   height: 10px;
-  background-color: #a804b2;
+  background-color: #ffffff;
 }
 .irs--sharp .irs-handle > i:first-child {
   position: absolute;
@@ -455,7 +455,7 @@ Build date: 2018-12-11 23:23:51
   width: 0;
   height: 0;
   border: 5px solid transparent;
-  border-top-color: #a804b2;
+  border-top-color: #ffffff;
 }
 .irs--sharp .irs-handle.state_hover,
 .irs--sharp .irs-handle:hover {
@@ -473,7 +473,7 @@ Build date: 2018-12-11 23:23:51
   top: 0;
   padding: 3px 4px;
   opacity: 0.4;
-  background-color: #a804b2;
+  background-color: #ffffff;
   border-radius: 2px;
 }
 .irs--sharp .irs-from,
@@ -483,7 +483,7 @@ Build date: 2018-12-11 23:23:51
   line-height: 1;
   text-shadow: none;
   padding: 3px 4px;
-  background-color: #a804b2;
+  background-color: #ffffff;
   color: white;
   border-radius: 2px;
 }
@@ -500,7 +500,7 @@ Build date: 2018-12-11 23:23:51
   margin-left: -3px;
   overflow: hidden;
   border: 3px solid transparent;
-  border-top-color: #a804b2;
+  border-top-color: #ffffff;
 }
 .irs--sharp .irs-grid {
   height: 25px;

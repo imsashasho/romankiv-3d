@@ -44,20 +44,12 @@ block content
       .s3d-ctr__compass.js-s3d-ctr__compass
         +svg('Compass')
       .s3d-ctr__elem.js-s3d-ctr__elem
-        .s3d-ctr__elem__title Меню 3D
+        .s3d-ctr__elem__title 3D МЕНЮ
         button(type="button").s3d-ctr__select.s3d-ctr__option
-          .s3d-ctr__option__title 3D генплан
-          .s3d-ctr__option__text.js-s3d-ctr__option__text загальний
-          .s3d-ctr__option__buttons
-            div(data-type="flyby" data-flyby="1" data-side="outside").s3d-ctr__select.active.js-s3d__select загальний
-            div(data-type="flyby" data-flyby="2" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 1
-            div(data-type="flyby" data-flyby="3" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 2
-            div(data-type="flyby" data-flyby="4" data-side="outside").s3d-ctr__select.js-s3d__select Будинок 3 та 4
-        button(type="button" data-type="plannings").s3d-ctr__select.js-s3d__select
-          | Планування
-        button(type="button" data-type="flat" disabled).s3d-ctr__select.js-s3d__select
-          | Квартира
-      .s3d-ctr__title.js-s3d-ctr__title Обрати за <wbr>поверхом
+          .s3d-ctr__option__title 3D модель
+        button(type="button" data-type="plannings").s3d-ctr__select.js-s3d__select Планування
+        button(type="button" data-type="flat" disabled).s3d-ctr__select.js-s3d__select Будинок
+      .s3d-ctr__title.js-s3d-ctr__title 3D МОДЕЛЬ
       .s3d-hover-translate-wrap.js-s3d-hover-translate
         .s3d-hover-translate.js-s3d-hover-translate--text Зовнішній фасад
         button( type="button" class="s3d-card__link s3d-hover-translate__link" data-id="33" data-s3d-update='id' data-s3d-event='transition')
@@ -71,38 +63,34 @@ block content
           span
       .js-s3d-infoBox.s3d-infoBox.s3d-card(data-s3d-type='infoBox')
         .s3d-card__top
-          label(data-s3d-update='id' data-id='1' class="s3d-card__add-favourites s3d-infoBox__add-favourites js-s3d-add__favourites")
-            input( type="checkbox" data-s3d-update='checked')
-            svg( role="presentation")
-              use( xlink:href="#icon-favourites")
-          .s3d-card__close(data-s3d-event='closed')
           .s3d-card__image
             img(data-s3d-event='update' src="" data-s3d-update='image')
-          .s3d-card__type(data-s3d-event='update' data-s3d-update='type')
-            span
         .s3d-card__bottom
+          .s3d-card__type
+            span Будинок
+            span(data-key='type') 
           .s3d-card__table
             table.s3d-card__table
               tbody
                 tr.s3d-card__row
                   td.s3d-card__name № квартиры
+                  td.s3d-card__line
                   td.s3d-card__value(data-s3d-event='update' data-s3d-update='number')
                 tr.s3d-card__row
                   td.s3d-card__name Этаж
+                  td.s3d-card__line
                   td.s3d-card__value(data-s3d-event='update' data-s3d-update='floor')
                 tr.s3d-card__row
-                  td.s3d-card__name Комнаты
+                  td.s3d-card__name Кімнат
+                  td.s3d-card__line
                   td.s3d-card__value(data-s3d-event='update' data-s3d-update='rooms')
                 tr.s3d-card__row
-                  td.s3d-card__name Площадь м
+                  td.s3d-card__name Площа,м
                     sup 2
+                  td.s3d-card__line
                   td.s3d-card__value(data-s3d-event='update' data-s3d-update='area') 88.06
-          .s3d-card__buttons
-            button( type="button" class="s3d-card__link" data-id="33" data-s3d-update='id' data-s3d-event='transition')
-              span Детальніше
-              .s3d-card__link-arrow
-                svg(width="164" height="13" viewBox="0 0 164 13" fill="none" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg")
-                  path(d="M0 6.5H163M163 6.5L157.3 1M163 6.5L157.3 12")
+          .s3d-card__cost
+            span 10000 $
       .s3d-ctr__return.js-s3d-ctr__return
         .s3d-ctr__toHome.js-s3d-ctr__toHome
           svg( width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg")
@@ -123,21 +111,21 @@ block content
         .s3d-pl__right
           .s3d-pl__title Планування
           .s3d-pl__amount-flat
-            | Знайдено
+            | За Вашими параметрами знайдено
             span.s3d-pl__amount-flat__num.js-s3d__amount-flat__num 25
-            | из
-            span.s3d-pl__amount-flat__num.js-s3d__amount-flat__num-all 456
+            | домів
           .s3d-pl__not-found.js-s3d-pl__not-found Але подивіться на ці квартири
           .s3d-pl__list.js-s3d-pl__list
     .js-s3d__wrapper__favourites.s3d__wrap.s3d__wrapper__favourites(id='js-s3d__favourites')
       .s3d-fv.js-s3d-fv
         .s3d-fv__left
-          img( src=`/wp-content/themes/${nameProject}/assets/s3d/images/favourite-bg.jpg` class="s3d-fv__bg")
+          img( src=`/wp-content/themes/${nameProject}/assets/s3d/images/favourite-bg.png` class="s3d-fv__bg")
         .s3d-fv__right
-          .s3d-fv__title Избранное
+          .s3d-fv__title Улюблене
           .s3d-fv__amount-flat
-            | Знайдено
-            span.s3d-fv__amount-flat__num.js-s3d__amount-flat__selected 25
+            | Ви додали до улюбленого
+            span.s3d-fv__amount-flat__num.js-s3d__amount-flat__selected 3    
+            | домів
           .s3d-fv__list.js-s3d-fv__list
 
     .s3d-filter-wrap.js-s3d-filter
@@ -147,7 +135,7 @@ block content
           span
       .s3d-filter__top
         .s3d-filter__title
-          span  Подбор по параметрам
+          span  Підбір за параметрами
           .s3d__favourites.js-s3d__favourites.js-s3d-favorite__wrap.s3d-hidden
             span.s3d__favourites-amount.js-s3d-favourites-amount 0
             .js-s3d__favourites-icon
@@ -155,7 +143,8 @@ block content
                 use( xlink:href="#icon-favourites")
         .s3d-filter
           .s3d-filter__floor.js-s3d-filter__floor
-            .s3d-filter-select__title Поверх
+            .s3d-filter-select__title Площа, м
+              sup 2
             .s3d-filter-select__list.js-filter-range
               //label з
               //    input.js-s3d-filter__floor__min--input(type="number")
@@ -163,8 +152,7 @@ block content
               //label по
               //    input.js-s3d-filter__floor__max--input(type="number")
           .s3d-filter__area.js-s3d-filter__area
-            .s3d-filter-select__title Площа м
-              sup 2
+            .s3d-filter-select__title Ціна, $
             .s3d-filter-select__list.js-filter-range
               //label з
               //    input.js-s3d-filter__area__min--input( type="number")
@@ -176,78 +164,67 @@ block content
             .s3d-filter-select__list
               .s3d-filter-select__input--wrap
                 input.js-s3d-filter__rooms--input( type="checkbox" data-type="rooms" data-rooms="1" id="rooms-1")
-                label.s3d-filter__rooms--label( for="rooms-1") 1к
+                label.s3d-filter__rooms--label( for="rooms-1") 4
               .s3d-filter-select__input--wrap
                 input.js-s3d-filter__rooms--input( type="checkbox" data-type="rooms" data-rooms="2" id="rooms-2")
-                label.s3d-filter__rooms--label( for="rooms-2") 2к
+                label.s3d-filter__rooms--label( for="rooms-2") 5
               .s3d-filter-select__input--wrap
                 input.js-s3d-filter__rooms--input( type="checkbox" data-type="rooms" data-rooms="3" id="rooms-3")
-                label.s3d-filter__rooms--label(for="rooms-3") 3к
-              .s3d-filter-select__input--wrap
-                input.js-s3d-filter__rooms--input( type="checkbox" data-type="rooms" data-rooms="4" id="rooms-4")
-                label.s3d-filter__rooms--label( for="rooms-4") 4к
+                label.s3d-filter__rooms--label(for="rooms-3") 6
           button.js-s3d-filter__button--reset.s3d-filter__button--reset( type="button")
             .s3d-filter__button--reset-icon
               svg( role="presentation")
                 use(xlink:href="#icon-reset")
-            span Очистить
+            span Cкинути фільтр
           button.js-s3d-filter__button--apply.s3d-filter__button--apply( type="button")
             span готово
             .s3d-filter__button--apply-icon
               svg( role="presentation")
                 use(xlink:href="#icon-apply")
         .s3d-filter__hide.js-s3d-filter__hide
-          span Скрыть
+          span Сховати
       .s3d-filter__mini-info.js-s3d-filter__mini-info
         .s3d-filter__mini-info__elem.s3d-filter__mini-info__floor(data-type='floor')
-          .s3d-filter__mini-info__title
-            | Этаж:
+          .s3d-filter__mini-info__title Площа, м
+            sup 2
           .s3d-filter__mini-info__floor--amount.s3d-filter__mini-info__amount
-            span от
+            span від
             span.js-s3d-filter__mini-info__floor--amount-from(data-type='min') 0
             span до
             span.js-s3d-filter__mini-info__floor--amount-to(data-type='max') 50
         .s3d-filter__mini-info__elem.s3d-filter__mini-info__area(data-type='area')
-          .s3d-filter__mini-info__title
-            | Площадь м2
+          .s3d-filter__mini-info__title Ціна
           .s3d-filter__mini-info__area--amount.s3d-filter__mini-info__amount
-            span от
+            span від
             span.js-s3d-filter__mini-info__area--amount-from(data-type='min') 0
             span до
             span.js-s3d-filter__mini-info__area--amount-to(data-type='max') 1000
         .s3d-filter__mini-info__elem.s3d-filter__mini-info__flat(data-type='rooms')
-          .s3d-filter__mini-info__title
-            | Комнат
+          .s3d-filter__mini-info__title Кімнат
           .s3d-filter__mini-info__flat--amount.s3d-filter__mini-info__amount
-            span.js-s3d-filter__mini-info__flat--amount(data-type='amount') 1, 2
-        .s3d-filter__mini-info__elem.s3d-filter__mini-info__button
-          button(class='s3d-filter__mini-info__button js-s3d-filter__mini-info__button') изменить
-            br
-            | фильтр
+            span.js-s3d-filter__mini-info__flat--amount(data-type='amount') 5, 6, 7
 
       .s3d-filter__table.js-s3d-filter__table
         .s3d-filter__head.js-s3d-filter__head
-          .s3d-filter__th(data-sort='none')
-            span Тип
           .s3d-filter__th(data-sort='rooms')
-            span Комнат
+            span Площа, м
+              sup 2
             .s3d-filter__arrow
               svg( width="5" height="3" viewBox="0 0 5 3" fill="none" xmlns="http://www.w3.org/2000/svg").s3d-filter__arrow--svg
                 path( d="M-4.76837e-07 3L2.5 2.5828e-07L5 3L2.87764 3L2.12236 3L-4.76837e-07 3Z")
           .s3d-filter__th(data-sort='floor')
-            span Этаж
+            span Ціна, $
             .s3d-filter__arrow
               svg( width="5" height="3" viewBox="0 0 5 3" fill="none" xmlns="http://www.w3.org/2000/svg").s3d-filter__arrow--svg
                 path( d="M-4.76837e-07 3L2.5 2.5828e-07L5 3L2.87764 3L2.12236 3L-4.76837e-07 3Z")
           .s3d-filter__th(data-sort='area')
-            span Площадь м
-              sup 2
+            span Кімнат
             .s3d-filter__arrow
               svg( width="5" height="3" viewBox="0 0 5 3" fill="none" xmlns="http://www.w3.org/2000/svg").s3d-filter__arrow--svg
                 path(d="M-4.76837e-07 3L2.5 2.5828e-07L5 3L2.87764 3L2.12236 3L-4.76837e-07 3Z")
-          .s3d-filter__th(data-sort='none') В избранное
+          .s3d-filter__th(data-sort='none') В обране
         .s3d-filter__body.js-s3d-filter__body
-      img( class='s3d-filter__bg' src=`/wp-content/themes/${nameProject}/assets/s3d/images/filter-bg.jpg`)
+      img( class='s3d-filter__bg' src=`/wp-content/themes/${nameProject}/assets/s3d/images/filter-bg.png`)
       .s3d-filter__amount-flat
         | Знайдено
         span.s3d-filter__amount-flat__num.js-s3d__amount-flat__num 25

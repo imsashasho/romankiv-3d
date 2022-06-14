@@ -69,3 +69,33 @@
   line-height: $lh;
   font-size: var(--s3d-font-size-table);
 }
+
+$xs: 767px;
+$sm: 1366px;
+$md: 1920px;
+
+@mixin media($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include media($xs) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include media($sm) {
+    @content;
+  }
+}
+
+@mixin tabletLarge {
+  @include media($md) {
+    @content;
+  }
+}
+
+

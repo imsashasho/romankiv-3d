@@ -103,18 +103,23 @@
       align-content: center;
       width: 100%;
       margin: 0 0 2px 0;
-      padding: 8px 20px;
+      padding: 10px 20px;
       border: none;
-      background: $wc;
-      @include s3d-text-m(#555568, 1.2em);
+      background: #444444;
+      @include s3d-text-m($wc, 1.2em);
       transition: all .4s linear;
       text-align: left;
       cursor: pointer;
       &.active {
         font-weight: 400;
         cursor: no-drop;
+        background: $wc;
+        color: $bTitle;
+        transform: scale(1.1);
+      }
+      &:hover {
+        background: $mc2;
         color: $wc;
-        background: $color1;
       }
 
       &:disabled {
@@ -156,23 +161,23 @@
           text-transform: capitalize;
         }
       }
-      &:after {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translate(0, -50%);
-        content: "";
-        border-top: 2px solid transparent;
-        border-bottom: 2px solid transparent;
-        border-left: 4px solid #555568;
-        border-right: 4px solid transparent;
-        transform-origin: 25% 25%;
-        transition: transform 0.4s ease-in-out;
-      }
+      // &:after {
+      //   position: absolute;
+      //   top: 50%;
+      //   right: 10px;
+      //   transform: translate(0, -50%);
+      //   content: "";
+      //   border-top: 2px solid transparent;
+      //   border-bottom: 2px solid transparent;
+      //   border-left: 4px solid #555568;
+      //   border-right: 4px solid transparent;
+      //   transform-origin: 25% 25%;
+      //   transition: transform 0.4s ease-in-out;
+      // }
 
        &.active {
-        background: #5C88DA;
-        color: rgba(255,255,255,1);
+        background: $wc;
+        color: $bTitle;
       }
 
       &:focus, &:hover {
@@ -220,27 +225,25 @@
           display: flex;
           height: 100%;
           width: 60px;
-
           justify-content: center;
           align-items: center;
           flex: 0 0 auto;
-          background-color: $color1;
+          background-color: $mc2;
           circle {
-            fill: $color1;
+            fill: $mc2;
           }
         }
         &__text{
-          width: 100%;
+          width: 170px;
           height: 100%;
-          padding: 0 0 0 25px;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
           flex-wrap: wrap;
-          background-color: #fff;
+          background-color: $bTitle;
 
-          @include s3d-text-m($colorTextM, 1.3em);
+          @include s3d-text-m($wc, 1.3em);
         }
       }
 

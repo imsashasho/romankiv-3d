@@ -12,7 +12,7 @@
   height: 100%;
   background-color: rgba(244, 244, 242, .99);
   cursor: not-allowed;
-  fill: $--bg;
+  fill: $mc2;
   padding: 0;
   &-before{
     z-index: 9000;
@@ -65,7 +65,7 @@
   &-box {
     width: 50px;
     height: 50px;
-    background: $color1;
+    background: $mc2;
     margin-bottom: 10px;
     animation: fsAnimate .5s linear infinite;
     border-radius: 3px;
@@ -83,7 +83,7 @@
   &-shadow {
     width: 50px;
     height: 5px;
-    background:$color1;
+    background: $mc2;
     opacity: 0.1;
     border-radius: 50%;
     animation: fsShadow .5s linear infinite;

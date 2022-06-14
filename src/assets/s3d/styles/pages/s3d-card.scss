@@ -6,7 +6,7 @@
     flex: 1 1 auto;
     transition: box-shadow .4s ease-out;
     //box-shadow: 0 10px 30px rgba(170, 182, 204, 0.25);
-    background: #EEEEEE;
+    background: $wc;
     z-index: 999;
     &__top {
       position: relative;
@@ -16,12 +16,12 @@
       align-content: center;
       justify-content: center;
       flex: 1 1 auto;
-      padding: 30px 25px;
+      padding: 30px 20px 20px;
       background: $wc;
     }
     &__bottom {
       width: 100%;
-      padding: 20px 20px 34px 36px;
+      padding: 20px 30px 30px;
     }
     &__icon{
       display: flex;
@@ -75,7 +75,7 @@
       position: relative;
       display: flex;
       justify-content: center;
-      height: 170px;
+      height: 180px;
       max-width: 100%;
       margin: 0;
       order: 1;
@@ -93,72 +93,119 @@
       }
     }
     &__type{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 36px;
+      position: relative;
       min-width: 36px;
-      padding: 0 10px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-
-      background: $color2;
-      @include s3d-text-s(#392425);
-      text-align: center;
+      color: $mc3;
+      font-size: 18px;
+      font-family: $default-font;
+      text-transform: uppercase;
+      text-align: left;
+      margin-bottom: 20px;
       z-index: 5;
       transition: all 0.4s ease-in-out;
+      > span:first-child {
+        margin-right: 5px;
+      }
     }
     &__table{
       display: flex;
       width: 100%;
       overflow: hidden;
-      order: 2;
       z-index: 3;
       box-sizing: content-box;
       table{
         width: 100%;
         margin: 0;
       }
+      tbody {
+        width: 100%;
+      }
+
+      tr {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
 
       td{
-        padding: 0;
-        @include s3d-text-table();
+        font-family: $default-font;
+        font-size: 16px;
+        font-weight: 400;
+        color: $textGrey;
         text-align: left;
       }
+    }
+    &__name {
+      padding-right: 15px;
+    }
+    &__value {
+      padding-left: 15px;
+    }
+    &__line {
+      border-bottom: 1px solid rgba(24, 24, 24, 0.25);
+      width: 50%;
 
-      td:nth-child(odd){
-        width: 100%;
-        padding: 0 30px 0 0;
-      }
+    }
+    &__cost {
+      font-family: $default-font;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 130%;
+      color: #79B43E;
+      margin-top: 20px;
     }
     &__buttons{
       position: relative;
       display: flex;
       overflow: hidden;
       padding: 0;
+      margin-top: 20px;
       z-index: 7;
       order: 3;
       transition: all 0.4s ease-in;
+    }
+    &__add-favourites {
+      border: 1px solid rgba(24, 24, 24, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      background-color: transparent;
+      border-radius: 50%;
+      margin-right: 22px;
+      input{
+        display: none;
+      }
+      input:checked + svg{
+        fill: $mc2;
+        stroke: transparent;
+      }
+      svg {
+        stroke: $mc3;
+      }
+
     }
     &__link{
       position: relative;
       flex: 1 1 auto;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      margin: 15px 0 0 0;
+      align-items: center;
+      justify-content: space-between;
       padding: 0;
-
       border: none;
       font-family: $default-font;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 100%;
       text-transform: uppercase;
       text-decoration: none;
-      color: $colorTextM;
+      color: $mc3;
       background: transparent;
       cursor: pointer;
       overflow: hidden;
@@ -173,7 +220,7 @@
       svg {
         max-width: 100%;
         overflow: hidden;
-        stroke: #555568;
+        fill: $mc3;
         path {
           transition: transform 0.3s cubic-bezier(.24,1,.78,.01);
           //transition: transform 0.4s ease-in-out;
@@ -185,38 +232,6 @@
         display: flex;
         align-items: center;
         align-content: center;
-      }
-    }
-    &__add-favourites{
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      display: flex;
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-      height: 36px;
-      width: 36px;
-      background: $color2;
-      border: none;
-      cursor: pointer;
-      z-index: 3;
-      transition: all 0.4s ease-in-out;
-      input{
-        display: none;
-      }
-      input:checked + svg{
-        fill: $color1;
-        stroke: transparent;
-      }
-      svg{
-        height: 45%;
-        width: 45%;
-        fill: transparent;
-        stroke: #555568;
-        stroke-width: 2px;
-        pointer-events: none;
-        transition: stroke .3s ease-out, fill .3s ease-out;
       }
     }
   }

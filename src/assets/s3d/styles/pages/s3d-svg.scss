@@ -13,7 +13,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      fill: $color2;
+      fill: $mc2;
       margin: 0 auto;
       opacity: 0;
       visibility: hidden;
@@ -32,15 +32,15 @@
 
     .polygon,
     .s3d-svg__house {
-      fill: $color2;
+      fill: $mc2;
       opacity: 0;
       cursor: pointer;
       &.active-selected {
-        fill: $color2;
+        fill: $mc2;
         opacity: .7;
       }
       &.active-flat {
-        fill: $color1;
+        fill: $mc2;
         opacity: .7;
       }
     }

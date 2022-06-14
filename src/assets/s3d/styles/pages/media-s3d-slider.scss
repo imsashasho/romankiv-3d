@@ -1,21 +1,21 @@
-@media screen and (min-width: 1023px) {
-  .s3d {
-    &__button {
-      &:focus{
-        outline-style: outset;
-        //outline-color: rgba(132, 41, 144, 0.3);
-      }
-      &:hover {
-        box-shadow: 0 8px 20px rgba(246, 82, 117, 0.4);
-        border: none;
-        background: rgba(255, 255, 255, 0.9);
-        svg {
-          stroke: rgb(246, 82, 117);
-        }
-      }
-    }
-  }
-}
+// @media screen and (min-width: 1023px) {
+//   .s3d {
+//     &__button {
+//       &:focus{
+//         // outline-style: outset;
+//         //outline-color: rgba(132, 41, 144, 0.3);
+//       }
+//       // &:hover {
+//       //   box-shadow: 0 8px 20px rgba(246, 82, 117, 0.4);
+//       //   border: none;
+//       //   background: rgba(255, 255, 255, 0.9);
+//       //   svg {
+//       //     stroke: rgb(246, 82, 117);
+//       //   }
+//       // }
+//     }
+//   }
+// }
 
 @media screen and (max-width: 1440px) {
   .s3d {

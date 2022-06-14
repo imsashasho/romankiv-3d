@@ -80,7 +80,9 @@ class FavouritesModel extends EventEmitter {
       return false;
     }
     let check = !flat['favourite'];
-    if (value !== 'undefined') { check = value; }
+    if (value !== 'undefined') {
+      check = value;
+    }
     flat['favourite'] = check;
     this.setFlat(flat);
     return flat;
@@ -132,7 +134,7 @@ class FavouritesModel extends EventEmitter {
   getFavourites() {
     const storage = JSON.parse(sessionStorage.getItem('favourites'));
     const result = (storage || [])
-      .filter(el => (!checkValue(el)))
+      .filter(el => !checkValue(el))
       .reduce((previous, el) => {
         if (previous.indexOf(+el) < 0) {
           previous.push(+el);
@@ -182,7 +184,9 @@ class FavouritesModel extends EventEmitter {
     div.querySelector('[data-key="floor"]').innerHTML = el.floor;
     div.querySelector('[data-key="rooms"]').innerHTML = el.rooms;
     div.querySelector('[data-key="area"]').innerHTML = el['area'];
-    div.querySelector('[data-key="src"]').src = el['img_small'] ? el['img_small'] : `${defaultProjectPath}/s3d/images/examples/no-image.png`;
+    div.querySelector('[data-key="src"]').src = el['img_small']
+      ? el['img_small']
+      : `${defaultProjectPath}/s3d/images/examples/no-image.png`;
     // div.querySelector('[data-key="src"]').src = el['img_small'] ? defaultProjectPath + el['img_small'] : `${defaultProjectPath}/s3d/images/examples/no-image.png`;
     div.querySelector('[data-key="checked"]').checked = true;
     return div;
@@ -191,7 +195,9 @@ class FavouritesModel extends EventEmitter {
   // animation transition heart from/to for click
   addPulseCssEffect() {
     this.animationPulseClass = 'pulse';
-    document.body.insertAdjacentHTML('beforeend', `
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      `
 		<style class="${this.animationPulseClass}">
 			.${this.animationPulseClass} {
 				border-radius: 50%;
@@ -200,7 +206,8 @@ class FavouritesModel extends EventEmitter {
 				animation: pulse 0.5s 1 ease-out;
 			}.${this.animationPulseClass}:hover {	animation: none;}@-webkit-keyframes ${this.animationPulseClass} {	0% {-webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);	}	70% {		-webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);	}	100% {		-webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);	}}@keyframes pulse {	0% {	  -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);	  box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);	}	70% {		-moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);		box-shadow: 0 0 0 10px rgba(255,255,255, 0);	}	100% {		-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);		box-shadow: 0 0 0 0 rgba(255,255,255, 0);	}}
 		</style>
-		`);
+		`,
+    );
   }
 
   moveToFavouriteEffectHandler(target, reverse) {
@@ -212,22 +219,54 @@ class FavouritesModel extends EventEmitter {
       // this.animateFavouriteElement(document.querySelector('.s3d-mobile-only[data-type="favourites"]'), iconToAnimate, distance, reverse);
     } else {
       switch (currentScreen) {
-          case 'flyby':
-            distance = this.getBetweenDistance(document.querySelector('.js-s3d__favourites-icon'), iconToAnimate);
-            this.animateFavouriteElement(document.querySelector('.js-s3d__favourites-icon'), iconToAnimate, distance, reverse);
-            break;
-          case 'plannings':
-            distance = this.getBetweenDistance(document.querySelector('.s3d-ctr__favourites-icon'), iconToAnimate);
-            this.animateFavouriteElement(document.querySelector('.s3d-ctr__favourites-icon'), iconToAnimate, distance, reverse);
-            break;
-          case 'flat':
-            distance = this.getBetweenDistance(document.querySelector('.s3d-ctr__favourites-icon'), iconToAnimate);
-            this.animateFavouriteElement(document.querySelector('.s3d-ctr__favourites-icon'), iconToAnimate, distance, reverse);
-            break;
-          default:
-            distance = this.getBetweenDistance(document.querySelector('.js-s3d__favourites-icon'), iconToAnimate);
-            this.animateFavouriteElement(document.querySelector('.js-s3d__favourites-icon'), iconToAnimate, distance, reverse);
-            break;
+        case 'flyby':
+          distance = this.getBetweenDistance(
+            document.querySelector('.js-s3d__favourites-icon'),
+            iconToAnimate,
+          );
+          this.animateFavouriteElement(
+            document.querySelector('.js-s3d__favourites-icon'),
+            iconToAnimate,
+            distance,
+            reverse,
+          );
+          break;
+        case 'plannings':
+          distance = this.getBetweenDistance(
+            document.querySelector('.s3d-ctr__favourites-icon'),
+            iconToAnimate,
+          );
+          this.animateFavouriteElement(
+            document.querySelector('.s3d-ctr__favourites-icon'),
+            iconToAnimate,
+            distance,
+            reverse,
+          );
+          break;
+        case 'flat':
+          distance = this.getBetweenDistance(
+            document.querySelector('.s3d-ctr__favourites-icon'),
+            iconToAnimate,
+          );
+          this.animateFavouriteElement(
+            document.querySelector('.s3d-ctr__favourites-icon'),
+            iconToAnimate,
+            distance,
+            reverse,
+          );
+          break;
+        default:
+          distance = this.getBetweenDistance(
+            document.querySelector('.js-s3d__favourites-icon'),
+            iconToAnimate,
+          );
+          this.animateFavouriteElement(
+            document.querySelector('.js-s3d__favourites-icon'),
+            iconToAnimate,
+            distance,
+            reverse,
+          );
+          break;
       }
     }
   }
@@ -237,12 +276,12 @@ class FavouritesModel extends EventEmitter {
     const el1 = elem1.getBoundingClientRect();
     const el2 = elem2.getBoundingClientRect();
     // get div1's center point
-    const div1x = el1.left + (el1.width / 2);
-    const div1y = el1.top + (el1.height / 2);
+    const div1x = el1.left + el1.width / 2;
+    const div1y = el1.top + el1.height / 2;
 
     // get div2's center point
-    const div2x = el2.left + (el2.width / 2);
-    const div2y = el2.top + (el2.height / 2);
+    const div2x = el2.left + el2.width / 2;
+    const div2y = el2.top + el2.height / 2;
 
     // calculate the distance using the Pythagorean Theorem (a^2 + b^2 = c^2)
     const distanceSquared = window.Math.pow(div1x - div2x, 2) + window.Math.pow(div1y - div2y, 2);
@@ -266,7 +305,7 @@ class FavouritesModel extends EventEmitter {
 			height:${animatingElParams.height}px;
 			transform-origin:top left;`;
     curElem.style.cssText += `
-			fill: #f65275;
+			fill: #8cb90c;
 			position:relative;
 			z-index:2000;
 			stroke:none;
@@ -276,7 +315,7 @@ class FavouritesModel extends EventEmitter {
 			transform-origin: center;
 			`;
 
-    const speed = this.animationSpeed / 1000 * (this.getSpeedAnimateHeart(distance) / 850);
+    const speed = (this.animationSpeed / 1000) * (this.getSpeedAnimateHeart(distance) / 850);
     // const speed = this.animationSpeed / 1000;
     const tl = new TimelineMax({
       delay: 0,

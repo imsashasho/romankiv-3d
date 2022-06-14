@@ -1,8 +1,6 @@
 import $ from 'jquery';
 import _ from 'lodash';
-import {
-  updateFlatFavourite,
-} from './general/General';
+import { updateFlatFavourite } from './general/General';
 import paginationScroll from './pagination';
 import sortArray from './sort';
 
@@ -48,24 +46,30 @@ class FlatsList {
     this.wrapperNode.addEventListener('scroll', event => {
       if (event.target.scrollTop > 50 && !this.filterHide) {
         $('.js-s3d-filter').addClass('s3d-filter__scroll-active');
-        setTimeout(() => this.filterHide = true, 500);
+        setTimeout(() => (this.filterHide = true), 500);
       } else if (event.target.scrollTop < 50 && this.filterHide) {
         $('.js-s3d-filter').removeClass('s3d-filter__scroll-active');
-        setTimeout(() => this.filterHide = false, 500);
+        setTimeout(() => (this.filterHide = false), 500);
       }
-      paginationScroll(event.target, this.showFlatList, this.currentShowAmount, this.createListFlat.bind(this));
+      paginationScroll(
+        event.target,
+        this.showFlatList,
+        this.currentShowAmount,
+        this.createListFlat.bind(this),
+      );
     });
 
     $('.js-s3d-filter__mini-info__button').on('click', event => {
       $('.js-s3d-filter').removeClass('s3d-filter__scroll-active');
-      setTimeout(() => this.filterHide = false, 500);
+      setTimeout(() => (this.filterHide = false), 500);
     });
 
     $('.js-s3d-filter__body').on('click', '.s3d-filter__tr', event => {
       const id = +event.currentTarget.dataset.id;
       if (
-        $(event.originalEvent.target).hasClass('js-s3d-add__favourites')
-        || event.originalEvent.target.nodeName === 'INPUT') {
+        $(event.originalEvent.target).hasClass('js-s3d-add__favourites') ||
+        event.originalEvent.target.nodeName === 'INPUT'
+      ) {
         return;
       }
       const config = this.checkNextFlyby({ type: 'flyby', method: 'search' }, id);
@@ -83,7 +87,10 @@ class FlatsList {
     });
 
     $('.js-s3d-filter__head').on('click', '.s3d-filter__th', e => {
-      const nameSort = (e.currentTarget && e.currentTarget.dataset && _.has(e.currentTarget.dataset, 'sort')) ? e.currentTarget.dataset.sort : undefined;
+      const nameSort =
+        e.currentTarget && e.currentTarget.dataset && _.has(e.currentTarget.dataset, 'sort')
+          ? e.currentTarget.dataset.sort
+          : undefined;
 
       if (_.isUndefined(nameSort) || (nameSort && nameSort === 'none')) {
         return;
@@ -99,7 +106,9 @@ class FlatsList {
         $(e.currentTarget).addClass('s3d-sort-active');
       }
 
-      this.updateCurrentFilterFlatsId(sortArray(this.showFlatList, nameSort, this.getFlat, this.directionSortUp));
+      this.updateCurrentFilterFlatsId(
+        sortArray(this.showFlatList, nameSort, this.getFlat, this.directionSortUp),
+      );
     });
   }
 
@@ -115,7 +124,7 @@ class FlatsList {
   createListFlat(flats, wrap, amount) {
     // this.wrapperNode.innerHTML = '';
     const arr = flats.reduce((previous, current, index) => {
-      if (index >= this.currentShowAmount && index < (this.currentShowAmount + amount)) {
+      if (index >= this.currentShowAmount && index < this.currentShowAmount + amount) {
         previous.push(this.createElem(this.getFlat(+current)));
       }
       return previous;
@@ -129,12 +138,11 @@ class FlatsList {
   createElem(flat) {
     const checked = flat.favourite ? 'checked' : '';
     const tr = document.createElement('div');
-    tr.dataset.id = flat.id;
+    // tr.dataset.id = flat.id;
     tr.classList = 's3d-filter__tr js-s3d-filter__tr';
     tr.innerHTML = `
-					<div class="s3d-filter__td">${flat.type || '-'}</div>
-					<div class="s3d-filter__td">${flat.rooms}</div>
 					<div class="s3d-filter__td">${flat.floor}</div>
+          <div class="s3d-filter__td">${flat.floor}</div>
 					<div class="s3d-filter__td">${flat.area}</div>
 					<div class="s3d-filter__td">
 						<label data-id="${flat.id}" class="s3d-filter__table__label js-s3d-add__favourites">

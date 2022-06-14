@@ -5,32 +5,30 @@
     top: 50%;
     display: flex;
     justify-content: center;
-    width: 70px;
-    height: 70px;
     border: none;
     border-radius: 50%;
     overflow: hidden;
     align-items: center;
-    background: $color1;
+    background: transparent;
+    text-decoration: none;
     padding: 8px;
     transform: translateY(-50%);
-    transition: background-color .3s ease-in, box-shadow .3s ease-in;
-    outline-color: $color2;
+    -webkit-appearance: none;
     cursor: pointer;
     * {
       pointer-events: none;
     }
-    &:focus {
-      background: radial-gradient(closest-side at 50%, $color1, $color1 calc(100% - 2px), rgba(92, 136, 218, 1));
-      //border: 1px solid rgba(255, 255, 255, 0.5);
-      outline-width: 0;
-      outline-color: rgba(255, 255, 255, 0);
-    }
+    // &:focus {
+    //   background: radial-gradient(closest-side at 50%, $color1, $color1 calc(100% - 2px), rgba(92, 136, 218, 1));
+    //   //border: 1px solid rgba(255, 255, 255, 0.5);
+    //   outline-width: 0;
+    //   outline-color: rgba(255, 255, 255, 0);
+    // }
     svg {
       display: flex;
-      height: 16px;
-      width: 18px;
-      stroke: $color2;
+      height: 65px;
+      width: 80px;
+      fill: $wc;
       flex: 1 1 100%;
       transition: fill .3s ease-in;
     }
@@ -156,35 +154,29 @@
 
 .s3d-mobile {
   .s3d-infoBox.s3d-card {
-    top: auto;
-    bottom: 40px;
-    width: 100%;
-    left: 0;
-    padding: 15px;
-    transform: translate(0);
-    //visibility: visible;
-    background: #5C88DA;
+    top: 50%;
+    left: 50%;
+    width: 302px;
+    transform: translate(-50%, -50%);
+    background: $wc;
     pointer-events: painted;
+    display: flex;
+    flex-direction: column;
     .s3d-card {
       &__top {
         position: static;
-        padding: 0;
+        padding: 30px 20px 20px;
       }
       &__bottom {
         display: flex;
-        padding: 0;
+        flex-direction: column;
+        padding: 0 30px 30px;
       }
       &__buttons {
         height: inherit;
         opacity: 1;
         pointer-events: inherit;
         margin: auto 0 0 0;
-      }
-      &__image {
-        display: none;
-      }
-      &__type {
-        display: none;
       }
       &__close {
         opacity: 1;
@@ -204,12 +196,12 @@
         }
       }
       &__name {
-        color: $wc;
-        vertical-align: baseline;
+        color: $textGrey;
+        vertical-align: bottom;
       }
       &__value {
-        color: $wc;
-        vertical-align: baseline;
+        color: $textGrey;
+        vertical-align: bottom;
       }
       &__add-favourites {
         top: 7.5px;
